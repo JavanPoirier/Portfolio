@@ -16,7 +16,7 @@ export default class Contact extends Component {
         }
 
         return(
-            <div style={styles.container}>
+            <div id="Contact" style={styles.container}>
                 <h1 style={styles.header}>Contact</h1>
             </div>
         );
