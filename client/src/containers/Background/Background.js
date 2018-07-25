@@ -22,7 +22,7 @@ export default class Background extends Component {
     var res = h * w;
 
     var percent = res / base;
-    particlesjs.particles.number.value = (50 * percent);
+    particlesjs.particles.number.value = (value * percent);
   }
 
   componentWillUpdate(){
@@ -44,7 +44,7 @@ export default class Background extends Component {
         <Parallax ref={(el) => {this.parallax = el}}
           className="custom-class"
           offsetYMax={0}
-          offsetYMin={-5}
+          offsetYMin={-10}
           slowerScrollRate
           tag="figure"
         >

@@ -56,10 +56,10 @@ export default class Navigation extends Component {
         return (
             <div style={styles.wrapper}>
                 <div style={styles.navbar}>
-                    <AnchorLink offset={() => 120} className="nav-item" style={styles.item} href="#Home"><FontAwesomeIcon icon={faHome} /><div className="nav-text" style={styles.text}>Home</div></AnchorLink>
-                    <AnchorLink offset={() => 120} className="nav-item" style={styles.item} href="#About"><FontAwesomeIcon icon={faUser} /><div className="nav-text" style={styles.text}>About</div></AnchorLink>
-                    <AnchorLink offset={() => 120} className="nav-item" style={styles.item} href="#Projects"><FontAwesomeIcon icon={faCode} /><div className="nav-text" style={styles.text}>Projects</div></AnchorLink>
-                    <AnchorLink offset={() => 120} className="nav-item" style={styles.item} href="#Contact"><FontAwesomeIcon icon={faEnvelope} /><div className="nav-text" style={styles.text}>Contact</div></AnchorLink> 
+                    <AnchorLink offset="150" className="nav-item" style={styles.item} href="#Home"><FontAwesomeIcon icon={faHome} /><div className="nav-text" style={styles.text}>Home</div></AnchorLink>
+                    <AnchorLink offset="150" className="nav-item" style={styles.item} href="#About"><FontAwesomeIcon icon={faUser} /><div className="nav-text" style={styles.text}>About</div></AnchorLink>
+                    <AnchorLink offset="150" className="nav-item" style={styles.item} href="#Projects"><FontAwesomeIcon icon={faCode} /><div className="nav-text" style={styles.text}>Projects</div></AnchorLink>
+                    <AnchorLink offset="150" className="nav-item" style={styles.item} href="#Contact"><FontAwesomeIcon icon={faEnvelope} /><div className="nav-text" style={styles.text}>Contact</div></AnchorLink> 
                 </div>
             </div>
         );

@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './index.css';
 
-import App from './components/App';
+import App from './containers/App';
 
 import registerServiceWorker from './registerServiceWorker';
 

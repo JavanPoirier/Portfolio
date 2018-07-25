@@ -10,6 +10,7 @@ import About from './About/About';
 import Skills from './Skills/Skills';
 import Projects from './Projects/Projects';
 import Contact from './Contact/Contact';
+import Footer from './Footer/Footer';
 
 export default class App extends Component {
     constructor() {
@@ -50,6 +51,7 @@ export default class App extends Component {
                 <Skills />
                 <Projects />
                 <Contact />
+                <Footer />
             </ParallaxProvider>
         );
     }

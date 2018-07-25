@@ -31,7 +31,7 @@ export default class About extends Component {
             <h1>About</h1>
                 <div className="row align-items-center justify-content-center" style={styles.row}>
                     <div className="col col-sm-12 col-md-5" style={styles.wrapper}>
-                        <img src={me} style={styles.image}></img>
+                        <img src={me} alt="Me" style={styles.image}></img>
                     </div>
                     <div className="col col-auto"></div>
                     <div className="col col-sm-12 col-md-5" style={{ float: "right", color: "white" }}>
