@@ -42,11 +42,9 @@ export default class Background extends Component {
     return (
       <div id="background" style={style}>
         <Parallax ref={(el) => {this.parallax = el}}
-          className="custom-class"
           offsetYMax={0}
           offsetYMin={-10}
           slowerScrollRate
-          tag="figure"
         >
           <Particles params={particlesjs}/>
         </Parallax>

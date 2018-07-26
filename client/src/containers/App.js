@@ -31,14 +31,15 @@ export default class App extends Component {
         ReactDOM.findDOMNode(this.intro).style.height = window.innerHeight + "px";
         
         //Update event sets particles value from resolution
-        Background.forceUpdate;
+        // Background.forceUpdate;
 
-        this.forceUpdate();
+        // this.forceUpdate();
     }
 
     componentDidMount() {
         window.addEventListener("resize", this.resize);
         this.resize();
+        Background.forceUpdate;
     }
 
     render() {
