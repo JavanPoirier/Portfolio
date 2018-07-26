@@ -22,24 +22,32 @@ export default class App extends Component {
     }
 
     resize() {
+        //Change height after container App is loaded. Values not ready
+        var test = document.getElementById("root").scrollHeight;
+        console.log(test);
+
+        
         //Resize background and canvas
         ReactDOM.findDOMNode(this.background).style.width = window.innerWidth + "px";
-        ReactDOM.findDOMNode(this.background).style.height = window.innerHeight + 200 + "px";
-        ReactDOM.findDOMNode(this.background).getElementsByTagName('canvas')[0].style.height = window.innerHeight + 200 + "px";
+        ReactDOM.findDOMNode(this.background).style.height = test + "px";
+        ReactDOM.findDOMNode(this.background).getElementsByTagName('canvas')[0].style.height = window.innerHeight + 100 + "px";
 
         //Resize intro to take full
         ReactDOM.findDOMNode(this.intro).style.height = window.innerHeight + "px";
         
         //Update event sets particles value from resolution
-        // Background.forceUpdate;
+        Background.forceUpdate;
 
-        // this.forceUpdate();
+        console.log(window.screen.height);
+        console.log(window.innerHeight);
+        console.log(document.getElementById("root").scrollHeight);
+
+        this.forceUpdate();
     }
 
     componentDidMount() {
         window.addEventListener("resize", this.resize);
         this.resize();
-        Background.forceUpdate;
     }
 
     render() {

@@ -7,19 +7,23 @@ import Block from '../../components/Block'
 import me from '../../img/Me.jpg'
 
 const Container = styled.div`
+    height: 80%;
     display: grid;
-    grid-template-columns: 40% auto 40%;
-    grid-template-rows: 500px;
-    grid-gap: 5px;
+    grid-gap: 150px;
+    grid-row-gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-auto-rows: auto;
+    justify-content: center;
 
     > div {
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     
     img {
-        height: 75%;
+        max-height: 30vh;
     }
 `;
 
@@ -29,20 +33,15 @@ const List = styled.div`
     grid-template-columns: 50% 50%;
     grid-template-rows: auto;
 
-    div .title {
-        
-    }
-
-    div .name {
+    div {
         display: flex;
         justify-content: left;
         align-items: normal;
     }
 
-    div .item {
-        display: flex;
-        justify-content: left;
-        align-items: normal;
+    .title {
+        grid-column: 1 / -1;
+        margin-bottom: 20px;
     }
 `;
 
@@ -53,9 +52,9 @@ export default class About extends Component {
                 <h1>About</h1>
                 <Container>
                     <div><img src={me} alt="Me"></img></div>
-                    <div></div>
                     <div>
                         <List>
+                            <div className="title">Facial Recognition Data:</div>
                             <div className="name">Name:</div><div className="item">Javan Poirier</div>
                             <div className="name">Occupation:</div><div className="item">Fullstack Developer</div>
                             <div className="name">Location:</div><div className="item">Saint John, New Brunswick</div>
