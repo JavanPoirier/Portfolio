@@ -13,6 +13,7 @@ import Contact from './Contact/Contact';
 import Footer from './Footer/Footer';
 
 export default class App extends Component {
+
     constructor() {
         super();
 
@@ -28,6 +29,7 @@ export default class App extends Component {
 
         
         //Resize background and canvas
+        ReactDOM.findDOMNode(this.background).getElementsByClassName("parallax-inner")[0].style.height = test + "px";
         ReactDOM.findDOMNode(this.background).style.width = window.innerWidth + "px";
         ReactDOM.findDOMNode(this.background).style.height = test + "px";
         ReactDOM.findDOMNode(this.background).getElementsByTagName('canvas')[0].style.height = window.innerHeight + 100 + "px";
@@ -65,3 +67,4 @@ export default class App extends Component {
         );
     }
 }
+
