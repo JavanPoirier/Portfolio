@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
 
+import styled from 'styled-components';
+
+const Container = styled.div`
+    display: flex;
+    height: 75px;
+    background-color: #090909;
+`
+
 export default class Footer extends Component {
     render() {
         const styles = {
-            container: {
-                width: "100%",
-                height: "75px",
-                textAlign: "center",
-                verticalAlign: "middle",
-                backgroundColor: "#090909",
-            },
             text: {
+                margin: 'auto',
                 color: "#ffffff",
                 fontFamily: "CPMono",
             }
         }
 
         return (
-            <div id="Footer" style={styles.container}>
+            <Container>
                 <h4 style={styles.text}>Javan Poirier 2018</h4>
-            </div>
+            </Container>
         )
     }
 }

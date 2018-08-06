@@ -9,5 +9,6 @@
 }
 
 a.nav-item:hover{
+    color: #62c6ef;
     background-color: #777777;
 }

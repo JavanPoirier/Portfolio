@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 
+import styled from 'styled-components';
+import Block from '../../components/Block';
+import { Tile } from '../../components/Projects/Tile';
+
+const Tiles = styled.div`
+    display: flex;
+`
+
 export default class Projects extends Component {
     render() {
         const styles = {
@@ -16,9 +24,19 @@ export default class Projects extends Component {
         }
         
         return(
-            <div id="Projects" className="shadow-lg" style={styles.container}>
+            // <div id="Projects" className="shadow-lg" style={styles.container}>
+            //     <h1 style={styles.header}>Projects</h1>
+            //     <Tiles>
+            //         <Tile title={'A Project Title'}/>
+            //     </Tiles>
+            // </div>
+            <Block solid>
                 <h1 style={styles.header}>Projects</h1>
-            </div>
+                 <Tiles>
+                     <Tile title={'A Project Title'}/>
+                     <Tile title={'A Project Title'}/>
+                 </Tiles>
+            </Block>
         );
     }
 }

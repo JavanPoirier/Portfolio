@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { ParallaxProvider } from 'react-scroll-parallax';
 
 import Background from './Background/Background';
-import Navbar from './Navbar/Navbar';
+import Navbar from './Navbar/Navigation';
 import Intro from './Intro/Intro';
 import About from './About/About';
 import Skills from './Skills/Skills';
@@ -16,6 +16,10 @@ export default class App extends Component {
 
     constructor() {
         super();
+
+        this.state = {
+            isLoaded: false,      
+        }
 
         this.resize = this.resize.bind(this);
         this.background = React.createRef();
@@ -54,6 +58,7 @@ export default class App extends Component {
 
     render() {
         return (
+             
             <ParallaxProvider>
                 <Navbar />
                 <Background ref={(el) => { this.background = el }} />
