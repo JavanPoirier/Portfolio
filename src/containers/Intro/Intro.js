@@ -3,25 +3,38 @@ import styled from 'styled-components';
 
 import Typist from 'react-typist';
 import 'react-typist/dist/Typist.css';
+import Tilt from 'react-tilt';
+
+/** Styled Components */
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    align-content: center;
+
+    text-transform: uppercase;
+`
+
+const Grid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-gap: 20%;
-    grid-row-gap: 50px;
-    margin: 0% 10%;
+    grid-row-gap: 100px;
+    padding: 0 10%;
 
     > div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        margin: auto;
+    }
+
+    @media (max-width: 768px) {
+        padding: 0;
     }
 `
+
 const Text = styled.div`
-    display: block;
-    height: fit-content;
     font-size: 10vh;
-    margin: auto;
+    font-family: CPMono;
+    color: #fff;
+
     perspective: 150px;
     -webkit-perspective: 150px;
     perspective-origin: left;
@@ -33,14 +46,12 @@ const Text = styled.div`
     }
 `
 const Name = styled.div`
-    color: #fff;
-    width: fit-content;
-    margin-bottom: 0px;
-    font-family: CPMono;
-    text-transform: uppercase;
-    padding: 0 50px 0 50px;
-    margin: 0 50px 0 50px;
     background-color: #090909;
+    
+    width: fit-content;
+    margin-bottom: 0px; 
+    padding: 0 50px 0 50px;
+
     transform: rotateY(5deg);
     -webkit-transform: rotateY(5deg);
 `
@@ -48,9 +59,9 @@ const Name = styled.div`
 const Info = styled.div`
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold; 
-    font-size: 40px;
-    text-transform: uppercase;
+    font-size: 35px;
 `
+/** End Styled Components */
 
 const firstNameCursor = {
     blink: true,
@@ -62,6 +73,11 @@ const firstNameCursor = {
 const lastNameCursor = {
     blink: true,
     element: '_',
+}
+
+const tiltOptions = {
+    reverse: true,
+    max: 20,
 }
 
 export default class About extends Component {
@@ -76,26 +92,30 @@ export default class About extends Component {
     render() {
         return (
             <Container id='Home'>
-                <div>
-                    <Text>
-                        <Name>
-                            <Typist cursor={firstNameCursor} avgTypingDelay={150} onLineTyped={() => { this.setState({ firstNameComplete: true }) }}>
-                                Javan
+                <Grid>
+                    <div>
+                        <Tilt options={tiltOptions}>
+                            <Text>
+                                <Name>
+                                    <Typist cursor={firstNameCursor} avgTypingDelay={150} onLineTyped={() => { this.setState({ firstNameComplete: true }) }}>
+                                        Javan
                             </Typist>
-                        </Name>
-                        {this.state.firstNameComplete === true &&
-                            (<Name>
-                                <Typist cursor={lastNameCursor} avgTypingDelay={150}>
-                                    <Typist.Delay ms={100} />
-                                    Poirier
+                                </Name>
+                                {this.state.firstNameComplete === true &&
+                                    (<Name>
+                                        <Typist cursor={lastNameCursor} avgTypingDelay={150}>
+                                            <Typist.Delay ms={100} />
+                                            Poirier
                                 </Typist>
-                            </Name>)
-                        }
-                    </Text>
-                </div>
-                <div>
-                    <Info>Full-Stack Developer</Info>
-                </div>
+                                    </Name>)
+                                }
+                            </Text>
+                        </Tilt>
+                    </div>
+                    <div>
+                        <Info>Full-Stack Developer</Info>
+                    </div>
+                </Grid>
             </Container>
         );
     }

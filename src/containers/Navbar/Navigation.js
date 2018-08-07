@@ -17,7 +17,7 @@ const Container = styled.div`
 `
 
 const Items = styled.div`
-    display: inherit;
+    display: -webkit-box;
     margin: auto;
     font-size: 1.25em;
     font-family: CPMono;
@@ -31,6 +31,11 @@ const Items = styled.div`
     }
 
     a:hover {
+        color: #66ccff;
+        transition: color 0.2s;
+    }
+
+    a:focus {
         color: #66ccff;
         transition: color 0.2s;
     }
