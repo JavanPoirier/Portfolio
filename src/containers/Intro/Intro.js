@@ -56,8 +56,7 @@ const Name = styled.div`
     -webkit-transform: rotateY(5deg);
 
     span {
-        display: inline;
-        width: auto;
+        display: inline !important;
     }
 `
 

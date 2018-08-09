@@ -47,6 +47,15 @@ const Items = styled.div`
     }
 `
 
+const Span = styled.span`
+    position: absolute;
+    bottom: -1px;
+    height: 5px;
+    background: #66ccff;
+    left: 0;
+    right: 0;
+`
+
 export default class Navigation extends Component {
     render() {
         return (
@@ -54,6 +63,7 @@ export default class Navigation extends Component {
                 <Items>
                     <AnchorLink offset="150" href="#Home">
                         <FontAwesomeIcon icon={faHome} /><div className="nav-text">&nbsp;Home</div>
+                        <Span></Span>
                     </AnchorLink>
                     <AnchorLink offset="150" href="#About">
                         <FontAwesomeIcon icon={faUser} /><div className="nav-text">&nbsp;About</div>
