@@ -6,9 +6,20 @@ import { Tile } from '../../components/Projects/Tile';
 
 const Tiles = styled.div`
     display: flex;
+    justify-content: center;
 `
 
 export default class Projects extends Component {
+    constructor(){
+        super()
+
+        this.test = this.test.bind(this);
+    }
+
+    test() {
+        alert('clicked');
+    }
+
     render() {
         const styles = {
             container: {
@@ -24,11 +35,11 @@ export default class Projects extends Component {
         }
         
         return(
-            <Block id='Projects' solid>
+            <Block id='Projects' solid noPadding>
                 <h1 style={styles.header}>Projects</h1>
                  <Tiles>
-                     <Tile title={'A Project Title'}/>
-                     <Tile title={'A Project Title'}/>
+                     <Tile title={'A Project Title'} callback={this.test}/>
+                     <Tile title={'A Project Title'} />
                  </Tiles>
             </Block>
         );
