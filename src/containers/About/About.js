@@ -51,6 +51,7 @@ const List = styled.div`
 export default class About extends Component {
     render() {
         return (
+            //Change grid to single row
             <Block id="About" solid>
                 <h1>About</h1>
                 <Container>
@@ -61,7 +62,7 @@ export default class About extends Component {
                             <div className="name">Name</div><div className="item"><p>|&nbsp;</p>Javan Poirier</div>
                             <div className="name">Occupation</div><div className="item"><p>|&nbsp;</p>Fullstack Developer</div>
                             <div className="name">Location</div><div className="item"><p>|&nbsp;</p>Saint John, New Brunswick</div>
-                            <div className="name">Skills</div><div className="item"><p>|&nbsp;</p>Programming, Robotics, 3D Printing</div>
+                            <div className="name">Skills</div><div className="item"><p>|&nbsp;</p>Programming, Robotics, Multi-media</div>
                         </List>
                     </div>
                 </Container >

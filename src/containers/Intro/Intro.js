@@ -49,11 +49,16 @@ const Name = styled.div`
     background-color: #090909;
     
     width: fit-content;
-    margin-bottom: 0px; 
+    margin-bottom: -1px; 
     padding: 0 50px 0 50px;
 
     transform: rotateY(5deg);
     -webkit-transform: rotateY(5deg);
+
+    span {
+        display: inline;
+        width: auto;
+    }
 `
 
 const Info = styled.div`
@@ -63,16 +68,17 @@ const Info = styled.div`
 `
 /** End Styled Components */
 
-const firstNameCursor = {
-    blink: true,
-    element: '_',
-    hideWhenDone: true,
-    hideWhenDoneDelay: 0,
-}
-
-const lastNameCursor = {
-    blink: true,
-    element: '_',
+const cursors = {
+    firstName: {
+        blink: true,
+        element: '_',
+        hideWhenDone: true,
+        hideWhenDoneDelay: 0,
+    },
+    lastName: {
+        blink: true,
+        element: '_',
+    }
 }
 
 const tiltOptions = {
@@ -96,16 +102,16 @@ export default class About extends Component {
                     <div>
                         <Tilt options={tiltOptions}>
                             <Text>
-                                <Name>
-                                    <Typist cursor={firstNameCursor} startDelay={750} avgTypingDelay={150} onLineTyped={() => { this.setState({ firstNameComplete: true }) }}>
+                                <Name className="firstName">
+                                    <Typist cursor={cursors.firstName} startDelay={750} avgTypingDelay={150} onLineTyped={() => { this.setState({ firstNameComplete: true }) }}>
                                         Javan
-                            </Typist>
+                                    </Typist>
                                 </Name>
                                 {this.state.firstNameComplete === true &&
-                                    (<Name>
-                                        <Typist cursor={lastNameCursor} startDelay={150} avgTypingDelay={150}>
+                                    (<Name className="lastName">
+                                        <Typist cursor={cursors.lastName} startDelay={150} avgTypingDelay={150}>
                                             Poirier
-                                </Typist>
+                                        </Typist>
                                     </Name>)
                                 }
                             </Text>
