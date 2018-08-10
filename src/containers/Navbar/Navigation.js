@@ -8,6 +8,7 @@ import { faHome, faUser, faCode, faEnvelope } from '@fortawesome/free-solid-svg-
 
 const Container = styled.div`
     display: flex;
+    margin: auto;
     width: 100%;
     height: 75px;
     position: fixed;
@@ -17,7 +18,7 @@ const Container = styled.div`
 `
 
 const Items = styled.div`
-    display: -webkit-box;
+    display: inherit;
     margin: auto;
     font-size: 1.25em;
     font-family: CPMono;
@@ -28,6 +29,7 @@ const Items = styled.div`
         margin: 0 15px; 
         text-transform: uppercase;
         text-decoration: none; 
+        align-items: center;
     }
 
     a:hover {
@@ -38,12 +40,18 @@ const Items = styled.div`
     a:focus {
         color: #66ccff;
         transition: color 0.2s;
-    }
+    } 
+`
+
+const Item = styled.div`
+    height: 100%;
+`
+
+const Text = styled.div`
+    display: inline;
 
     @media (max-width: 768px) {
-        .nav-text {
             display: none;
-        }
     }
 `
 
@@ -61,19 +69,28 @@ export default class Navigation extends Component {
         return (
             <Container>
                 <Items>
-                    <AnchorLink offset="150" href="#Home">
-                        <FontAwesomeIcon icon={faHome} /><div className="nav-text">&nbsp;Home</div>
-                        <Span></Span>
-                    </AnchorLink>
-                    <AnchorLink offset="150" href="#About">
-                        <FontAwesomeIcon icon={faUser} /><div className="nav-text">&nbsp;About</div>
-                    </AnchorLink>
-                    <AnchorLink offset="150" href="#Projects">
-                        <FontAwesomeIcon icon={faCode} /><div className="nav-text">&nbsp;Projects</div>
-                    </AnchorLink>
-                    <AnchorLink offset="150" href="#Contact">
-                        <FontAwesomeIcon icon={faEnvelope} /><div className="nav-text">&nbsp;Contact</div>
-                    </AnchorLink>
+                    <Item>
+                        <AnchorLink offset="150" href="#Home">
+                            <FontAwesomeIcon icon={faHome} /><Text>&nbsp;Home</Text>
+                            <Span></Span> 
+                        </AnchorLink>
+                        
+                    </Item>
+                    <Item>
+                        <AnchorLink offset="150" href="#About">
+                            <FontAwesomeIcon icon={faUser} /><Text>&nbsp;About</Text>
+                        </AnchorLink>
+                    </Item>
+                    <Item>
+                        <AnchorLink offset="150" href="#Projects">
+                            <FontAwesomeIcon icon={faCode} /><Text>&nbsp;Projects</Text>
+                        </AnchorLink>
+                    </Item>
+                    <Item>
+                        <AnchorLink offset="150" href="#Contact">
+                            <FontAwesomeIcon icon={faEnvelope} /><Text>&nbsp;Contact</Text>
+                        </AnchorLink>
+                    </Item>
                 </Items>
             </Container>
         )
