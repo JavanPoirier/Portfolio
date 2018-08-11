@@ -15,16 +15,20 @@ const Container = styled.div`
     padding: 0 10%;
     align-items: center;
     justify-content: space-between;
+    text-align: end;
 
     text-transform: uppercase;
 
     @media (min-width: 1800px) {
         padding: 0 15%;
     }
-`
 
-const Wrapper = styled.div`
-    flex: 1;
+    @media (max-width: 800px) {
+        padding-top: 60px;
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-evenly;
+    }
 `
 
 const Text = styled.div`
@@ -36,14 +40,11 @@ const Text = styled.div`
     -webkit-perspective: 150px;
     perspective-origin: left;
 
-    @media (max-width: 1200px){
+    @media (max-width: 800px){
+        font-size: 10vw;
         text-align: -webkit-center;
         perspective: none;
         -webkit-perspective: none;
-    }
-
-    @media (max-width: 600px){
-        font-size: 8vw;
     }
 `
 const Name = styled.div`
@@ -112,27 +113,23 @@ export default class About extends Component {
 
         return (
             <Container id='Home' size={size}>
-                <Wrapper>
-                    <Tilt options={tiltOptions}>
-                        <Text>
-                            <Name className="firstName">
-                                <Typist cursor={cursors.firstName} startDelay={750} avgTypingDelay={150} onLineTyped={() => { this.setState({ firstNameComplete: true }) }}>
-                                    Javan
+                <Tilt options={tiltOptions}>
+                    <Text>
+                        <Name className="firstName">
+                            <Typist cursor={cursors.firstName} startDelay={750} avgTypingDelay={150} onLineTyped={() => { this.setState({ firstNameComplete: true }) }}>
+                                Javan
                                     </Typist>
-                            </Name>
-                            {this.state.firstNameComplete === true &&
-                                (<Name className="lastName">
-                                    <Typist cursor={cursors.lastName} startDelay={150} avgTypingDelay={150}>
-                                        Poirier
+                        </Name>
+                        {this.state.firstNameComplete === true &&
+                            (<Name className="lastName">
+                                <Typist cursor={cursors.lastName} startDelay={150} avgTypingDelay={150}>
+                                    Poirier
                                         </Typist>
-                                </Name>)
-                            }
-                        </Text>
-                    </Tilt>
-                </Wrapper>
-                <Wrapper>
-                    <Info>Full-Stack Developer</Info>
-                </Wrapper>
+                            </Name>)
+                        }
+                    </Text>
+                </Tilt>
+                <Info>Full-Stack Developer</Info>
             </Container>
         );
     }

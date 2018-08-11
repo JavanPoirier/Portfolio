@@ -60,9 +60,9 @@ export default class About extends Component {
                         <List>
                             <div className="title">Facial Recognition Data:</div>
                             <div className="name">Name</div><div className="item"><p>|&nbsp;</p>Javan Poirier</div>
-                            <div className="name">Occupation</div><div className="item"><p>|&nbsp;</p>Fullstack Developer</div>
-                            <div className="name">Location</div><div className="item"><p>|&nbsp;</p>Saint John, New Brunswick</div>
-                            <div className="name">Skills</div><div className="item"><p>|&nbsp;</p>Programming, Robotics, Multi-media</div>
+                            <div className="name">Occupation</div><div className="item"><p>|&nbsp;</p>Full-stack Developer</div> 
+                            <div className="name">Education</div><div className="item"><p>|&nbsp;</p>Programmer-Analyst, NBCC</div>                           
+                            <div className="name">Skills</div><div className="item"><p>|&nbsp;</p>Programming, Systems Analysis, Robotics, Multi-media</div>
                         </List>
                     </div>
                 </Container >

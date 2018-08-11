@@ -50,8 +50,8 @@ const Item = styled.div`
 const Text = styled.div`
     display: inline;
 
-    @media (max-width: 768px) {
-            display: none;
+    @media (max-width: 800px) {
+        display: none;
     }
 `
 
@@ -72,8 +72,8 @@ export default class Navigation extends Component {
                     <Item>
                         <AnchorLink offset="150" href="#Home">
                             <FontAwesomeIcon icon={faHome} /><Text>&nbsp;Home</Text>
-                            <Span></Span> 
-                        </AnchorLink>               
+                            <Span></Span>
+                        </AnchorLink>
                     </Item>
                     <Item>
                         <AnchorLink offset="150" href="#About">

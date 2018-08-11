@@ -23,11 +23,26 @@ export default class Background extends Component {
     super();
 
     this.state = {
-        height: null,
-        width: null,
+      height: null,
+      width: null,
     }
-    
+
     this.resize = this.resize.bind(this);
+  }
+
+  componentWillMount() {
+    this.updateParticlesValue();
+  }
+
+  //Dynamicly updates the value of particles based on screen resolution
+  updateParticlesValue() {
+    const base = 1440000;
+    const value = 50;
+
+    var res = window.screen.height * window.screen.width;
+    var percent = res / base;
+    
+    particlesjs.particles.number.value = (value * percent);
   }
 
   componentDidMount() {
@@ -46,6 +61,8 @@ export default class Background extends Component {
     })
   }
 
+
+
   render() {
     const { height, width } = this.state;
 
@@ -53,10 +70,9 @@ export default class Background extends Component {
       <Container id="Background" height={height} width={width}>
         <Parallax
           offsetYMax={0}
-          offsetYMin={-10}
-          slowerScrollRate
+          offsetYMin={20}
         >
-          <Particles params={particlesjs}/>
+          <Particles params={particlesjs} />
         </Parallax>
       </Container>
     );

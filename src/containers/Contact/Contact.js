@@ -10,20 +10,39 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import Block from '../../components/Block';
 
 const Container = styled.div`
-    color: #fff;
-    background-color: ${theme.backgroundColor};
-    box-shadow: ${theme.boxShadow};
-`
-
-const Content = styled.div`
     display: flex;
     padding: 15px;
     justify-content: space-between;
-`
 
+    color: #fff;
+    background-color: ${theme.backgroundColor};
+    box-shadow: ${theme.boxShadow};
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        .contactForm {
+            text-align: left;
+        }
+
+        .contactItems {
+            padding: 20px;
+        }
+    }
+`
 
 const Form = styled.form`
     flex: 2;
+`
+
+const FormGroup = styled.div`
+    width: 90%;
+    padding: 10px;
+
+    @media (max-width: 800px) {
+        width: 100%;
+    }
 `
 
 const Label = styled.div`
@@ -31,14 +50,19 @@ const Label = styled.div`
     padding: 2px 0;
 `
 
-const FormGroup = styled.div`
-    padding: 10px;
+const InputGroup = styled.div`
+    display: flex;
+    width: 90%;
+
+    @media (max-width: 800px) {
+        width: 100%;
+        flex-direction: column;
+    }
 `
+    
 
 const Input = styled.input`
-    /* display: block;
-    width: fit-content; */
-    width: auto;
+    width: 100%;
 `
 
 const Message = styled.textarea`
@@ -63,11 +87,10 @@ const Items = styled.div`
 
 const Item = styled.div`
     display: flex;
-    align-content: center;
 
     :hover {
-        color: #66ccff;
-        transition-duration: color 0.2s;
+        /* color: #66ccff;
+        transition-duration: color 0.2s; */
 
         a {
             color: #66ccff;
@@ -75,12 +98,16 @@ const Item = styled.div`
             transition-duration: color 0.2s;
         }
     }
+
+    @media (max-width: 800px) {
+        justify-content: center;
+    }
 `
 
 const Link = styled.a`
     margin: auto 15px;
     color: #fff;
-    text-decoration: none;
+    text-decoration: none;  
 `
 
 export default class Contact extends Component {
@@ -88,41 +115,40 @@ export default class Contact extends Component {
         return (
             <Block id="Contact" >
                 <Container>
-                    <Content>
-                            <Form>
-
-                                <FormGroup left>
-                                    <Label>Email:</Label>
-                                    <Input type="email" name="contactEmail" required />
-                                </FormGroup>
-                                <FormGroup right>
-                                    <Label>Subject:</Label>
-                                    <Input type="text" name="contactSubject" maxLength="20" required />
-                                </FormGroup>
-                                <FormGroup>
-                                    <Label> Message:</Label>
-                                    <Message name="contactMessage" rows="5" required />
-                                </FormGroup>
-                                <FormGroup>
-                                    <Submit>Submit</Submit>
-                                </FormGroup>
-                            </Form>
-                            <Items>
-                                <Item>
-                                    <FontAwesomeIcon icon={faLinkedin} size="2x" />
-                                    <Link href="https://www.linkedin.com/in/javan-poirier/">javan-poirier</Link>
-                                </Item>
-                                <Item>
-                                    <FontAwesomeIcon icon={faGithub} size="2x" />
-                                    <Link href="">JavanPoirier</Link>
-                                </Item>
-                                <Item>
-                                    <FontAwesomeIcon icon={faEnvelope} size="2x" />
-                                    <Link href="mailto:Me@JavanPoirier.com">Me@JavanPoirier.com</Link>
-                                </Item>
-                            </Items>
-                        {/* </Column> */}
-                    </Content>
+                    <Form className={"contactForm"}>
+                        <InputGroup>
+                            <FormGroup className={"email"}>
+                                <Label>Email:</Label>
+                                <Input type="email" name="contactEmail" required />
+                            </FormGroup>
+                            <FormGroup className={"subject"}>
+                                <Label>Subject:</Label>
+                                <Input type="text" name="contactSubject" maxLength="20" required />
+                            </FormGroup>
+                        </InputGroup>
+                        <FormGroup>
+                            <Label> Message:</Label>
+                            <Message name="contactMessage" rows="5" required />
+                        </FormGroup>
+                        <FormGroup>
+                            <Submit>Submit</Submit>
+                        </FormGroup>
+                    </Form>
+                    <Items className={"contactItems"}>
+                        <Item>
+                            <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                            <Link href="https://www.linkedin.com/in/javan-poirier/">javan-poirier</Link>
+                        </Item>
+                        <Item>
+                            <FontAwesomeIcon icon={faGithub} size="2x" />
+                            <Link href="">JavanPoirier</Link>
+                        </Item>
+                        <Item>
+                            <FontAwesomeIcon icon={faEnvelope} size="2x" />
+                            <Link href="mailto:Me@JavanPoirier.com">Me@JavanPoirier.com</Link>
+                        </Item>
+                    </Items>
+                    {/* </Column> */}
                 </Container >
             </Block >
         );
