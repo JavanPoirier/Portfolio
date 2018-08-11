@@ -12,6 +12,7 @@
     "fontawesome": "^4.7.2",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.3",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-anchor-link-smooth-scroll": "^1.0.10",
     "react-bootstrap": "^0.32.1",

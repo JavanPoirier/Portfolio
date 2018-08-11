@@ -9,6 +9,7 @@ import Tilt from 'react-tilt';
 
 const Container = styled.div`
     display: grid;
+    height: ${window.innerHeight + "px"};
     align-content: center;
 
     text-transform: uppercase;
