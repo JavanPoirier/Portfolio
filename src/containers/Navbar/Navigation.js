@@ -73,8 +73,7 @@ export default class Navigation extends Component {
                         <AnchorLink offset="150" href="#Home">
                             <FontAwesomeIcon icon={faHome} /><Text>&nbsp;Home</Text>
                             <Span></Span> 
-                        </AnchorLink>
-                        
+                        </AnchorLink>               
                     </Item>
                     <Item>
                         <AnchorLink offset="150" href="#About">
@@ -87,7 +86,7 @@ export default class Navigation extends Component {
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink offset="150" href="#Contact">
+                        <AnchorLink href="#Contact">
                             <FontAwesomeIcon icon={faEnvelope} /><Text>&nbsp;Contact</Text>
                         </AnchorLink>
                     </Item>

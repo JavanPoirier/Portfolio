@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
+import theme from '../../theme'
+
 import styled from 'styled-components';
 
 const Container = styled.div`
     display: flex;
-    height: 75px;
-    background-color: #090909;
+    height: 50px;
+    background-color: ${theme.backgroundColor};
 `
 
 export default class Footer extends Component {

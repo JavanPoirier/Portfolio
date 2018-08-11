@@ -11,7 +11,7 @@ const Container = styled.div`
     display: grid;
     grid-gap: 150px;
     grid-row-gap: 50px;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-auto-rows: auto;
     justify-content: center;
 
