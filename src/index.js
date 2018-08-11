@@ -1,8 +1,7 @@
-import 'babel-polyfill'
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import 'babel-polyfill'
 import { ParallaxProvider } from 'react-scroll-parallax';
 
 import 'bootstrap/dist/css/bootstrap.min.css';

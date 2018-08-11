@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Particles from 'react-particles-js';
 
 import styled from 'styled-components';
 import { Parallax } from 'react-scroll-parallax';
+import Particles from 'react-particles-js';
+
 import particlesjs from './particlesjs';
 
 const Container = styled.div`
