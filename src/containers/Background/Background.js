@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Parallax } from 'react-scroll-parallax';
 import Particles from 'react-particles-js';
 
@@ -8,43 +9,48 @@ import particlesjs from './particlesjs';
 
 const Container = styled.div`
   position: fixed;
-  width: ${window.innerWidth + "px"};
-  height: ${window.innerHeight + "px"};
   z-index: -1000;
+
+  /* Update canvas size on resize */
+  canvas {
+    height: ${(props) => props.height ? (props.height + "px") : (window.innerHeight + "px")} !important;
+    width: ${(props) => props.width ? (props.width + "px") : (window.innerWidth + "px")} !important;
+  }
 `
 
 export default class Background extends Component {
-
   constructor() {
     super();
+
+    this.state = {
+        height: null,
+        width: null,
+    }
     
-    // this.updateParticlesValue = this.updateParticlesValue.bind(this);
+    this.resize = this.resize.bind(this);
   }
 
-  // //Dynamicly updates the value of particles based on screen resolution
-  // updateParticlesValue() {
-  //   const base = 1440000;
-  //   const value = 50;
+  componentDidMount() {
+    window.addEventListener("resize", this.resize);
+    this.resize();
+  }
 
-  //   var h = window.screen.height;
-  //   var w = window.screen.width;
-  //   var res = h * w;
+  static contextTypes = {
+    parallaxController: PropTypes.object.isRequired,
+  };
 
-  //   var percent = res / base;
-  //   particlesjs.particles.number.value = (value * percent);
-  // }
-
-  // componentWillUpdate(){
-  //   this.updateParticlesValue();
-  // }
-
-  // componentWillMount(){
-  //   this.updateParticlesValue();
-  // }
+  resize() {
+    this.setState({ height: window.innerHeight, width: window.innerWidth }, () => {
+      console.log(this.context);
+      this.context.parallaxController.update();
+    })
+  }
 
   render() {
+    const { height, width } = this.state;
+
     return (
-      <Container id="Background">
+      <Container id="Background" height={height} width={width}>
         <Parallax
           offsetYMax={0}
           offsetYMin={-10}

@@ -16,18 +16,14 @@ const Container = styled.div`
 `
 
 const Content = styled.div`
-    display: grid;
+    display: flex;
     padding: 15px;
-    grid-gap: 10%;
-    grid-row-gap: 25px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 2.5fr) minmax(300px, 1fr));
-    grid-auto-rows: auto;
-    justify-content: center;
+    justify-content: space-between;
 `
 
 
 const Form = styled.form`
-    display: block;
+    flex: 2;
 `
 
 const Label = styled.div`
@@ -36,14 +32,13 @@ const Label = styled.div`
 `
 
 const FormGroup = styled.div`
-
     padding: 10px;
 `
 
 const Input = styled.input`
     /* display: block;
     width: fit-content; */
-    width: 100%;
+    width: auto;
 `
 
 const Message = styled.textarea`
@@ -56,9 +51,14 @@ const Message = styled.textarea`
 const Submit = styled.button`
 `
 
-const Column = styled.div`
-    margin: 5%;
-    align-self: center;
+const Items = styled.div`
+    flex: 1;
+    display: grid;
+    width: 100%;
+    margin: auto;
+    grid-gap: 25px;
+    align-items: center;
+    justify-content: center;
 `
 
 const Item = styled.div`
@@ -77,11 +77,6 @@ const Item = styled.div`
     }
 `
 
-const Items = styled.div`
-    display: grid;
-    grid-gap: 25px;
-`
-
 const Link = styled.a`
     margin: auto 15px;
     color: #fff;
@@ -94,8 +89,8 @@ export default class Contact extends Component {
             <Block id="Contact" >
                 <Container>
                     <Content>
-                        <Column>
                             <Form>
+
                                 <FormGroup left>
                                     <Label>Email:</Label>
                                     <Input type="email" name="contactEmail" required />
@@ -112,8 +107,6 @@ export default class Contact extends Component {
                                     <Submit>Submit</Submit>
                                 </FormGroup>
                             </Form>
-                        </Column>
-                        <Column>
                             <Items>
                                 <Item>
                                     <FontAwesomeIcon icon={faLinkedin} size="2x" />
@@ -128,7 +121,7 @@ export default class Contact extends Component {
                                     <Link href="mailto:Me@JavanPoirier.com">Me@JavanPoirier.com</Link>
                                 </Item>
                             </Items>
-                        </Column>
+                        {/* </Column> */}
                     </Content>
                 </Container >
             </Block >

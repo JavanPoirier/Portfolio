@@ -8,31 +8,27 @@ import Tilt from 'react-tilt';
 /** Styled Components */
 
 const Container = styled.div`
-    display: grid;
-    height: ${window.innerHeight + "px"};
-    align-content: center;
+    display: flex;
+    width: 100%;
+    /* Ensure height is reset on resize */
+    height: ${(props) => props.size ? (props.size) : (window.innerHeight)}px;
+    padding: 0 10%;
+    align-items: center;
+    justify-content: space-between;
 
     text-transform: uppercase;
+
+    @media (min-width: 1800px) {
+        padding: 0 15%;
+    }
 `
 
-const Grid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    grid-gap: 20%;
-    grid-row-gap: 100px;
-    padding: 0 10%;
-
-    > div {
-        margin: auto;
-    }
-
-    @media (max-width: 768px) {
-        padding: 0;
-    }
+const Wrapper = styled.div`
+    flex: 1;
 `
 
 const Text = styled.div`
-    font-size: 10vh;
+    font-size: 5vw;
     font-family: CPMono;
     color: #fff;
 
@@ -40,10 +36,14 @@ const Text = styled.div`
     -webkit-perspective: 150px;
     perspective-origin: left;
 
-    @media (max-width: 1250px){
+    @media (max-width: 1200px){
         text-align: -webkit-center;
         perspective: none;
         -webkit-perspective: none;
+    }
+
+    @media (max-width: 600px){
+        font-size: 8vw;
     }
 `
 const Name = styled.div`
@@ -91,36 +91,48 @@ export default class About extends Component {
         super();
 
         this.state = {
+            size: null,
             firstNameComplete: false,
         }
+
+        this.resize = this.resize.bind(this);
+    }
+
+    componentDidMount() {
+        window.addEventListener("resize", this.resize);
+        this.resize();
+    }
+
+    resize() {
+        this.setState({ size: window.innerHeight });
     }
 
     render() {
+        const { size } = this.state;
+
         return (
-            <Container id='Home'>
-                <Grid>
-                    <div>
-                        <Tilt options={tiltOptions}>
-                            <Text>
-                                <Name className="firstName">
-                                    <Typist cursor={cursors.firstName} startDelay={750} avgTypingDelay={150} onLineTyped={() => { this.setState({ firstNameComplete: true }) }}>
-                                        Javan
+            <Container id='Home' size={size}>
+                <Wrapper>
+                    <Tilt options={tiltOptions}>
+                        <Text>
+                            <Name className="firstName">
+                                <Typist cursor={cursors.firstName} startDelay={750} avgTypingDelay={150} onLineTyped={() => { this.setState({ firstNameComplete: true }) }}>
+                                    Javan
                                     </Typist>
-                                </Name>
-                                {this.state.firstNameComplete === true &&
-                                    (<Name className="lastName">
-                                        <Typist cursor={cursors.lastName} startDelay={150} avgTypingDelay={150}>
-                                            Poirier
+                            </Name>
+                            {this.state.firstNameComplete === true &&
+                                (<Name className="lastName">
+                                    <Typist cursor={cursors.lastName} startDelay={150} avgTypingDelay={150}>
+                                        Poirier
                                         </Typist>
-                                    </Name>)
-                                }
-                            </Text>
-                        </Tilt>
-                    </div>
-                    <div>
-                        <Info>Full-Stack Developer</Info>
-                    </div>
-                </Grid>
+                                </Name>)
+                            }
+                        </Text>
+                    </Tilt>
+                </Wrapper>
+                <Wrapper>
+                    <Info>Full-Stack Developer</Info>
+                </Wrapper>
             </Container>
         );
     }
