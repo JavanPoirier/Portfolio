@@ -115,16 +115,16 @@ export default class About extends Component {
             <Container id='Home' size={size}>
                 <Tilt options={tiltOptions}>
                     <Text>
-                        <Name className="firstName">
-                            <Typist cursor={cursors.firstName} startDelay={750} avgTypingDelay={150} onLineTyped={() => { this.setState({ firstNameComplete: true }) }}>
+                        <Name className="firstName">      
+                            <Typist cursor={cursors.firstName} startDelay={1000} avgTypingDelay={150} onLineTyped={() => { this.setState({ firstNameComplete: true }) }}>
                                 Javan
-                                    </Typist>
+                            </Typist>
                         </Name>
                         {this.state.firstNameComplete === true &&
                             (<Name className="lastName">
                                 <Typist cursor={cursors.lastName} startDelay={150} avgTypingDelay={150}>
                                     Poirier
-                                        </Typist>
+                                </Typist>
                             </Name>)
                         }
                     </Text>

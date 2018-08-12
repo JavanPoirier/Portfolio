@@ -128,7 +128,7 @@ export default class Contact extends Component {
                         </InputGroup>
                         <FormGroup>
                             <Label> Message:</Label>
-                            <Message name="contactMessage" rows="5" required />
+                            <Message name="contactMessage" rows="10" required />
                         </FormGroup>
                         <FormGroup>
                             <Submit>Submit</Submit>

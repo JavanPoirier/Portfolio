@@ -8,7 +8,7 @@ import { faHome, faUser, faCode, faEnvelope } from '@fortawesome/free-solid-svg-
 
 const Container = styled.div`
     display: flex;
-    margin: auto;
+    /* margin: auto; */
     width: 100%;
     height: 75px;
     position: fixed;

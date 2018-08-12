@@ -5,13 +5,19 @@ import Tilt from 'react-tilt';
 
 const Container = styled.div`
     display: flex;
-    height: 250px;
-    width: 250px;
+    width: 45vw;
+    height: 45vw;
     background-color: #fff;
+    justify-content: center;
+    align-items: center;
+
+    @media only screen and (min-width: 800px){
+        width: 15vw;
+        height: 15vw;
+    }
 `
 
 const Title = styled.div`
-    margin: auto;
     color: black;
 `
 

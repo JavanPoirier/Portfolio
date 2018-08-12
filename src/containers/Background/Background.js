@@ -10,6 +10,8 @@ import particlesjs from './particlesjs';
 const Container = styled.div`
   position: fixed;
   z-index: -1000;
+  width: 100%;
+  height: 100%;
 
   /* Update canvas size on resize */
   canvas {
@@ -39,9 +41,10 @@ export default class Background extends Component {
     const base = 1440000;
     const value = 50;
 
+    //Calulates resolution and sets particle density using base percentage.
     var res = window.screen.height * window.screen.width;
     var percent = res / base;
-    
+
     particlesjs.particles.number.value = (value * percent);
   }
 
@@ -60,8 +63,6 @@ export default class Background extends Component {
       this.context.parallaxController.update();
     })
   }
-
-
 
   render() {
     const { height, width } = this.state;
