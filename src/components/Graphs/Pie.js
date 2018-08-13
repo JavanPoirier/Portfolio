@@ -2,6 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+//https://medium.com/@pppped/how-to-code-a-responsive-circular-percentage-chart-with-svg-and-css-3632f8cd7705
 const PieChart = styled.svg`
   display: block;
   margin: 10px auto;
