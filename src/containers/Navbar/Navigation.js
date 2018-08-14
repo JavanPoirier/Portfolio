@@ -13,13 +13,14 @@ const Container = styled.div`
     height: 75px;
     position: fixed;
     background-color: #090909;
-    z-index: 1;
+    z-index: 100;
     box-shadow: 10px 10px 50px rgba(0, 0, 0, .5);
 `
 
 const Items = styled.ul`
     display: flex;
     margin: 0;
+    padding: 0;
     font-size: 1.25em;
     font-family: CPMono;
     text-align: center;

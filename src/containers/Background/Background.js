@@ -59,7 +59,6 @@ export default class Background extends Component {
 
   resize() {
     this.setState({ height: window.innerHeight, width: window.innerWidth }, () => {
-      console.log(this.context);
       this.context.parallaxController.update();
     })
   }
@@ -70,8 +69,8 @@ export default class Background extends Component {
     return (
       <Container id="Background" height={height} width={width}>
         <Parallax
-          offsetYMax={0}
-          offsetYMin={20}
+          offsetYMax={10}
+          offsetYMin={0}
         >
           <Particles params={particlesjs} />
         </Parallax>

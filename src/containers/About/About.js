@@ -12,12 +12,7 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-
-    /* > div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    } */
+    text-align: left;
     
     img {
         max-height: 30vh;
@@ -30,13 +25,21 @@ const Container = styled.div`
 
 const ListWrapper = styled.div`
     text-transform: uppercase;
+    padding-top: 75px;
+    font-size: 4vw;
+
+    @media only screen and (min-width: 800px) {
+        padding-top: 0;
+        flex-direction: row;
+        font-size: 1em;
+    }
 `
 
 const ListHeader = styled.div`
     position: relative;
     width: 100%;
     margin: 25px 0;
-    z-index: 100;
+    z-index: 1;
 `
 
 const ListTitle = styled.div`
@@ -61,7 +64,6 @@ const List = styled.div`
     .name {
         color: #66ccff;
     }
-
 `;
 
 export default class About extends Component {

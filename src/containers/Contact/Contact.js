@@ -70,6 +70,10 @@ const Message = styled.textarea`
     width: 100%;
     resize: none;
     overflow-y: scroll;
+
+    @media only screen and (max-width: 800px) {
+        max-height: 150px
+    }
 `
 
 const Submit = styled.button`
@@ -148,7 +152,6 @@ export default class Contact extends Component {
                             <Link href="mailto:Me@JavanPoirier.com">Me@JavanPoirier.com</Link>
                         </Item>
                     </Items>
-                    {/* </Column> */}
                 </Container >
             </Block >
         );
