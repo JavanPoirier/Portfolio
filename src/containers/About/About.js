@@ -76,7 +76,7 @@ export default class About extends Component {
                     <ListWrapper>
                         
                         <ListHeader>  
-                        <Lines height="125%" width="20%" margin="-10px -15px"/>
+                        <Lines height="125%" width="125px" margin="-10px -15px"/>
                             <ListTitle>Javan Poirier</ListTitle>
                             <ListSubTitle>Facial Recognition Data:</ListSubTitle>
                         </ListHeader>

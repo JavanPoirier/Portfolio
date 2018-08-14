@@ -22,8 +22,8 @@ export default class Skills extends Component {
             <Block>
                 <h1>Skills</h1>
                 <Container>
-                    <Chart>
-                        <Pie percent="75"/>
+                    <Chart>              
+                        <Pie percent="75" scale="4"/>
                     </Chart>
                 </Container>
             </Block>
