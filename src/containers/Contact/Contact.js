@@ -10,13 +10,10 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import Block from '../../components/Block';
 
 const Container = styled.div`
-    display: flex;
-    padding: 15px;
+    display: flex; 
     justify-content: space-between;
 
     color: #fff;
-    background-color: ${theme.backgroundColor};
-    box-shadow: ${theme.boxShadow};
 
     @media (max-width: 800px) {
         flex-direction: column;
@@ -25,9 +22,29 @@ const Container = styled.div`
         .contactForm {
             text-align: left;
         }
+    }
+`
 
-        .contactItems {
-            padding: 20px;
+const SubContainer = styled.div`
+    display: flex;
+    width: 100%;
+    min-width: 200px;
+    padding: 15px;
+    font-size: 85%;
+    background-color: ${theme.backgroundColor};
+    box-shadow: ${theme.boxShadow};
+
+    :first-child {
+        margin-bottom: 50px;
+    }
+
+    @media only screen and (min-width: 800px) {
+        width: ${(props) => props.width};
+        min-width: ${(props) => props.minWidth ? props.minWidth : "0px"};
+        font-size: 100%;
+
+        :first-child {
+            margin-bottom: 0px;
         }
     }
 `
@@ -37,7 +54,7 @@ const Form = styled.form`
 `
 
 const FormGroup = styled.div`
-    width: 90%;
+    width: 100%;
     padding: 10px;
 
     @media (max-width: 800px) {
@@ -52,14 +69,12 @@ const Label = styled.div`
 
 const InputGroup = styled.div`
     display: flex;
-    width: 90%;
 
     @media (max-width: 800px) {
-        width: 100%;
         flex-direction: column;
     }
 `
-    
+
 
 const Input = styled.input`
     width: 100%;
@@ -91,6 +106,7 @@ const Items = styled.div`
 
 const Item = styled.div`
     display: flex;
+    justify-content: center;
 
     :hover {
         /* color: #66ccff;
@@ -102,14 +118,10 @@ const Item = styled.div`
             transition-duration: color 0.2s;
         }
     }
-
-    @media (max-width: 800px) {
-        justify-content: center;
-    }
 `
 
 const Link = styled.a`
-    margin: auto 15px;
+    margin: 0 0 0 15px;
     color: #fff;
     text-decoration: none;  
 `
@@ -119,40 +131,48 @@ export default class Contact extends Component {
         return (
             <Block id="Contact" >
                 <Container>
-                    <Form className={"contactForm"}>
-                        <InputGroup>
-                            <FormGroup className={"email"}>
-                                <Label>Email:</Label>
-                                <Input type="email" name="contactEmail" required />
-                            </FormGroup>
+                    <SubContainer width="60%" minWidth="40%">
+                        <Form className={"contactForm"}>
+                            <InputGroup>
+                                <FormGroup className={"name"}>
+                                    <Label>Name:</Label>
+                                    <Input type="text" name="contactName" required />
+                                </FormGroup>
+                                <FormGroup className={"email"}>
+                                    <Label>Email:</Label>
+                                    <Input type="email" name="contactEmail" required />
+                                </FormGroup>
+                            </InputGroup>
                             <FormGroup className={"subject"}>
                                 <Label>Subject:</Label>
                                 <Input type="text" name="contactSubject" maxLength="20" required />
                             </FormGroup>
-                        </InputGroup>
-                        <FormGroup>
-                            <Label> Message:</Label>
-                            <Message name="contactMessage" rows="10" required />
-                        </FormGroup>
-                        <FormGroup>
-                            <Submit>Submit</Submit>
-                        </FormGroup>
-                    </Form>
-                    <Items className={"contactItems"}>
-                        <Item>
-                            <FontAwesomeIcon icon={faLinkedin} size="2x" />
-                            <Link href="https://www.linkedin.com/in/javan-poirier/">javan-poirier</Link>
-                        </Item>
-                        <Item>
-                            <FontAwesomeIcon icon={faGithub} size="2x" />
-                            <Link href="">JavanPoirier</Link>
-                        </Item>
-                        <Item>
-                            <FontAwesomeIcon icon={faEnvelope} size="2x" />
-                            <Link href="mailto:Me@JavanPoirier.com">Me@JavanPoirier.com</Link>
-                        </Item>
-                    </Items>
-                </Container >
+                            <FormGroup>
+                                <Label> Message:</Label>
+                                <Message name="contactMessage" rows="6" required />
+                            </FormGroup>
+                            <FormGroup>
+                                <Submit>Submit</Submit>
+                            </FormGroup>
+                        </Form>
+                    </SubContainer>
+                    <SubContainer width="30%" minWidth="fit-content">
+                        <Items className={"contactItems"}>
+                            <Item>
+                                <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                                <Link href="https://www.linkedin.com/in/javan-poirier/">javan-poirier</Link>
+                            </Item>
+                            <Item>
+                                <FontAwesomeIcon icon={faGithub} size="2x" />
+                                <Link href="">JavanPoirier</Link>
+                            </Item>
+                            <Item>
+                                <FontAwesomeIcon icon={faEnvelope} size="2x" />
+                                <Link href="mailto:Me@JavanPoirier.com">Me@JavanPoirier.com</Link>
+                            </Item>
+                        </Items>
+                    </SubContainer>
+                </Container>
             </Block >
         );
     }

@@ -26,12 +26,12 @@ const Container = styled.div`
 const ListWrapper = styled.div`
     text-transform: uppercase;
     padding-top: 75px;
-    font-size: 4vw;
+    font-size: 75%;
 
     @media only screen and (min-width: 800px) {
         padding-top: 0;
         flex-direction: row;
-        font-size: 1em;
+        font-size: 100%;
     }
 `
 
@@ -65,16 +65,17 @@ const List = styled.div`
         color: #66ccff;
     }
 `;
-
+5
 export default class About extends Component {
     render() {
         return (
             //Change grid to single row
             <Block id="About" solid>
                 <Container>
-                    <div><img src={me} alt="Me"></img></div>
-                    <ListWrapper>
-                        
+                    <div>
+                        <img src={me} alt="Me"></img>                       
+                    </div>
+                    <ListWrapper>                       
                         <ListHeader>  
                         <Lines height="125%" width="125px" margin="-10px -15px"/>
                             <ListTitle>Javan Poirier</ListTitle>
