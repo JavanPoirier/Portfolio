@@ -6,6 +6,7 @@ import Block from '../../components/Block'
 
 import me from '../../img/Me.jpg'
 import Lines from '../../components/Lines'
+import HighlightText from '../../components/HighlightText'
 
 const Container = styled.div`
     display: flex;
@@ -42,14 +43,6 @@ const ListHeader = styled.div`
     z-index: 1;
 `
 
-const ListTitle = styled.div`
-    width: fit-content;
-    font-size: 1.5em;
-    padding: 0 5px;
-    color: #090909;
-    background: #66ccff;
-`
-
 const ListSubTitle = styled.div`
     font-size: 1.2em;
 `
@@ -64,8 +57,13 @@ const List = styled.div`
     .name {
         color: #66ccff;
     }
-`;
-5
+`
+
+const Grid = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+`
+
 export default class About extends Component {
     render() {
         return (
@@ -77,8 +75,8 @@ export default class About extends Component {
                     </div>
                     <ListWrapper>                       
                         <ListHeader>  
-                        <Lines height="125%" width="125px" margin="-10px -15px"/>
-                            <ListTitle>Javan Poirier</ListTitle>
+                            <Lines height="125%" width="125px" margin="-10px -15px"/>
+                            <HighlightText>Javan Poirier</HighlightText>
                             <ListSubTitle>Facial Recognition Data:</ListSubTitle>
                         </ListHeader>
                         <List>
@@ -87,8 +85,11 @@ export default class About extends Component {
                             <div className="name">Education</div><div className="item">|&nbsp;Programmer-Analyst, NBCC</div>                           
                             <div className="name">Skills</div><div className="item">|&nbsp;Programming, Systems Analysis, Robotics, Multi-media</div>
                         </List>
-                    </ListWrapper>
-                </Container >              
+                    </ListWrapper>                   
+                </Container >
+                <Grid>
+
+                </Grid>            
             </Block >
         )
     }
