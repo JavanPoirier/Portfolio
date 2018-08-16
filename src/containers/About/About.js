@@ -7,6 +7,7 @@ import Block from '../../components/Block'
 import me from '../../img/Me.jpg'
 import Lines from '../../components/Lines'
 import HighlightText from '../../components/HighlightText'
+import Experience from './AboutExperience'
 
 const Container = styled.div`
     display: flex;
@@ -59,11 +60,6 @@ const List = styled.div`
     }
 `
 
-const Grid = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-`
-
 export default class About extends Component {
     render() {
         return (
@@ -87,9 +83,7 @@ export default class About extends Component {
                         </List>
                     </ListWrapper>                   
                 </Container >
-                <Grid>
-
-                </Grid>            
+                <Experience/>            
             </Block >
         )
     }

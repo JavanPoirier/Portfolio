@@ -2,6 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 import Tilt from 'react-tilt';
+import HighlightText from '../HighlightText';
 
 const Container = styled.div`
     position: relative;
@@ -17,8 +18,6 @@ const Container = styled.div`
             display: block;
         }
     }
-
-    
 
     @keyframes opacity {
         0%   { opacity: 1; }
@@ -76,9 +75,9 @@ export const Tile = (props) => {
             <Tilt className="tilt" options={options}>
                 <Wrapper onClick={props.callback}>
                     <Image className="image" img={props.img} xpos={props.xpos}></Image>
-                    <Title className="title">
+                    <HighlightText className="title" display={"none"} color={"#090909"} textColor={"#fff"} size={"1em"} zIndex={5} >
                         {props.title}
-                    </Title>
+                    </HighlightText>
                 </Wrapper>
             </Tilt>
         </Container>

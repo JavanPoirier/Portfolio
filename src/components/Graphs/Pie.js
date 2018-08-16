@@ -1,22 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react'
 
-import styled from 'styled-components';
+import styled from 'styled-components'
+import Animate from '../../components/Animate'
 
 //https://medium.com/@pppped/how-to-code-a-responsive-circular-percentage-chart-with-svg-and-css-3632f8cd7705
 
 const Container = styled.div`
-  text-align: center;
 `
 
 const PieChart = styled.svg`
-  height: 100%;
-  width: 100%;
-
   .circle {
     stroke: #66ccff;
     fill: none;
-    stroke-width: 2.5;
-    animation: progress 2s ease-out forwards;
+    stroke-width: 3;
   }
 
   @keyframes progress {
@@ -31,26 +27,38 @@ const Percent = styled.text`
   text-anchor: middle;
 `
 
-const Text = styled.h2`
-`
+export default class Pie extends Component {
+  constructor(props) {
+    super(props)
 
-const Pie = (props) => {
+    this.pie = React.createRef();
+    this.animate = this.animate.bind(this);
+  }
+
+  animate() {
+    const pie = this.pie.current;
+
+    console.log('Here!');
+    console.log(pie.style.animation = "progress 2s ease-in 2s forwards");
+  }
+
+  render() {
     return(
       <Container>
-        <PieChart>
-        <g transform={"scale(" + props.scale + ")"}>
-            <path className="circle"
-            strokeDasharray={props.percent + ", 100"}
-            d="M18 2.0845
-            a 15.9155 15.9155 0 0 1 0 31.831
-            a 15.9155 15.9155 0 0 1 0 -31.831"
-            />
-            <Percent x="18" y="20.35">{props.percent}%</Percent>
-        </g>
-        </PieChart>
-        <Text>JavaScript</Text>
+        <Animate callback={this.animate}>
+          <PieChart viewBox="0 0 32 32">
+            <g transform={"translate(0, 0) scale(" + this.props.scale + ")"}>
+              <path className="circle" ref={this.pie} 
+              strokeDasharray={this.props.percent + ", 100"}            
+              d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <Percent x="18" y="20.35">{this.props.percent}%</Percent>
+            </g>
+          </PieChart>
+        </Animate>
       </Container>
     )
+  }    
 }
-
-export default Pie
