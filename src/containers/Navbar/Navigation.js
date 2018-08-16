@@ -92,21 +92,20 @@ export default class Navigation extends Component {
         super()
 
         this.state =  {
-            activeHref: "",
-            lastHref: "",
+            activeHref: "#Home",
+            lastHref: "#Home",
         }
-
-        this.removeActive = this.removeActive.bind(this);
     }
 
-    removeActive() {
-        this.setState({ lastHref: this.state.activeHref }, () => {
-            this.setState({ activeHref: "" })
-        })
+    setActive(href) {
+        this.setState({activeHref: href});
+        this.setState({lastHref: href});
     }
 
-    applyActive() {
-        
+    toggleActive(href) {
+        href !== this.state.activeHref ? (this.setState({ lastHref: this.state.activeHref }, () => {
+            this.setState({ activeHref: href }) 
+        })) : this.setState({ activeHref: this.state.lastHref }) 
     }
 
     render() {
@@ -116,22 +115,22 @@ export default class Navigation extends Component {
             <Container>
                 <Items>
                     <Item>
-                        <AnchorLink offset="150" href="#Home" className={activeHref === "#Home" ? "active" : ""} onClick={() => this.setState({activeHref: "#Home"})} onMouseEnter={this.removeActive}>
+                        <AnchorLink offset="150" href="#Home" className={activeHref === "#Home" ? "active" : ""} onClick={() => this.setActive("#Home")} onMouseEnter={() => this.toggleActive("#Home")} onMouseLeave={() => this.toggleActive("#Home")}>
                             <FontAwesomeIcon icon={faHome} /><Text>&nbsp;Home</Text>
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink offset="150" href="#About" className={activeHref === "#About" ? "active" : ""} onClick={() => this.setState({activeHref: "#About"})} onMouseEnter={this.removeActive}>
+                        <AnchorLink offset="150" href="#About" className={activeHref === "#About" ? "active" : ""} onClick={() => this.setActive("#About")} onMouseEnter={() => this.toggleActive("#About")} onMouseLeave={() => this.toggleActive("#About")}>
                             <FontAwesomeIcon icon={faUser} /><Text>&nbsp;About</Text>
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink offset="150" href="#Projects" className={activeHref === "#Projects" ? "active" : ""} onClick={() => this.setState({activeHref: "#Projects"})} onMouseEnter={this.removeActive}>
+                        <AnchorLink offset="150" href="#Projects" className={activeHref === "#Projects" ? "active" : ""} onClick={() => this.setActive("#Projects")} onMouseEnter={() => this.toggleActive("#Projects")} onMouseLeave={() => this.toggleActive("#Projects")}>
                             <FontAwesomeIcon icon={faCode} /><Text>&nbsp;Projects</Text>
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink href="#Contact" className={activeHref === "#Contact" ? "active" : ""} onClick={() => this.setState({activeHref: "#Contact"})}>
+                        <AnchorLink href="#Contact" className={activeHref === "#Contact" ? "active" : ""} onClick={() => this.setActive("#Contact")} onMouseEnter={() => this.toggleActive("#Contact")} onMouseLeave={() => this.toggleActive("#Contact")}>
                             <FontAwesomeIcon icon={faEnvelope} /><Text>&nbsp;Contact</Text>
                         </AnchorLink>
                     </Item>
