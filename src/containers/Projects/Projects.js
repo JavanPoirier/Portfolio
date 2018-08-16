@@ -10,6 +10,7 @@ import musicManager from '../../components/Projects/MusicManager/MusicManager.pn
 
 const Tiles = styled.div`
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
 `
 
@@ -17,10 +18,10 @@ export default class Projects extends Component {
     constructor(){
         super()
 
-        this.test = this.test.bind(this);
+        this.toggle = this.toggle.bind(this);
     }
 
-    test() {
+    toggle() {
         alert('clicked');
     }
 
@@ -42,9 +43,9 @@ export default class Projects extends Component {
             <Block id='Projects' solid noPadding>
                 <h1 style={styles.header}>Projects</h1>
                  <Tiles>
-                     <Tile title={'Custom Tech Services'} img={customTechServices} callback={this.test}/>
-                     <Tile title={'Decipher Escape Rooms'} img={decipherEscapeRooms} callback={this.test}/>
-                     <Tile title={'Music Manager'} img={musicManager} callback={this.test} xpos={"center"}/>
+                     <Tile title={'Custom Tech Services'} img={customTechServices} callback={this.toggle}/>
+                     <Tile title={'Decipher Escape Rooms'} img={decipherEscapeRooms} callback={this.toggle}/>
+                     <Tile title={'Music Manager'} img={musicManager} callback={this.toggle} xpos={"center"}/>
                  </Tiles>
             </Block>
         );

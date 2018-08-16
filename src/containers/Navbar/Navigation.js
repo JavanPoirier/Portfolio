@@ -88,8 +88,25 @@ const Text = styled.div`
 `
 
 export default class Navigation extends Component {
-    state =  {
-        activeHref: ""
+    constructor() {
+        super()
+
+        this.state =  {
+            activeHref: "",
+            lastHref: "",
+        }
+
+        this.removeActive = this.removeActive.bind(this);
+    }
+
+    removeActive() {
+        this.setState({ lastHref: this.state.activeHref }, () => {
+            this.setState({ activeHref: "" })
+        })
+    }
+
+    applyActive() {
+        
     }
 
     render() {
@@ -99,17 +116,17 @@ export default class Navigation extends Component {
             <Container>
                 <Items>
                     <Item>
-                        <AnchorLink offset="150" href="#Home" className={activeHref === "#Home" ? "active" : ""} onClick={() => this.setState({activeHref: "#Home"})}>
+                        <AnchorLink offset="150" href="#Home" className={activeHref === "#Home" ? "active" : ""} onClick={() => this.setState({activeHref: "#Home"})} onMouseEnter={this.removeActive}>
                             <FontAwesomeIcon icon={faHome} /><Text>&nbsp;Home</Text>
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink offset="150" href="#About" className={activeHref === "#About" ? "active" : ""} onClick={() => this.setState({activeHref: "#About"})}>
+                        <AnchorLink offset="150" href="#About" className={activeHref === "#About" ? "active" : ""} onClick={() => this.setState({activeHref: "#About"})} onMouseEnter={this.removeActive}>
                             <FontAwesomeIcon icon={faUser} /><Text>&nbsp;About</Text>
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink offset="150" href="#Projects" className={activeHref === "#Projects" ? "active" : ""} onClick={() => this.setState({activeHref: "#Projects"})}>
+                        <AnchorLink offset="150" href="#Projects" className={activeHref === "#Projects" ? "active" : ""} onClick={() => this.setState({activeHref: "#Projects"})} onMouseEnter={this.removeActive}>
                             <FontAwesomeIcon icon={faCode} /><Text>&nbsp;Projects</Text>
                         </AnchorLink>
                     </Item>
