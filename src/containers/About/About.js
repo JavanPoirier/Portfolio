@@ -11,7 +11,7 @@ import Experience from './AboutExperience'
 
 const Container = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
     text-align: left;
@@ -78,7 +78,8 @@ export default class About extends Component {
                         <List>
                             <div className="name">Name</div><div className="item">|&nbsp;Javan Poirier</div>
                             <div className="name">Occupation</div><div className="item">|&nbsp;Full-stack Developer</div> 
-                            <div className="name">Education</div><div className="item">|&nbsp;Programmer-Analyst, NBCC</div>                           
+                            <div className="name">Education</div><div className="item">|&nbsp;Programmer-Analyst, NBCC</div>      
+                            <div className="name">Spoken Languages</div><div className="item">|&nbsp;English, French</div>                     
                             <div className="name">Skills</div><div className="item">|&nbsp;Programming, Systems Analysis, Robotics, Multi-media</div>
                         </List>
                     </ListWrapper>                   

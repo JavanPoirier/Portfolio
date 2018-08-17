@@ -4,7 +4,7 @@ import theme from '../../theme'
 
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin, faGithub, faStackOverflow } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 import Block from '../../components/Block';
@@ -102,34 +102,45 @@ const Items = styled.div`
     grid-gap: 25px;
     align-items: center;
     justify-content: center;
+
+    div:hover {
+        color: #66ccff;
+            text-decoration: none;
+            transition-duration: color 0.2s;
+    }
+
+    @media screen and (max-width: 800px) {
+        display: flex;
+        justify-content: space-evenly;
+    }
 `
 
 const Item = styled.div`
     display: flex;
     justify-content: center;
+    
 
-    :hover {
-        /* color: #66ccff;
-        transition-duration: color 0.2s; */
-
-        a {
-            color: #66ccff;
-            text-decoration: none;
-            transition-duration: color 0.2s;
-        }
+    a:hover {
+        color: #66ccff;
+        text-decoration: none;
+        transition-duration: color 0.2s;
     }
 `
 
 const Link = styled.a`
     margin: 0 0 0 15px;
     color: #fff;
-    text-decoration: none;  
+    text-decoration: none; 
+
+    @media screen and (max-width: 800px) {
+        display: none;
+    } 
 `
 
 export default class Contact extends Component {
     render() {
         return (
-            <Block id="Contact" >
+            <Block id="Contact" title="Contact Me">
                 <Container>
                     <SubContainer width="60%" minWidth="40%">
                         <Form className={"contactForm"}>
@@ -164,6 +175,10 @@ export default class Contact extends Component {
                             </Item>
                             <Item>
                                 <FontAwesomeIcon icon={faGithub} size="2x" />
+                                <Link href="">JavanPoirier</Link>
+                            </Item>
+                            <Item>
+                                <FontAwesomeIcon icon={faStackOverflow} size="2x" />
                                 <Link href="">JavanPoirier</Link>
                             </Item>
                             <Item>

@@ -25,13 +25,14 @@ const Chart = styled.div`
 `
 
 const Text = (props) => {
-    return <HighlightText color="#090909" textColor="#fff" size={props.size ? props.size : "1em"} margin={props.margin}>{props.children}</HighlightText>
+    return <HighlightText color="#090909" textColor="#fff" size={props.size ? props.size : "1.15em"} margin={props.margin} multiLine>{props.children}</HighlightText>
 }
 
 const List = styled.ul`
     text-align: center;
     padding: 0;
     margin: 0;
+    font-size: 1.15em;
 `
 
 const ListItem = styled.li`
@@ -43,7 +44,7 @@ export default class Skills extends Component {
         return (
             <Block>
                 <h1>Skills</h1>
-                <Text size="1.25em">Pie charts are quite relative to ones percpective, no one can be 100%... but hey they look cool!</Text>
+                <Text size="1.25em">Pie charts are quite relative to ones perspective, no one can be 100%... but hey they look cool!</Text>
                 <hr />
                 <Container>
                     <Wrapper>

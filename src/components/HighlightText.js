@@ -11,7 +11,7 @@ const HighlightText = styled.span`
     color: ${(props) => props.textColor ? props.textColor : "#090909"};
     background: ${(props) => props.color ? props.color : "#66ccff"};
     z-index: ${(props) => props.zIndex ? props.zIndex : ""};
-    line-height: 2.25;
+    line-height: ${(props) => props.multiLine ? "2" : ""};
     box-decoration-break: clone;
 `
 

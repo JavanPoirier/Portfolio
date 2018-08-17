@@ -120,7 +120,7 @@ export default class Navigation extends Component {
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink offset="150" href="#About" className={activeHref === "#About" ? "active" : ""} onClick={() => this.setActive("#About")} onMouseEnter={() => this.toggleActive("#About")} onMouseLeave={() => this.toggleActive("#About")}>
+                        <AnchorLink offset="0" href="#About" className={activeHref === "#About" ? "active" : ""} onClick={() => this.setActive("#About")} onMouseEnter={() => this.toggleActive("#About")} onMouseLeave={() => this.toggleActive("#About")}>
                             <FontAwesomeIcon icon={faUser} /><Text>&nbsp;About</Text>
                         </AnchorLink>
                     </Item>

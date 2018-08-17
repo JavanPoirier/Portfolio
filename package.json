@@ -16,6 +16,7 @@
     "react": "^16.4.1",
     "react-anchor-link-smooth-scroll": "^1.0.10",
     "react-bootstrap": "^0.32.1",
+    "react-countup": "^4.0.0-alpha.6",
     "react-dom": "^16.4.1",
     "react-fittext": "^1.0.0",
     "react-fontawesome": "^1.6.1",

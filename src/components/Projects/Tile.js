@@ -28,24 +28,16 @@ const Container = styled.div`
 const Wrapper = styled.div`
     /* position: relative; */
     display: flex;
-    height: 45vw;
-    width: 45vw;
-    min-height: 150px;
-    min-width: 150px;
-    max-height: 250px;
-    max-width: 250px;
+    min-height: 300px;
+    min-width: 300px;
 
     background-color: #fff;
     justify-content: center;
     align-items: center;
 
     @media only screen and (min-width: 800px){      
-        height: 15vw;
-        width: 15vw;
-        min-height: 200px;
-        min-width: 200px;
-        max-height: 250px;
-        max-width: 250px;
+        min-height: 300px;
+        min-width: 300px;
     }
 `
 
@@ -75,7 +67,7 @@ export const Tile = (props) => {
             <Tilt className="tilt" options={options}>
                 <Wrapper onClick={props.callback}>
                     <Image className="image" img={props.img} xpos={props.xpos}></Image>
-                    <HighlightText className="title" display={"none"} color={"#090909"} textColor={"#fff"} size={"1em"} zIndex={5} >
+                    <HighlightText className="title" display={"none"} color={"#090909"} textColor={"#fff"} size={"1em"} zIndex={5}>
                         {props.title}
                     </HighlightText>
                 </Wrapper>

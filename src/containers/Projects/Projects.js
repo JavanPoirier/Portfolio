@@ -40,8 +40,7 @@ export default class Projects extends Component {
         }
         
         return(
-            <Block id='Projects' solid noPadding>
-                <h1 style={styles.header}>Projects</h1>
+            <Block id='Projects' title="Projects" solid noPadding>
                  <Tiles>
                      <Tile title={'Custom Tech Services'} img={customTechServices} callback={this.toggle}/>
                      <Tile title={'Decipher Escape Rooms'} img={decipherEscapeRooms} callback={this.toggle}/>
