@@ -23,7 +23,7 @@ const PieChart = styled.svg`
   }
 `
 
-const Percent = styled.text`
+const Percent = styled.div`
 `
 
 export default class Pie extends Component {
@@ -59,10 +59,11 @@ export default class Pie extends Component {
               {/* </Percent>            */}
             </g>
           </PieChart>
-        </Animate>
-        <Percent x="18" y="20.35"> 
-        <CountUp start={0} end={this.props.percent} duration={5} />
+          <Percent x="18" y="20.35"> 
+        <CountUp start={0} end={this.props.percent} duration={5} suffix="%" />
         </Percent>  
+        </Animate>
+        
       </Container>
     )
   }    
