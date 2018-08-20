@@ -15,6 +15,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
     width: fit-content;
+    text-align: center;
     margin: 20px;
 `
 
@@ -44,16 +45,20 @@ export default class Skills extends Component {
         return (
             <Block>
                 <h1>Skills</h1>
-                <Text size="1.25em">Pie charts are quite relative to ones perspective, no one can be 100%... but hey they look cool!</Text>
-                <hr />
+                <Text size="1.25em">Jack of all trades, master of none. Skill charts are quite relative to one's perspective, and no one can be 100%... But hey, they look cool!</Text>
+                <br />
                 <Container>
                     <Wrapper>
                         <Chart>
-                            <Pie percent="75" scale="0.9" />
+                            <Pie percent="40" scale="0.9" />
                         </Chart>
-                        <Text margin="auto">Electronics/Robotics</Text>
+                        <Text margin="auto">Multimedia</Text>
                         <List>
-                            Arduino
+                            <ListItem>Photoshop</ListItem>
+                            <ListItem>Illistrator</ListItem>
+                            <ListItem>After Effects</ListItem>
+                            <ListItem>Vegas Pro</ListItem>
+                            <ListItem>Cinema 4D</ListItem>
                         </List>
                     </Wrapper>
                     <Wrapper>
@@ -62,7 +67,8 @@ export default class Skills extends Component {
                         </Chart>
                         <Text margin="auto">Electronics/Robotics</Text>
                         <List>
-                            Arduino
+                            <ListItem>Circuits</ListItem>
+                            <ListItem>Arduino</ListItem>
                         </List>
                     </Wrapper>
                     <Wrapper>

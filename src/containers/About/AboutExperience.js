@@ -16,7 +16,7 @@ const ContainerTitle = styled.div`
 `
 
 const Wrapper = styled.div`
-    width: fit-content;
+    width: max-content;
     margin: 25px;
     text-align: center;
 `

@@ -4,9 +4,12 @@ import styled from 'styled-components'
 import Block from '../../components/Block'
 import { Tile } from '../../components/Projects/Tile'
 
+import ProjectsModal from './ProjectsModal'
 import customTechServices from '../../components/Projects/CustomTechServices/CustomTechServices.png'
 import decipherEscapeRooms from '../../components/Projects/DecipherEscapeRooms/DecipherEscapeRooms.png'
 import musicManager from '../../components/Projects/MusicManager/MusicManager.png'
+
+import projects from '../../components/Projects/Projects.json'
 
 const Tiles = styled.div`
     display: flex;
@@ -15,37 +18,36 @@ const Tiles = styled.div`
 `
 
 export default class Projects extends Component {
-    constructor(){
+    constructor() {
         super()
+
+        this.state = {
+            modal: false,
+            project: {},
+        }
 
         this.toggle = this.toggle.bind(this);
     }
 
-    toggle() {
-        alert('clicked');
+    toggle(project) {
+        if (project) {
+            this.setState({ project: project});
+        }
+  
+        this.setState({ modal: !this.state.modal });
     }
 
     render() {
-        const styles = {
-            container: {
-                height: "500px",
-                backgroundColor: "#090909",
-                boxShadow: "25px 25px 25px 25px #090909"
-            },
-            header: {
-                textAlign: "center",
-                fontFamily: "CPMono",
-                color: "#ffffff"
-            }
-        }
-        
-        return(
+        return (
             <Block id='Projects' title="Projects" solid noPadding>
-                 <Tiles>
-                     <Tile title={'Custom Tech Services'} img={customTechServices} callback={this.toggle}/>
-                     <Tile title={'Decipher Escape Rooms'} img={decipherEscapeRooms} callback={this.toggle}/>
-                     <Tile title={'Music Manager'} img={musicManager} callback={this.toggle} xpos={"center"}/>
-                 </Tiles>
+                <Tiles>
+                    <Tile title={'Custom Tech Services'} img={customTechServices} onClick={() => this.toggle(projects.customTechServices)} />
+                    <Tile title={'Decipher Escape Rooms'} img={decipherEscapeRooms} onClick={() => this.toggle(projects.decipherEscapeRooms)} />
+                    <Tile title={'Music Manager'} img={musicManager} onClick={() => this.toggle(projects.musicManager)} xpos={"center"} />
+                </Tiles>
+                <ProjectsModal show={this.state.modal}
+                    onClose={this.toggle} project={this.state.project}
+                />
             </Block>
         );
     }

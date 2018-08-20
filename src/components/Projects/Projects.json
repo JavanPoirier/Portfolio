@@ -1,0 +1,20 @@
+{
+    "customTechServices": {
+        "title": "Custom Tech Services",
+        "image": "",
+        "description": "",
+        "link": "http://CustomTechServices.com"
+    },
+    "decipherEscapeRooms": {
+        "title": "Decipher Escape Rooms",
+        "image": "",
+        "description": "",
+        "link": ""
+    },
+    "musicManager": {
+        "title": "Music Manger",
+        "image": "",
+        "description": "",
+        "link": ""
+    }
+}

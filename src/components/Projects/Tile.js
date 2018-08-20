@@ -65,7 +65,7 @@ export const Tile = (props) => {
     return (
         <Container>
             <Tilt className="tilt" options={options}>
-                <Wrapper onClick={props.callback}>
+                <Wrapper onClick={props.onClick}>
                     <Image className="image" img={props.img} xpos={props.xpos}></Image>
                     <HighlightText className="title" display={"none"} color={"#090909"} textColor={"#fff"} size={"1em"} zIndex={5}>
                         {props.title}

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import styled from 'styled-components'
 import Animate from '../../components/Animate'
+import CountUp from 'react-countup'
 
 //https://medium.com/@pppped/how-to-code-a-responsive-circular-percentage-chart-with-svg-and-css-3632f8cd7705
 
@@ -23,8 +24,6 @@ const PieChart = styled.svg`
 `
 
 const Percent = styled.text`
-  font-size: 0.5em;
-  text-anchor: middle;
 `
 
 export default class Pie extends Component {
@@ -32,6 +31,7 @@ export default class Pie extends Component {
     super(props)
 
     this.pie = React.createRef();
+    this.countUpRef = React.createRef();
     this.animate = this.animate.bind(this);
   }
 
@@ -53,11 +53,16 @@ export default class Pie extends Component {
               d="M18 2.0845
               a 15.9155 15.9155 0 0 1 0 31.831
               a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-              <Percent x="18" y="20.35">{this.props.percent}%</Percent>
+              />   
+              {/* <Percent x="18" y="20.35">          */}
+                <CountUp start={0} end={100} duration={5} suffix="%" x="18" y="20.35"/>              
+              {/* </Percent>            */}
             </g>
           </PieChart>
         </Animate>
+        <Percent x="18" y="20.35"> 
+        <CountUp start={0} end={this.props.percent} duration={5} />
+        </Percent>  
       </Container>
     )
   }    
