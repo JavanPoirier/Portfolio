@@ -15,6 +15,7 @@ const PieChart = styled.svg`
     stroke: #66ccff;
     fill: none;
     stroke-width: 3;
+    animation: progress 3s ease-out forwards;
   }
 
   @keyframes progress {
@@ -40,16 +41,11 @@ export default class Pie extends Component {
       animate: false,
     }
 
-    this.pie = React.createRef();
     this.animate = this.animate.bind(this);
   }
 
   animate() {
-    const pie = this.pie.current;
-
-    console.log('animate')
     this.setState({ animate: true });
-    console.log(pie.style.animation = "progress 2s ease-in 2s forwards");
   }
 
   render() {
@@ -70,7 +66,7 @@ export default class Pie extends Component {
             </g>
           </PieChart>
           <Percent> 
-            <CountUp start={0} end={percent} duration={5} suffix="%" />
+            <CountUp start={0} end={percent} duration={4} suffix="%" />
           </Percent>
         </Container>
         : null}
