@@ -50,7 +50,7 @@ export default class Skills extends Component {
                 <Container>
                     <Wrapper>
                         <Chart>
-                            <Pie percent="40" scale="0.9" />
+                            <Pie percent={40} scale="0.9" />
                         </Chart>
                         <Text margin="auto">Multimedia</Text>
                         <List>
@@ -63,7 +63,7 @@ export default class Skills extends Component {
                     </Wrapper>
                     <Wrapper>
                         <Chart>
-                            <Pie percent="70" scale="0.9" />
+                            <Pie percent={70} scale="0.9" />
                         </Chart>
                         <Text margin="auto">Electronics/Robotics</Text>
                         <List>
@@ -73,7 +73,7 @@ export default class Skills extends Component {
                     </Wrapper>
                     <Wrapper>
                         <Chart>
-                            <Pie percent="60" scale="0.9" />
+                            <Pie percent={60} scale="0.9" />
                         </Chart>
                         <Text margin="auto">Servers/Networking</Text>
                         <List>
@@ -84,7 +84,7 @@ export default class Skills extends Component {
                     </Wrapper>
                     <Wrapper>
                         <Chart>
-                            <Pie percent="75" scale="0.9" />
+                            <Pie percent={75} scale="0.9" />
                         </Chart>
                         <Text margin="auto">3D Printing/Modeling</Text>
                         <List>
