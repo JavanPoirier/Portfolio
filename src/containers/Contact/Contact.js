@@ -117,7 +117,7 @@ const Items = styled.div`
 const Item = styled.div`
     display: flex;
     justify-content: center;
-    
+    align-items: center;
 
     a:hover {
         color: #66ccff;
@@ -127,10 +127,14 @@ const Item = styled.div`
 `
 
 const Link = styled.a`
-    margin: 0 0 0 15px;
+    display: contents;
     color: #fff;
-    text-decoration: none; 
+    text-decoration: none;
+`
 
+const Text = styled.div`
+    margin: 0 0 0 15px;
+   
     @media screen and (max-width: 800px) {
         display: none;
     } 
@@ -169,20 +173,28 @@ export default class Contact extends Component {
                     <SubContainer width="30%" minWidth="fit-content">
                         <Items className={"contactItems"}>
                             <Item>
-                                <FontAwesomeIcon icon={faLinkedin} size="2x" />
-                                <Link href="https://www.linkedin.com/in/javan-poirier/">javan-poirier</Link>
+                                <Link href="https://www.linkedin.com/in/Javan-Poirier/" target="_blank">
+                                    <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                                    <Text>Javan-Poirier</Text>
+                                </Link>
                             </Item>
                             <Item>
-                                <FontAwesomeIcon icon={faGithub} size="2x" />
-                                <Link href="">JavanPoirier</Link>
+                                <Link href="https://github.com/JavanPoirier" target="_blank">
+                                    <FontAwesomeIcon icon={faGithub} size="2x" />
+                                    <Text>JavanPoirier</Text>
+                                </Link>
                             </Item>
                             <Item>
-                                <FontAwesomeIcon icon={faStackOverflow} size="2x" />
-                                <Link href="">JavanPoirier</Link>
+                                <Link href="https://stackoverflow.com/users/9005679/javan-poirier?tab=profile" target="_blank">
+                                    <FontAwesomeIcon icon={faStackOverflow} size="2x" />
+                                    <Text>Javan_Poirier</Text>
+                                </Link>
                             </Item>
                             <Item>
-                                <FontAwesomeIcon icon={faEnvelope} size="2x" />
-                                <Link href="mailto:Me@JavanPoirier.com">Me@JavanPoirier.com</Link>
+                                <Link href="mailto:Me@JavanPoirier.com">
+                                    <FontAwesomeIcon icon={faEnvelope} size="2x" />
+                                    <Text>Me@JavanPoirier</Text>
+                                </Link>
                             </Item>
                         </Items>
                     </SubContainer>

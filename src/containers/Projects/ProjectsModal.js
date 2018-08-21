@@ -10,9 +10,13 @@ const Background = styled.div`
     top: 0;
     width: 100%;
     height: 100%;
-    padding: 20%;
+    padding: 5%;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 100;
+
+    @media only screen and (min-width: 800px) {
+        padding: 20%;
+    }
 `
 
 const Container = styled.div`
@@ -22,7 +26,7 @@ const Container = styled.div`
 `
 
 const Close = styled.span`
-
+    float: right;
 `
 
 const Title = styled.h1`

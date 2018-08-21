@@ -9,11 +9,11 @@ const Block = styled.div`
     background-color: ${(props) => props.solid ? '#090909' : ''};
     box-shadow: ${(props) => props.solid ? "0px 10px 20px 0px rgba(0, 0, 0, .5)" : ''};
 
-    @media (min-width: 1800px) {
+    @media only screen and (min-width: 1800px) {
         padding: ${(props) => props.noPadding ? "100px 0" : "100px 15%"};
     }
 
-    @media (max-width: 800px) {
+    @media only screen and (max-width: 800px) {
         flex-direction: column;
         text-align: center;
         justify-content: space-evenly;
