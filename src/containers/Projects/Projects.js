@@ -8,6 +8,7 @@ import ProjectsModal from './ProjectsModal'
 import customTechServices from '../../components/Projects/CustomTechServices/CustomTechServices.png'
 import decipherEscapeRooms from '../../components/Projects/DecipherEscapeRooms/DecipherEscapeRooms.png'
 import musicManager from '../../components/Projects/MusicManager/MusicManager.png'
+import gurds from '../../components/Projects/GurdsManagementSystem/Customer.png'
 
 import projects from '../../components/Projects/Projects.json'
 
@@ -44,6 +45,7 @@ export default class Projects extends Component {
                     <Tile title={'Custom Tech Services'} img={customTechServices} onClick={() => this.toggle(projects.customTechServices)} />
                     <Tile title={'Decipher Escape Rooms'} img={decipherEscapeRooms} onClick={() => this.toggle(projects.decipherEscapeRooms)} />
                     <Tile title={'Music Manager'} img={musicManager} onClick={() => this.toggle(projects.musicManager)} xpos={"center"} />
+                    <Tile title={'Gurds Management System'} img={gurds} onClick={() => this.toggle(projects.gurds)} />
                 </Tiles>
                 <ProjectsModal show={this.state.modal}
                     onClose={this.toggle} project={this.state.project}

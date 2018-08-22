@@ -72,11 +72,10 @@ const Experience = (props) => {
                 </List>
             </Wrapper>
             <Wrapper>
-                <Header>Operating Systems_</Header>
+                <Header>Platforms/Libraries_</Header>
                 <List>
-                    <ListItem>Windows</ListItem>
-                    <ListItem>macOS</ListItem>
-                    <ListItem>Linux/Unix</ListItem>
+                    <ListItem>Twilio</ListItem>
+                    <ListItem>Three.js</ListItem>
                 </List>
             </Wrapper>
         </Container>

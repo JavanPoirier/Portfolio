@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import Slider from 'react-slick'
 
 const Background = styled.div`
     position: fixed;
@@ -30,7 +31,15 @@ const Close = styled.span`
 `
 
 const Title = styled.h1`
+    font-size: 2em;
+`
 
+const Hr = styled.hr`
+    background-color: #66ccff;
+    height: 5px;
+`
+
+const Description = styled.div`
 `
 
 const SkillsModal = (props) => {
@@ -38,13 +47,32 @@ const SkillsModal = (props) => {
         return null;
     }
 
-    let project = props.project;
+    const { project, slider } = props;
+
+    const settings = {
+        adaptiveHeight: true,
+        
+        centerMode: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        
+        autoplay: true,
+    }
 
     return (
         <Background>
             <Container>
                 <Close onClick={props.onClose}><FontAwesomeIcon icon={faTimes} size="2x" /></Close>
                 <Title>{project.title}</Title>
+                <Hr/>
+                <Slider {...settings}>
+                    {slider}
+                </Slider>
+                <Description>
+                    {project.description}
+                </Description>
             </Container>
         </Background>
     )
