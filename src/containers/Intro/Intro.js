@@ -16,6 +16,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: space-between;
     text-align: end;
+    font-family: CPMono;
 
     text-transform: uppercase;
 
@@ -33,7 +34,6 @@ const Container = styled.div`
 
 const Text = styled.div`
     font-size: 5vw;
-    font-family: CPMono;
     color: #fff;
 
     perspective: 150px;
@@ -63,7 +63,6 @@ const Name = styled.div`
 `
 
 const Info = styled.div`
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold; 
     font-size: 35px;
 `

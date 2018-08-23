@@ -32,16 +32,17 @@ export default class Projects extends Component {
 
     toggle(project) {
         if (project) {
-            this.setState({ project: project});
+            this.setState({ project: project });
         }
-  
+
         this.setState({ modal: !this.state.modal });
     }
 
     render() {
         return (
-            <Block id='Projects' title="Projects" solid noPadding>
+            <Block id='Projects' title="Projects" titleCenter solid noPadding>
                 <Tiles>
+                    <Tile title={'ChatBot'} img={""} onClick={() => this.toggle(projects.chatbot)} />
                     <Tile title={'Custom Tech Services'} img={customTechServices} onClick={() => this.toggle(projects.customTechServices)} />
                     <Tile title={'Decipher Escape Rooms'} img={decipherEscapeRooms} onClick={() => this.toggle(projects.decipherEscapeRooms)} />
                     <Tile title={'Music Manager'} img={musicManager} onClick={() => this.toggle(projects.musicManager)} xpos={"center"} />

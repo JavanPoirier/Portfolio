@@ -11,7 +11,7 @@ import Experience from './AboutExperience'
 
 const Container = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     text-align: left;
@@ -26,20 +26,31 @@ const Container = styled.div`
 `;
 
 const ListWrapper = styled.div`
+    width: 100%;
+    margin-top: 50px;
     text-transform: uppercase;
-    padding-top: 75px;
     font-size: 75%;
 
+    @media only screen and (min-width: 600px) {
+        font-size: 90%;
+    }
+
     @media only screen and (min-width: 800px) {
+        width: 60%;
+        margin-left: 10%;
+        margin-top: 0;
         padding-top: 0;
         flex-direction: row;
+        font-size: 75%;
+    }
+
+    @media only screen and (min-width: 1200px) {
         font-size: 100%;
     }
 `
 
 const ListHeader = styled.div`
     position: relative;
-    width: 100%;
     margin: 25px 0;
     z-index: 1;
 `
@@ -49,22 +60,29 @@ const ListSubTitle = styled.div`
 `
 
 const List = styled.div`
-    width: 100%;
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: minmax(30%, 35%) auto;
     grid-template-rows: auto;
     grid-row-gap: 15px;
 
-    .name {
-        color: #66ccff;
+    @media only screen and (min-width: 800px) {
+        grid-template-columns: minmax(30%, 40%) auto;
     }
+`
+
+const Item = styled.div`
+    display: flex;
+`
+
+const Name = styled.div`
+    color: #66ccff;
 `
 
 export default class About extends Component {
     render() {
         return (
             //Change grid to single row
-            <Block id="About" solid>
+            <Block id="About" title="About" solid>
                 <Container>
                     <div>
                         <img src={me} alt="Me"></img>                       
@@ -76,11 +94,10 @@ export default class About extends Component {
                             <ListSubTitle>Facial Recognition Data:</ListSubTitle>
                         </ListHeader>
                         <List>
-                            <div className="name">Name</div><div className="item">|&nbsp;Javan Poirier</div>
-                            <div className="name">Occupation</div><div className="item">|&nbsp;Full-stack Developer</div> 
-                            <div className="name">Education</div><div className="item">|&nbsp;Programmer-Analyst, NBCC</div>      
-                            <div className="name">Spoken Languages</div><div className="item">|&nbsp;English, French</div>                     
-                            <div className="name">Skills</div><div className="item">|&nbsp;Programming, Systems Analysis, Robotics, Multi-media</div>
+                            <Name>Occupation</Name><Item><div>|&nbsp;</div>Full-stack Developer</Item> 
+                            <Name>Education</Name><Item><div>|&nbsp;</div>Programmer-Analyst, NBCC</Item>      
+                            <Name>Spoken Languages</Name><Item><div>|&nbsp;</div>English, French</Item>                     
+                            <Name>Skills</Name><Item><div>|&nbsp;</div>Software Development, Systems Analysis, Electronics, Multi-media, Hardware</Item>
                         </List>
                     </ListWrapper>                   
                 </Container >

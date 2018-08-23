@@ -143,7 +143,8 @@ const Text = styled.div`
 export default class Contact extends Component {
     render() {
         return (
-            <Block id="Contact" title="Contact Me">
+            <Block id="Contact">
+                <h1>Contact Me</h1>
                 <Container>
                     <SubContainer width="60%" minWidth="40%">
                         <Form className={"contactForm"}>

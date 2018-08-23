@@ -6,9 +6,22 @@ import HighlightText from '../../components/HighlightText';
 const Container = styled.div`
     display: flex;
     flex-flow: row wrap;
-    margin-top: 100px;
+    margin-top: 20%;
     border: 15px solid #66ccff;
     justify-content: space-around;
+    font-size: 80%;
+
+    @media only screen and (min-width: 600px) {
+        margin-top: 50px;
+    }
+
+    @media only screen and (min-width: 800px) {
+        font-size: 90%;
+    }
+
+    @media only screen and (min-width: 1200px) {
+        font-size: 100%;
+    }
 `
 
 const ContainerTitle = styled.div`

@@ -6,6 +6,7 @@ import HighlightText from '../HighlightText';
 
 const Container = styled.div`
     position: relative;
+    flex: 0.5 1 150px;
 
    :hover { 
         z-index: 5;
@@ -28,8 +29,8 @@ const Container = styled.div`
 const Wrapper = styled.div`
     /* position: relative; */
     display: flex;
-    min-height: 300px;
-    min-width: 300px;
+    min-height: 150px;
+    min-width: 150px;
 
     background-color: #fff;
     justify-content: center;
@@ -48,12 +49,6 @@ const Image = styled.div`
     background: url(${(props) => props.img ? props.img : ""}) no-repeat;
     background-position-x: ${(props) => props.xpos};
     background-size: cover;
-`
-
-const Title = styled.div`
-    display: none;
-    color: black;
-    z-index: 10;
 `
 
 export const Tile = (props) => {

@@ -3,3 +3,8 @@
     src: url("./fonts/CPMono_v07\ Plain.otf") format("opentype");
 }
 
+@font-face {
+    font-family: HACKED;
+    src: url("./fonts/HACKED.ttf") format("opentype");
+}
+
