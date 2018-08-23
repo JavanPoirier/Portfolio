@@ -20,6 +20,7 @@ const Container = styled.div`
     }
 
     @media only screen and (min-width: 1200px) {
+        margin-top: 100px;
         font-size: 100%;
     }
 `
