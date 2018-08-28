@@ -5,17 +5,25 @@ import theme from '../../theme'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faGithub, faStackOverflow } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faFileAlt } from '@fortawesome/free-solid-svg-icons'
 
 import Block from '../../components/Block';
 
 const Container = styled.div`
     display: flex; 
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     color: #fff;
 
-    @media (max-width: 800px) {
+    @media screen and (min-width: 800px) {
+        justify-content: space-between;
+
+        .contactForm {
+            text-align: left;
+        }
+    }
+
+     @media screen and (min-width: 1200px) {
         flex-direction: column;
         justify-content: space-evenly;
 
@@ -27,8 +35,8 @@ const Container = styled.div`
 
 const SubContainer = styled.div`
     display: flex;
-    width: 100%;
-    min-width: 200px;
+    /* width: 100%; */
+    
     padding: 15px;
     font-size: 85%;
     background-color: ${theme.backgroundColor};
@@ -38,15 +46,25 @@ const SubContainer = styled.div`
         margin-bottom: 50px;
     }
 
-    @media only screen and (min-width: 800px) {
-        width: ${(props) => props.width};
+    .contactLinks {
+            min-width: 550px;
+        }
+
+    @media screen and (min-width: 800px) {
+        /* width: ${(props) => props.width}; */
         min-width: ${(props) => props.minWidth ? props.minWidth : "0px"};
         font-size: 100%;
 
         :first-child {
             margin-bottom: 0px;
         }
+
+        .contactLinks {
+            width: 100%;
+        }
     }
+
+    
 `
 
 const Form = styled.form`
@@ -56,10 +74,6 @@ const Form = styled.form`
 const FormGroup = styled.div`
     width: 100%;
     padding: 10px;
-
-    @media (max-width: 800px) {
-        width: 100%;
-    }
 `
 
 const Label = styled.div`
@@ -69,9 +83,10 @@ const Label = styled.div`
 
 const InputGroup = styled.div`
     display: flex;
+    flex-direction: column;
 
-    @media (max-width: 800px) {
-        flex-direction: column;
+    @media screen and (min-width: 800px) {
+        flex-direction: row;
     }
 `
 
@@ -85,9 +100,9 @@ const Message = styled.textarea`
     resize: none;
     overflow-y: scroll;
 
-    @media only screen and (max-width: 800px) {
+    /* @media screen and (max-width: 1200px) {
         max-height: 150px
-    }
+    } */
 `
 
 const Submit = styled.button`
@@ -95,23 +110,23 @@ const Submit = styled.button`
 
 const Items = styled.div`
     flex: 1;
-    display: grid;
+    display: flex;
     width: 100%;
     margin: auto;
     grid-gap: 25px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 
     div:hover {
         color: #66ccff;
-            text-decoration: none;
-            transition-duration: color 0.2s;
+        text-decoration: none;
+        transition-duration: color 0.2s;
     }
 
-    @media screen and (max-width: 800px) {
-        display: flex;
-        justify-content: space-evenly;
-    }
+    /* @media screen and (min-width: 1200px) {
+        display: grid;
+        justify-content: center;
+    } */
 `
 
 const Item = styled.div`
@@ -133,20 +148,26 @@ const Link = styled.a`
 `
 
 const Text = styled.div`
+    display: none;
     margin: 0 0 0 15px;
    
-    @media screen and (max-width: 800px) {
-        display: none;
+    @media screen and (min-width: 1200px) {
+        display: block;
     } 
+`
+
+const Title = styled.h1`
+
 `
 
 export default class Contact extends Component {
     render() {
+
         return (
             <Block id="Contact">
-                <h1>Contact Me</h1>
+                <Title>Contact Me</Title>
                 <Container>
-                    <SubContainer width="60%" minWidth="40%">
+                    <SubContainer width="60%" minWidth="40%" style={{ borderBottom: "10px solid #66ccff" }}>
                         <Form className={"contactForm"}>
                             <InputGroup>
                                 <FormGroup className={"name"}>
@@ -171,7 +192,7 @@ export default class Contact extends Component {
                             </FormGroup>
                         </Form>
                     </SubContainer>
-                    <SubContainer width="30%" minWidth="fit-content">
+                    <SubContainer className="contactLinks" minWidth="fit-content">
                         <Items className={"contactItems"}>
                             <Item>
                                 <Link href="https://www.linkedin.com/in/Javan-Poirier/" target="_blank">
@@ -195,6 +216,12 @@ export default class Contact extends Component {
                                 <Link href="mailto:Me@JavanPoirier.com">
                                     <FontAwesomeIcon icon={faEnvelope} size="2x" />
                                     <Text>Me@JavanPoirier</Text>
+                                </Link>
+                            </Item>
+                            <Item>
+                                <Link href="">
+                                    <FontAwesomeIcon icon={faFileAlt} size="2x" />
+                                    <Text>Resume</Text>
                                 </Link>
                             </Item>
                         </Items>

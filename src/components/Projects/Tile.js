@@ -6,7 +6,7 @@ import HighlightText from '../HighlightText';
 
 const Container = styled.div`
     position: relative;
-    flex: 0.5 1 150px;
+    flex: 0.5 1 inherit;
 
    :hover { 
         z-index: 5;
@@ -22,23 +22,22 @@ const Container = styled.div`
 
     @keyframes opacity {
         0%   { opacity: 1; }
-        100% { opacity: 0.3; }
+        100% { opacity: 0.7; }
     }
 `
 
 const Wrapper = styled.div`
-    /* position: relative; */
     display: flex;
-    min-height: 150px;
-    min-width: 150px;
-
+    height: 150px;
+    width: 150px;
+    
     background-color: #fff;
     justify-content: center;
     align-items: center;
 
     @media only screen and (min-width: 800px){      
-        min-height: 300px;
-        min-width: 300px;
+        height: 300px;
+        width: 300px;
     }
 `
 

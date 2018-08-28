@@ -14,9 +14,11 @@ const Background = styled.div`
     padding: 5%;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 100;
+    overflow: scroll;
 
     @media only screen and (min-width: 800px) {
         padding: 20%;
+        padding-top: 100px;
     }
 `
 
@@ -42,33 +44,43 @@ const Hr = styled.hr`
 const Description = styled.div`
 `
 
+const Image = styled.img`
+    width: inherit;
+`
+
 const SkillsModal = (props) => {
     if (!props.show) {
         return null;
     }
 
-    const { project, slider } = props;
+    const { project, slides, onClose } = props;
 
     const settings = {
         adaptiveHeight: true,
-        
+
         centerMode: true,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        
+
         autoplay: true,
     }
 
     return (
         <Background>
             <Container>
-                <Close onClick={props.onClose}><FontAwesomeIcon icon={faTimes} size="2x" /></Close>
+                <Close onClick={onClose}><FontAwesomeIcon icon={faTimes} size="2x" /></Close>
                 <Title>{project.title}</Title>
-                <Hr/>
+                <Hr />
                 <Slider {...settings}>
-                    {slider}
+                    {slides.map((slide) => {
+                        return (
+                        <div>
+                            <Image src={slide}/>
+                        </div>
+                        )
+                    })}
                 </Slider>
                 <Description>
                     {project.description}

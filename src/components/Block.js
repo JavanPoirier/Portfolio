@@ -10,7 +10,7 @@ const Container = styled.div`
     background-color: ${(props) => props.solid ? '#090909' : ''};
     box-shadow: ${(props) => props.solid ? "0px 10px 20px 0px rgba(0, 0, 0, .5)" : ''};
 
-    @media only screen and (min-width: 1600px) {
+    @media only screen and (min-width: 1800px) {
         padding: ${(props) => props.noPadding ? (props.title ? "0 0 100px 0" : "100px 0") : (props.title ? "0 15% 100px 15%" : "100px 15%") };
     }
 

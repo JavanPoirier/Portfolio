@@ -63,16 +63,14 @@ export default class Background extends Component {
 
     //Prevent browser menu on mobile from causing background to resize by applying a offset boundry.
     if (newHeightOffset + 100 < height || newHeightOffset - 100 > height) {
-      this.setState({ height: window.innerHeight, width: window.innerWidth }, () => {
-        this.context.parallaxController.update();
-      })
+      this.setState({ height: window.innerHeight, width: window.innerWidth });
     }
 
     if (width !== window.innerWidth) {
-      this.setState({width: window.innerWidth }, () => {
-        this.context.parallaxController.update();
-      })
+      this.setState({width: window.innerWidth })
     }
+
+    this.context.parallaxController.update();
   }
 
   render() {

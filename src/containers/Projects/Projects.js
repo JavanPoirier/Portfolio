@@ -5,7 +5,10 @@ import Block from '../../components/Block'
 import { Tile } from '../../components/Projects/Tile'
 
 import ProjectsModal from './ProjectsModal'
-import customTechServices from '../../components/Projects/CustomTechServices/CustomTechServices.png'
+import * as CustomTechServices from '../../components/Projects/CustomTechServices/CustomTechServices'
+
+
+
 import decipherEscapeRooms from '../../components/Projects/DecipherEscapeRooms/DecipherEscapeRooms.png'
 import musicManager from '../../components/Projects/MusicManager/MusicManager.png'
 import gurds from '../../components/Projects/GurdsManagementSystem/Customer.png'
@@ -43,13 +46,14 @@ export default class Projects extends Component {
             <Block id='Projects' title="Projects" titleCenter solid noPadding>
                 <Tiles>
                     <Tile title={'ChatBot'} img={""} onClick={() => this.toggle(projects.chatbot)} />
-                    <Tile title={'Custom Tech Services'} img={customTechServices} onClick={() => this.toggle(projects.customTechServices)} />
+                    <Tile title={'Custom Tech Services'} onClick={() => this.toggle(projects.customTechServices)} />
                     <Tile title={'Decipher Escape Rooms'} img={decipherEscapeRooms} onClick={() => this.toggle(projects.decipherEscapeRooms)} />
                     <Tile title={'Music Manager'} img={musicManager} onClick={() => this.toggle(projects.musicManager)} xpos={"center"} />
                     <Tile title={'Gurds Management System'} img={gurds} onClick={() => this.toggle(projects.gurds)} />
                 </Tiles>
                 <ProjectsModal show={this.state.modal}
-                    onClose={this.toggle} project={this.state.project}
+                    onClose={this.toggle} project={this.state.project} 
+                    slides={CustomTechServices.Slides}
                 />
             </Block>
         );
