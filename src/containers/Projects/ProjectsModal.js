@@ -5,6 +5,10 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import Slider from 'react-slick'
+import HighlightText from '../../components/HighlightText';
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Background = styled.div`
     position: fixed;
@@ -23,17 +27,27 @@ const Background = styled.div`
 `
 
 const Container = styled.div`
-    padding: 15px;
     margin: auto;
     background: #090909;
+    border: 15px solid #66ccff
+
+    .slick-slider {
+        /* height: ${(props) => props.height ? props.height : "500px"}; */
+    }
+
+    .slick-list {
+        height: ${(props) => props.height ? props.height : "500px"};
+        margin: 50px 0;
+    }
 `
 
 const Close = styled.span`
     float: right;
-`
+    margin: 10px 15px;
 
-const Title = styled.h1`
-    font-size: 2em;
+    :hover {
+        color: #66ccff
+    }
 `
 
 const Hr = styled.hr`
@@ -42,6 +56,9 @@ const Hr = styled.hr`
 `
 
 const Description = styled.div`
+    margin: 0 50px;
+    margin-bottom: 50px;
+    font-weight: lighter;
 `
 
 const Image = styled.img`
@@ -53,34 +70,34 @@ const SkillsModal = (props) => {
         return null;
     }
 
-    const { project, slides, onClose } = props;
+    const { project, onClose } = props;
 
     const settings = {
-        adaptiveHeight: true,
-
         centerMode: true,
         infinite: true,
-        speed: 500,
+        speed: 5000,
         slidesToShow: 1,
         slidesToScroll: 1,
 
         autoplay: true,
     }
 
+    const slides = project.slides.map((slide) =>
+        <div key={slide}>
+            <Image src={slide} />
+        </div>
+    );
+
     return (
         <Background>
             <Container>
+                <div>    
+                <HighlightText size={"2em"} >{project.title}</HighlightText>
                 <Close onClick={onClose}><FontAwesomeIcon icon={faTimes} size="2x" /></Close>
-                <Title>{project.title}</Title>
-                <Hr />
+                </div>
+                {/* <Hr /> */}
                 <Slider {...settings}>
-                    {slides.map((slide) => {
-                        return (
-                        <div>
-                            <Image src={slide}/>
-                        </div>
-                        )
-                    })}
+                    {slides}
                 </Slider>
                 <Description>
                     {project.description}

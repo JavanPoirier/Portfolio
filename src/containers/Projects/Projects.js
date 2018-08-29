@@ -5,15 +5,11 @@ import Block from '../../components/Block'
 import { Tile } from '../../components/Projects/Tile'
 
 import ProjectsModal from './ProjectsModal'
-import * as CustomTechServices from '../../components/Projects/CustomTechServices/CustomTechServices'
-
-
+import customTechServices from '../../components/Projects/CustomTechServices/CustomTechServices'
 
 import decipherEscapeRooms from '../../components/Projects/DecipherEscapeRooms/DecipherEscapeRooms.png'
 import musicManager from '../../components/Projects/MusicManager/MusicManager.png'
 import gurds from '../../components/Projects/GurdsManagementSystem/Customer.png'
-
-import projects from '../../components/Projects/Projects.json'
 
 const Tiles = styled.div`
     display: flex;
@@ -45,15 +41,14 @@ export default class Projects extends Component {
         return (
             <Block id='Projects' title="Projects" titleCenter solid noPadding>
                 <Tiles>
-                    <Tile title={'ChatBot'} img={""} onClick={() => this.toggle(projects.chatbot)} />
-                    <Tile title={'Custom Tech Services'} onClick={() => this.toggle(projects.customTechServices)} />
-                    <Tile title={'Decipher Escape Rooms'} img={decipherEscapeRooms} onClick={() => this.toggle(projects.decipherEscapeRooms)} />
-                    <Tile title={'Music Manager'} img={musicManager} onClick={() => this.toggle(projects.musicManager)} xpos={"center"} />
-                    <Tile title={'Gurds Management System'} img={gurds} onClick={() => this.toggle(projects.gurds)} />
+                    {/* <Tile title={'ChatBot'} img={""} img={chatbot.slide} onClick={() => this.toggle(chatbot)} /> */}
+                    <Tile title={'Custom Tech Services'} img={customTechServices.slide} onClick={() => this.toggle(customTechServices)} />
+                    {/* <Tile title={'Decipher Escape Rooms'} img={decipherEscapeRooms} onClick={() => this.toggle(decipherEscapeRooms)} />
+                    <Tile title={'Music Manager'} img={musicManager} onClick={() => this.toggle(musicManager)} xpos={"center"} />
+                    <Tile title={'Gurds Management System'} img={gurds} onClick={() => this.toggle(gurds)} /> */}
                 </Tiles>
                 <ProjectsModal show={this.state.modal}
-                    onClose={this.toggle} project={this.state.project} 
-                    slides={CustomTechServices.Slides}
+                    onClose={this.toggle} project={this.state.project}
                 />
             </Block>
         );

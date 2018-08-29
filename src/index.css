@@ -1,5 +1,12 @@
 @font-face {
+    font-family: CPMono_Light;
+    font-weight: lighter;
+    src: url("./fonts/CPMono_v07\ Light.otf") format("opentype");
+}
+
+@font-face {
     font-family: CPMono;
+    font-weight: normal;
     src: url("./fonts/CPMono_v07\ Plain.otf") format("opentype");
 }
 
