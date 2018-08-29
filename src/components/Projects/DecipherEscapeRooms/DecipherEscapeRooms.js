@@ -2,14 +2,14 @@ import React from 'react'
 import styled from 'styled-components';
 import HighlightText from '../../../components/HighlightText'
 
-import img1 from './CustomTechServices.png';
+import img1 from './DecipherEscapeRooms.png';
 
 const Link = styled.a`
     color: #66ccff;
 `
 
-const chatbot = {
-    title: "Chatbot",
+const decipherEscapeRooms = {
+    title: "Decipher Escape Rooms",
     slide: img1,
     slides: [img1],
     description: (
@@ -28,20 +28,8 @@ const chatbot = {
             <p></p>
             <br/>
             <h5>Visit here:&nbsp;<Link href="http://CustomTechServices.com">http://CustomTechServices.com</Link></h5>
-
-            <p>
-            This Chatbot web appication was developed with the MERN (Mongo Express React Node) stack. The creation of courses by instructors
-    allows for course contacts such as students to be added. Events are then set throughout the duration of the course, which 
-    are triggered by a specified date and time. These events are sent by SMS using the Twilio API. A collection of events 
-    were designed with the Twilio studio platform to allow for dynamic customization of the events.
-    
-    - Info: Allows for up to 3 custom messages to be sent to contacts.
-    - Sentiment: Request a contacts feedback and respond accordingly to negative, neutral or positive responses.
-    - Quiz: Create a quiz with multiple questions and can provide simultaneous feedback on responses.
-    - Response: Ask a question to the user and store the response.
-            </p>
          </React.Fragment>
     )
 }
 
-export default chatbot;
+export default decipherEscapeRooms;
