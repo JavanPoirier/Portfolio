@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components';
 import HighlightText from '../../../components/HighlightText'
 
-import img1 from './CustomTechServices.png';
+import img1 from './Course.png';
+import img2 from './Event.png';
 
 const Link = styled.a`
     color: #66ccff;
@@ -11,7 +12,7 @@ const Link = styled.a`
 const chatbot = {
     title: "Chatbot",
     slide: img1,
-    slides: [img1],
+    slides: [img1, img2],
     description: (
         <React.Fragment>
             <p>

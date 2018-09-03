@@ -21,8 +21,7 @@ const Background = styled.div`
     overflow: scroll;
 
     @media only screen and (min-width: 800px) {
-        padding: 20%;
-        padding-top: 100px;
+        padding: 100px 20%;
     }
 `
 

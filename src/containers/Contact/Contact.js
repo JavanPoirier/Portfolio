@@ -11,60 +11,44 @@ import Block from '../../components/Block';
 
 const Container = styled.div`
     display: flex; 
-    justify-content: space-evenly;
-
+    flex-direction: column;
+    justify-content: space-between;
     color: #fff;
 
+    .contactForm {
+        margin-bottom: 50px;
+        border-bottom: 10px solid #66ccff;  
+    }
+
     @media screen and (min-width: 800px) {
-        justify-content: space-between;
+        flex-direction: row;
 
         .contactForm {
-            text-align: left;
+            margin-bottom: 0;
+            width: 80%;
         }
     }
 
-     @media screen and (min-width: 1200px) {
-        flex-direction: column;
-        justify-content: space-evenly;
-
+    @media screen and (min-width: 1200px) {
         .contactForm {
-            text-align: left;
+            width: 60%;
+        }
+
+        .contactLinks {
+            width: 30%;
         }
     }
 `
 
 const SubContainer = styled.div`
     display: flex;
-    /* width: 100%; */
-    
     padding: 15px;
-    font-size: 85%;
     background-color: ${theme.backgroundColor};
     box-shadow: ${theme.boxShadow};
 
-    :first-child {
-        margin-bottom: 50px;
-    }
-
-    .contactLinks {
-            min-width: 550px;
-        }
-
     @media screen and (min-width: 800px) {
-        /* width: ${(props) => props.width}; */
-        min-width: ${(props) => props.minWidth ? props.minWidth : "0px"};
-        font-size: 100%;
-
-        :first-child {
-            margin-bottom: 0px;
-        }
-
-        .contactLinks {
-            width: 100%;
-        }
+        border-bottom: 10px solid #66ccff;
     }
-
-    
 `
 
 const Form = styled.form`
@@ -99,10 +83,6 @@ const Message = styled.textarea`
     width: 100%;
     resize: none;
     overflow-y: scroll;
-
-    /* @media screen and (max-width: 1200px) {
-        max-height: 150px
-    } */
 `
 
 const Submit = styled.button`
@@ -111,9 +91,8 @@ const Submit = styled.button`
 const Items = styled.div`
     flex: 1;
     display: flex;
+    flex-direction: row;
     width: 100%;
-    margin: auto;
-    grid-gap: 25px;
     align-items: center;
     justify-content: space-evenly;
 
@@ -123,10 +102,9 @@ const Items = styled.div`
         transition-duration: color 0.2s;
     }
 
-    /* @media screen and (min-width: 1200px) {
-        display: grid;
-        justify-content: center;
-    } */
+    @media screen and (min-width: 800px) {
+        flex-direction: column;
+    }
 `
 
 const Item = styled.div`
@@ -167,8 +145,8 @@ export default class Contact extends Component {
             <Block id="Contact">
                 <Title>Contact Me</Title>
                 <Container>
-                    <SubContainer width="60%" minWidth="40%" style={{ borderBottom: "10px solid #66ccff" }}>
-                        <Form className={"contactForm"}>
+                    <SubContainer className="contactForm">
+                        <Form>
                             <InputGroup>
                                 <FormGroup className={"name"}>
                                     <Label>Name:</Label>
@@ -192,7 +170,7 @@ export default class Contact extends Component {
                             </FormGroup>
                         </Form>
                     </SubContainer>
-                    <SubContainer className="contactLinks" minWidth="fit-content">
+                    <SubContainer className="contactLinks">
                         <Items className={"contactItems"}>
                             <Item>
                                 <Link href="https://www.linkedin.com/in/Javan-Poirier/" target="_blank">
@@ -215,7 +193,7 @@ export default class Contact extends Component {
                             <Item>
                                 <Link href="mailto:Me@JavanPoirier.com">
                                     <FontAwesomeIcon icon={faEnvelope} size="2x" />
-                                    <Text>Me@JavanPoirier</Text>
+                                    <Text>Me@JavanPoirier.com</Text>
                                 </Link>
                             </Item>
                             <Item>
