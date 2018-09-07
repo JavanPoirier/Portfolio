@@ -15,19 +15,11 @@ const gurds = {
     description: (
         <React.Fragment>
             <p>
-            Through my side buisness I offer general consumers and small buisnesses a variety of products, services, and solutions.
+            My final college project ISDP (Individual Software Development Project), was a product distribution management system for a fictional company called Gurd's Bottling Company roleplayed by instructors. A prior course, Systems Analysis had us the consultant company;  as in classmates roleplay as analysts for Gurd's. This involved understanding the current processes documenting possible improvements and developing a later proposed solution. This was more than just a software solution, it involved business processes and procedures such as invoicing/billing, loading and unloading trucks and vending machines, scheduling and, more.
             </p>
-            <br/>
-             <HighlightText color="white">Computer Sales/Service</HighlightText>
-             <p>
-             As a computer hardware enthusiast the custom built systems I build for my customers reflect my knowledge and research in hardware performance and benchmarks.
-             Leading to a higher value per dollar system with added touches in asethtics and any other requirements needing to be met by my clients.
-             </p>
-            <br/>
-            <HighlightText color="white">Web Development</HighlightText>
-            <p></p>
-            <br/>
-            <h5>Visit here:&nbsp;<Link href="http://CustomTechServices.com">http://CustomTechServices.com</Link></h5>
+            <p>
+            After the analysis phase, the class collectively designed a software solution defining application features, database structure, and test data. Then we individually developed a software solution following the defined specifications.
+            </p>
          </React.Fragment>
     )
 }

@@ -172,31 +172,31 @@ export default class Contact extends Component {
                     </SubContainer>
                     <SubContainer className="contactLinks">
                         <Items className={"contactItems"}>
-                            <Item>
+                            <Item title="LinkedIn">
                                 <Link href="https://www.linkedin.com/in/Javan-Poirier/" target="_blank">
                                     <FontAwesomeIcon icon={faLinkedin} size="2x" />
                                     <Text>Javan-Poirier</Text>
                                 </Link>
                             </Item>
-                            <Item>
+                            <Item title="Github">
                                 <Link href="https://github.com/JavanPoirier" target="_blank">
                                     <FontAwesomeIcon icon={faGithub} size="2x" />
                                     <Text>JavanPoirier</Text>
                                 </Link>
                             </Item>
-                            <Item>
+                            <Item title="StackOverflow">
                                 <Link href="https://stackoverflow.com/users/9005679/javan-poirier?tab=profile" target="_blank">
                                     <FontAwesomeIcon icon={faStackOverflow} size="2x" />
                                     <Text>Javan_Poirier</Text>
                                 </Link>
                             </Item>
-                            <Item>
+                            <Item title="Email">
                                 <Link href="mailto:Me@JavanPoirier.com">
                                     <FontAwesomeIcon icon={faEnvelope} size="2x" />
                                     <Text>Me@JavanPoirier.com</Text>
                                 </Link>
                             </Item>
-                            <Item>
+                            <Item title="Resume">
                                 <Link href="">
                                     <FontAwesomeIcon icon={faFileAlt} size="2x" />
                                     <Text>Resume</Text>

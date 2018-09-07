@@ -42,7 +42,6 @@ export default class Animate extends Component {
             let distance = window.pageYOffset
 
             if (position <= distance) {
-                console.log('Animate');
                 this.setState({ inView: true }, this.props.callback());
             }
         }

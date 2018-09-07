@@ -15,19 +15,11 @@ const musicManager = {
     description: (
         <React.Fragment>
             <p>
-            Through my side buisness I offer general consumers and small buisnesses a variety of products, services, and solutions.
+            A simple, yet useful to me application I built during my first year of college and assisted in my understanding of 
+            OOP (Object Oriented Programming). This application takes the filenames of songs and parses them according to my specified 
+            filename structure, verify the filenames and song info using the existing library then applies the correct meta tags to the file.
             </p>
-            <br/>
-             <HighlightText color="white">Computer Sales/Service</HighlightText>
-             <p>
-             As a computer hardware enthusiast the custom built systems I build for my customers reflect my knowledge and research in hardware performance and benchmarks.
-             Leading to a higher value per dollar system with added touches in asethtics and any other requirements needing to be met by my clients.
-             </p>
-            <br/>
-            <HighlightText color="white">Web Development</HighlightText>
-            <p></p>
-            <br/>
-            <h5>Visit here:&nbsp;<Link href="http://CustomTechServices.com">http://CustomTechServices.com</Link></h5>
+            <h5>View here:&nbsp;<Link href="https://github.com/Speedrookie/Music-Manager">Music-Manager</Link></h5>
          </React.Fragment>
     )
 }

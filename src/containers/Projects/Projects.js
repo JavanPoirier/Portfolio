@@ -15,6 +15,7 @@ const Tiles = styled.div`
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    width: 100%;
 `
 
 export default class Projects extends Component {
@@ -39,13 +40,14 @@ export default class Projects extends Component {
 
     render() {
         return (
-            <Block id='Projects' title="Projects" titleCenter solid noPadding>
+            <Block id='Projects' titleName="Projects" titleCenter solid noPadding>
                 <Tiles>
-                    <Tile title={chatbot.title} img={""} img={chatbot.slide} onClick={() => this.toggle(chatbot)} />
+                    <Tile title={chatbot.title} img={chatbot.slide} onClick={() => this.toggle(chatbot)} />
                     <Tile title={customTechServices.title} img={customTechServices.slide} onClick={() => this.toggle(customTechServices)} />
-                    <Tile title={decipherEscapeRooms.title} img={decipherEscapeRooms.slide} onClick={() => this.toggle(decipherEscapeRooms)} />
-                    <Tile title={musicManager.title} img={musicManager.slide} onClick={() => this.toggle(musicManager)} xpos={"center"} />
                     <Tile title={gurds.title} img={gurds.slide} onClick={() => this.toggle(gurds)} />
+                    {/* <Tile title={decipherEscapeRooms.title} img={decipherEscapeRooms.slide} onClick={() => this.toggle(decipherEscapeRooms)} /> */}
+                    <Tile title={musicManager.title} img={musicManager.slide} onClick={() => this.toggle(musicManager)} xpos={"center"} />
+                   
                 </Tiles>
                 <ProjectsModal show={this.state.modal}
                     onClose={this.toggle} project={this.state.project}

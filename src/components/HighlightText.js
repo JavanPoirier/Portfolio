@@ -5,7 +5,7 @@ const HighlightText = styled.span`
     display: ${(props) => props.display ? props.display : ""};
     width: fit-content;
     margin: ${(props) => props.margin ? props.margin : ""};
-    font-size: ${(props) => props.size ? props.size : "1.5em"};
+    font-size: ${(props) => props.responsive ? props.responsive : ""};
     text-transform: uppercase;
     padding: 0.2em 10px;
     color: ${(props) => props.textColor ? props.textColor : "#090909"};
@@ -13,6 +13,10 @@ const HighlightText = styled.span`
     z-index: ${(props) => props.zIndex ? props.zIndex : ""};
     line-height: ${(props) => props.multiLine ? "2" : ""};
     box-decoration-break: clone;
+
+    @media screen and (min-width: 800px) {
+        font-size: ${(props) => props.size ? props.size : "1.5em"};
+    }
 `
 
 export default HighlightText

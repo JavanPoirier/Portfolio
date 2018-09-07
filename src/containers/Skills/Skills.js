@@ -26,7 +26,7 @@ const Chart = styled.div`
 `
 
 const Text = (props) => {
-    return <HighlightText color="#090909" textColor="#fff" size={props.size ? props.size : "1.15em"} margin={props.margin} multiLine>{props.children}</HighlightText>
+    return <HighlightText color="#090909" textColor="#fff" size={props.size ? props.size : "1.15em"} margin={props.margin} multiLine {...props}>{props.children}</HighlightText>
 }
 
 const List = styled.ul`
@@ -45,7 +45,7 @@ export default class Skills extends Component {
         return (
             <Block>
                 <h1>Skills</h1>
-                <Text size="1.25em">Jack of all trades, master of none. Skill charts are quite relative to one's perspective, and no one can be 100%... But hey, they look cool!</Text>
+                <Text size="1.25em" responsive="2vmax">Jack of all trades, master of none. Skill charts are quite relative to one's perspective, and no one can be 100%... But hey, they look cool!</Text>
                 <br />
                 <Container>
                     <Wrapper>

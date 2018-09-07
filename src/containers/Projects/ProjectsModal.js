@@ -28,15 +28,41 @@ const Background = styled.div`
 const Container = styled.div`
     margin: auto;
     background: #090909;
-    border: 15px solid #66ccff
+    border: 15px solid #66ccff;
+    font-size: 75%;
 
     .slick-slider {
         /* height: ${(props) => props.height ? props.height : "500px"}; */
     }
 
     .slick-list {
-        height: ${(props) => props.height ? props.height : "500px"};
-        margin: 50px 0;
+        max-height: 500px;
+        /* margin: 50px 0; */
+    }
+
+    p {
+        font-family: CPMono_Light;
+    }
+
+    @media screen and (min-width: 800px) {
+        p {
+            font-family: CPMono;
+        }
+
+        font-size: 90%;
+    }
+
+    @media screen and (min-width: 1200px) {
+        font-size: 100%;
+    }
+`
+
+const Header = styled.div`
+    margin-left: -10px;
+    margin-bottom: 25px;
+
+    @media screen and (min-width: 800px) {
+        margin-bottom: 50px;
     }
 `
 
@@ -49,15 +75,12 @@ const Close = styled.span`
     }
 `
 
-const Hr = styled.hr`
-    background-color: #66ccff;
-    height: 5px;
-`
-
 const Description = styled.div`
-    margin: 0 50px;
-    margin-bottom: 50px;
-    font-weight: lighter;
+    margin: 25px 25px; 
+
+    @media screen and (min-width: 800px) {
+        margin: 50px 50px; 
+    }
 `
 
 const Image = styled.img`
@@ -74,7 +97,8 @@ const SkillsModal = (props) => {
     const settings = {
         centerMode: true,
         infinite: true,
-        speed: 5000,
+        speed: 2000,
+        autoplaySpeed: 5000,
         slidesToShow: 1,
         slidesToScroll: 1,
 
@@ -90,11 +114,10 @@ const SkillsModal = (props) => {
     return (
         <Background>
             <Container>
-                <div>    
-                <HighlightText size={"2em"} >{project.title}</HighlightText>
-                <Close onClick={onClose}><FontAwesomeIcon icon={faTimes} size="2x" /></Close>
-                </div>
-                {/* <Hr /> */}
+                <Header>    
+                    <HighlightText size={"2em"} >{project.title}</HighlightText>
+                    <Close onClick={onClose}><FontAwesomeIcon icon={faTimes} size="2x" /></Close>
+                </Header>
                 <Slider {...settings}>
                     {slides}
                 </Slider>

@@ -82,7 +82,7 @@ export default class About extends Component {
     render() {
         return (
             //Change grid to single row
-            <Block id="About" title="About" solid>
+            <Block id="About" titleName="About" solid>
                 <Container>
                     <div>
                         <img src={me} alt="Me"></img>                       
