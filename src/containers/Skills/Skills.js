@@ -11,29 +11,46 @@ const Container = styled.div`
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: baseline;
+
+    @media (min-width: 1200px) {
+        justify-content: space-between;
+    }
 `
 
 const Wrapper = styled.div`
+    flex: 0 0 50%;
     width: fit-content;
     text-align: center;
-    margin: 20px;
+    margin: 25px;
+
+    @media (min-width: 802px) {
+        flex: 0 0 33%;
+    }
+
+    @media (min-width: 1200px) {
+        flex: 1 1 auto;
+    }
 `
 
 const Chart = styled.div`
     width: 200px;
     margin: auto;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 `
 
 const Text = (props) => {
-    return <HighlightText color="#090909" textColor="#fff" size={props.size ? props.size : "1.15em"} margin={props.margin} multiLine {...props}>{props.children}</HighlightText>
+    return <HighlightText color="#090909" textColor="#fff" size={props.size ? props.size : "1em"} margin={props.margin} multiLine {...props}>{props.children}</HighlightText>
 }
 
 const List = styled.ul`
     text-align: center;
     padding: 0;
     margin: 0;
-    font-size: 1.15em;
+    font-size: 2.5vmax;
+
+    @media (min-width: 600px) {
+        font-size: 1em;
+    }
 `
 
 const ListItem = styled.li`

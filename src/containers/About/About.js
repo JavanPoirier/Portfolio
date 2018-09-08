@@ -17,11 +17,15 @@ const Container = styled.div`
     text-align: left;
     
     img {
-        max-height: 30vh;
+        max-height: 35vh;
     }
 
     @media only screen and (min-width: 800px) {
         flex-direction: row;
+
+        img {
+            max-height: 30vh;
+        }
     }
 `;
 
