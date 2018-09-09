@@ -49,7 +49,7 @@ const List = styled.ul`
     font-size: 2.5vmax;
 
     @media (min-width: 600px) {
-        font-size: 1em;
+        font-size: 1.15em;
     }
 `
 

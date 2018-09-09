@@ -7,10 +7,16 @@ import CountUp from 'react-countup'
 //https://medium.com/@pppped/how-to-code-a-responsive-circular-percentage-chart-with-svg-and-css-3632f8cd7705
 
 const Container = styled.div`
-position: relative;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const PieChart = styled.svg`
+  width: 100%;
+  height: 100%;
+
   .circle {
     stroke: #66ccff;
     fill: none;
@@ -27,9 +33,6 @@ const PieChart = styled.svg`
 
 const Percent = styled.div`
   position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  height: fit-content;
-  margin: auto;
   font-size: 2em;
 `
 

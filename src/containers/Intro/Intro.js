@@ -9,49 +9,53 @@ import Tilt from 'react-tilt';
 
 const Container = styled.div`
     display: flex;
+    flex-direction: column;
     width: 100%;
     /* Ensure height is reset on resize */
     height: ${(props) => props.size ? (props.size) : (window.innerHeight)}px;
+    min-height: 550px;
     padding: 0 10%;
     align-items: center;
-    justify-content: space-between;
-    text-align: end;
+    justify-content: center;
     font-family: CPMono;
-
     text-transform: uppercase;
+
+    > div:first-child {
+            margin-bottom: 50px;
+    }
+
+    @media (min-width: 800px) {
+        padding-top: 60px;
+        flex-direction: row;
+        justify-content: space-between;
+
+        > div:first-child {
+            margin-bottom: 0;
+        }
+    }
 
     @media (min-width: 1800px) {
         padding: 0 15%;
     }
-
-    @media (max-width: 800px) {
-        padding-top: 60px;
-        flex-direction: column;
-        text-align: center;
-        justify-content: space-evenly;
-    }
 `
 
 const Text = styled.div`
-    font-size: 5vw;
+    font-size: 10vw;
+    perspective: none;
     color: #fff;
 
-    perspective: 150px;
-    -webkit-perspective: 150px;
-    perspective-origin: left;
-
-    @media (max-width: 800px){
-        font-size: 10vw;
-        text-align: -webkit-center;
-        perspective: none;
-        -webkit-perspective: none;
+    @media (min-width: 800px){
+        font-size: 5vw;
+        perspective: 150px;
+        perspective-origin: left;
     }
 `
 const Name = styled.div`
+    display: table;
     background-color: #090909;
+    margin: auto;
     
     width: fit-content;
-    margin-bottom: -1px; 
     padding: 0 50px 0 50px;
 
     transform: rotateY(5deg);
@@ -59,6 +63,14 @@ const Name = styled.div`
 
     span {
         display: inline !important;
+    }
+
+    :first-child {
+        margin-bottom: -1px;
+    }
+
+    @media (min-width: 800px) {
+        margin: 0;
     }
 `
 

@@ -83,6 +83,7 @@ const Message = styled.textarea`
     width: 100%;
     resize: none;
     overflow-y: scroll;
+    box-shadow: none;
 `
 
 const Submit = styled.button`
@@ -94,7 +95,7 @@ const Items = styled.div`
     flex-direction: row;
     width: 100%;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
 
     div:hover {
         color: #66ccff;
@@ -108,9 +109,8 @@ const Items = styled.div`
 `
 
 const Item = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: #fff;
+    text-decoration: none;
 
     a:hover {
         color: #66ccff;
@@ -119,18 +119,12 @@ const Item = styled.div`
     }
 `
 
-const Link = styled.a`
-    display: contents;
-    color: #fff;
-    text-decoration: none;
-`
-
 const Text = styled.div`
     display: none;
     margin: 0 0 0 15px;
    
     @media screen and (min-width: 1200px) {
-        display: block;
+        display: inline;
     } 
 `
 
@@ -172,35 +166,25 @@ export default class Contact extends Component {
                     </SubContainer>
                     <SubContainer className="contactLinks">
                         <Items className={"contactItems"}>
-                            <Item title="LinkedIn">
-                                <Link href="https://www.linkedin.com/in/Javan-Poirier/" target="_blank">
-                                    <FontAwesomeIcon icon={faLinkedin} size="2x" />
-                                    <Text>Javan-Poirier</Text>
-                                </Link>
+                            <Item title="LinkedIn" href="https://www.linkedin.com/in/Javan-Poirier/" target="_blank">
+                                <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                                <Text>Javan-Poirier</Text>
                             </Item>
-                            <Item title="Github">
-                                <Link href="https://github.com/JavanPoirier" target="_blank">
-                                    <FontAwesomeIcon icon={faGithub} size="2x" />
-                                    <Text>JavanPoirier</Text>
-                                </Link>
+                            <Item title="Github" href="https://github.com/JavanPoirier" target="_blank">
+                                <FontAwesomeIcon icon={faGithub} size="2x" />
+                                <Text>JavanPoirier</Text>
                             </Item>
-                            <Item title="StackOverflow">
-                                <Link href="https://stackoverflow.com/users/9005679/javan-poirier?tab=profile" target="_blank">
-                                    <FontAwesomeIcon icon={faStackOverflow} size="2x" />
-                                    <Text>Javan_Poirier</Text>
-                                </Link>
+                            <Item title="StackOverflow" href="https://stackoverflow.com/users/9005679/javan-poirier?tab=profile" target="_blank">
+                                <FontAwesomeIcon icon={faStackOverflow} size="2x" />
+                                <Text>Javan_Poirier</Text>
                             </Item>
-                            <Item title="Email">
-                                <Link href="mailto:Me@JavanPoirier.com">
-                                    <FontAwesomeIcon icon={faEnvelope} size="2x" />
-                                    <Text>Me@JavanPoirier.com</Text>
-                                </Link>
+                            <Item title="Email" href="mailto:Me@JavanPoirier.com">
+                                <FontAwesomeIcon icon={faEnvelope} size="2x" />
+                                <Text>Me@JavanPoirier.com</Text>
                             </Item>
                             <Item title="Resume">
-                                <Link href="">
-                                    <FontAwesomeIcon icon={faFileAlt} size="2x" />
-                                    <Text>Resume</Text>
-                                </Link>
+                                <FontAwesomeIcon icon={faFileAlt} size="2x" />
+                                <Text>Resume</Text>
                             </Item>
                         </Items>
                     </SubContainer>

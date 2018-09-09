@@ -3,7 +3,6 @@ import styled from 'styled-components'
 //https://callmenick.com/dev/multi-line-padded-text-css-box-decoration-break/
 const HighlightText = styled.span`
     display: ${(props) => props.display ? props.display : ""};
-    width: fit-content;
     margin: ${(props) => props.margin ? props.margin : ""};
     font-size: ${(props) => props.responsive ? props.responsive : ""};
     text-transform: uppercase;
