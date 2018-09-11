@@ -53,10 +53,6 @@ export default class Background extends Component {
     this.resize();
   }
 
-  static contextTypes = {
-    parallaxController: PropTypes.object.isRequired,
-  };
-
   resize() {
     const newHeightOffset = window.innerHeight;
     const { height, width } = this.state;
@@ -87,4 +83,9 @@ export default class Background extends Component {
       </Container>
     );
   }
+
+  static contextTypes = {
+    parallaxController: PropTypes.object.isRequired,
+  };
+
 }
