@@ -115,7 +115,7 @@ const SkillsModal = (props) => {
         <Background>
             <Container>
                 <Header>    
-                    <HighlightText size={"2em"} >{project.title}</HighlightText>
+                    <HighlightText color="#66ccff" size={"2em"}>{project.title}</HighlightText>
                     <Close onClick={onClose}><FontAwesomeIcon icon={faTimes} size="2x" /></Close>
                 </Header>
                 <Slider {...settings}>
