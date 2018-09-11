@@ -55,7 +55,7 @@ export default class Pie extends Component {
     const { scale, percent } = this.props;
 
     return(
-      <Animate callback={this.animate}>
+      <Animate once callback={this.animate}>
         {this.state.animate === true ?
         <Container>
           <PieChart viewBox="0 0 32 32">

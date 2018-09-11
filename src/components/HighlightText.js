@@ -8,10 +8,11 @@ const HighlightText = styled.span`
     text-transform: uppercase;
     padding: 0.2em 10px;
     color: ${(props) => props.textColor ? props.textColor : "#090909"};
-    background: ${(props) => props.color ? props.color : "#66ccff"};
+    background: ${(props) => props.color ? props.color : ""};
     z-index: ${(props) => props.zIndex ? props.zIndex : ""};
     line-height: ${(props) => props.multiLine ? "2" : ""};
     box-decoration-break: clone;
+    text-align: ${(props) => props.center? "center" : ""};
 
     @media screen and (min-width: 800px) {
         font-size: ${(props) => props.size ? props.size : "1.5em"};

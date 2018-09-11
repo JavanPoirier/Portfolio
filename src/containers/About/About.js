@@ -94,7 +94,7 @@ export default class About extends Component {
                     <ListWrapper>                       
                         <ListHeader>  
                             <Lines height="125%" width="125px" margin="-10px -15px"/>
-                            <HighlightText>Javan Poirier</HighlightText>
+                            <HighlightText color="#66ccff">Javan Poirier</HighlightText>
                             <ListSubTitle>Facial Recognition Data:</ListSubTitle>
                         </ListHeader>
                         <List>

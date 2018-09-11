@@ -15,7 +15,7 @@ const musicManager = {
     description: (
         <React.Fragment>
             <p>
-            A simple, yet useful to me application I built during my first year of college and assisted in my understanding of 
+            A simple, yet only useful to me application I built during my first year of college and assisted in my understanding of 
             OOP (Object Oriented Programming). This application takes the filenames of songs and parses them according to my specified 
             filename structure, verify the filenames and song info using the existing library then applies the correct meta tags to the file.
             </p>

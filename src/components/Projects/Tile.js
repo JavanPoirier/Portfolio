@@ -9,7 +9,7 @@ const Container = styled.div`
     flex: 100%;
 
    :hover { 
-        z-index: 5;
+        z-index: 1;
         
         .image {
             animation: opacity 0.5s forwards;
@@ -65,6 +65,10 @@ const Image = styled.div`
     background-size: cover;
 `
 
+const Text = (props) => {
+    return <HighlightText color="#090909" textColor="#fff" size={props.size ? props.size : "1.15em"} margin={props.margin} multiLine center {...props}>{props.children}</HighlightText>
+}
+
 export const Tile = (props) => {
     const options = {
         reverse: true,
@@ -76,9 +80,9 @@ export const Tile = (props) => {
             <Tilt className="tilt" options={options}>
                 <Wrapper onClick={props.onClick}>
                     <Image className="image" img={props.img} xpos={props.xpos}></Image>
-                    <HighlightText className="title" display={"none"} color={"#090909"} textColor={"#fff"} size={"1em"} zIndex={5}>
+                    <Text className="title" display="none" zIndex={10}>
                         {props.title}
-                    </HighlightText>
+                    </Text>
                 </Wrapper>
             </Tilt>
         </Container>

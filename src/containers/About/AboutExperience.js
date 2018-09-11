@@ -45,7 +45,7 @@ const List = styled.div`
 
 const ListItem = (props) => {
     return (
-        <HighlightText display="table" size="1em" margin="5px auto">{props.children}</HighlightText>
+        <HighlightText color="#66ccff" display="table" size="1em" margin="5px auto">{props.children}</HighlightText>
     )
 }
 

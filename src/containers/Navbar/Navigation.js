@@ -97,6 +97,21 @@ export default class Navigation extends Component {
         }
     }
 
+    static getDerivedStateFromProps(props, state) {
+        if (props.href !== state.activeHref) {
+            return {
+                activeHref: props.href
+            };
+        }
+        return null;
+    }
+
+    componentDidUpdate(props, state) {
+        if (props.href !== this.props.href) {
+            this.setActive(props.href);
+        }
+    }
+
     setActive(href) {
         this.setState({activeHref: href});
         this.setState({lastHref: href});

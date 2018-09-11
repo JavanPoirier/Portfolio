@@ -75,6 +75,7 @@ const Name = styled.div`
 `
 
 const Info = styled.div`
+    text-align: center;
     font-weight: bold; 
     font-size: 35px;
 `

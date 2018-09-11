@@ -9,29 +9,46 @@ import Projects from './Projects/Projects'
 import Contact from './Contact/Contact'
 import Footer from './Footer/Footer'
 
+import Animate from '../components/Animate'
+
 export default class App extends Component {
 
     constructor() {
         super();
 
         this.state = {
-            isLoaded: false,      
+            isLoaded: false,
+            href: " #Home",
         }
+
+        this.changeNav = this.changeNav.bind(this);
+    }
+
+    changeNav(href) {
+        this.setState({ href: href });
     }
 
     render() {
-        const { isLoaded } = this.state;
+        const { isLoaded, href } = this.state;
 
-        return (              
+        return (
             <React.Fragment>
                 {/* {isLoaded ? () : ()}    */}
-                <Navbar />
+                <Navbar href={href} />
                 <Background />
-                <Intro />
-                <About />
+                <Animate name="intro" callback={() => this.changeNav("#Home")} position="absolute">
+                    <Intro />
+                </Animate>
+                <Animate name="about" callback={() => this.changeNav("#About")}>
+                    <About />
+                </Animate>
                 <Skills />
-                <Projects />
-                <Contact />
+                <Animate name="projects" callback={() => this.changeNav("#Projects")}>
+                    <Projects />
+                </Animate>
+                <Animate name="contact" callback={() => this.changeNav("#Contact")}>
+                    <Contact />
+                </Animate>
                 <Footer />
             </React.Fragment>
         );
