@@ -18,7 +18,7 @@ export default class App extends Component {
 
         this.state = {
             isLoaded: false,
-            href: " #Home",
+            href: "",
         }
 
         this.changeNav = this.changeNav.bind(this);

@@ -43,7 +43,7 @@ export default class Animate extends Component {
         const compPos = this.state.position;  
 
         var compHeight = this.component.current.clientHeight;
-        console.log(this.props.name, "compPos: " + compPos, "scrollPos: " + scrollPos, "Bottom: " + (compPos + compHeight));
+        // console.log(this.props.name, "compPos: " + compPos, "scrollPos: " + scrollPos, "Bottom: " + (compPos + compHeight));
 
         if (this.props.once) {
             if (this.state.inView === false) {
