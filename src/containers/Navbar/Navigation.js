@@ -87,53 +87,29 @@ const Text = styled.div`
     }
 `
 
-export default class Navigation extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            href: null,
-        }
-
-        this.toggleHref = this.toggleHref.bind(this);
-    }
-
-    componentDidMount() {
-        this.setState({ href: this.props.activeHref })
-    }
-
-    toggleHref(href) {
-        if(href) {
-            this.setState({ href: href });
-        } else {
-            this.setState({ href: this.props.activeHref });
-        }       
-    }
-
-    render() {
-        const { href } = this.props;
-        const { activeHref, callback } = this.props;
+const Navigation = (props) => {
+        const { activeHref, callback } = props;
 
         return(
             <Container>
                 <Items>
                     <Item>
-                        <AnchorLink offset="150" href="#Home" className={href === "#Home" ? "active" : ""} onClick={() => callback("#Home")} onMouseEnter={() => this.toggleHref("#Home")} onMouseLeave={() => this.toggleHref()}>
+                        <AnchorLink offset="150" href="#Home" className={activeHref === "#Home" ? "active" : ""} onClick={() => callback("#Home")} onMouseEnter={() => callback('#Home')} onMouseLeave={() => callback()}>
                             <FontAwesomeIcon icon={faHome} /><Text>&nbsp;Home</Text>
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink offset="0" href="#About" className={href === "#About" ? "active" : ""} onClick={() => callback("#About")} onMouseEnter={() => this.toggleHref("#About")} onMouseLeave={() => this.toggleHref()}>
+                        <AnchorLink offset="0" href="#About" className={activeHref === "#About" ? "active" : ""} onClick={() => callback("#About")} onMouseEnter={() => callback("#About")} onMouseLeave={() => callback()}>
                             <FontAwesomeIcon icon={faUser} /><Text>&nbsp;About</Text>
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink offset="150" href="#Projects" className={href === "#Projects" ? "active" : ""} onClick={() => callback("#Projects")} onMouseEnter={() => this.toggleHref("#Projects")} onMouseLeave={() => this.toggleHref()}>
+                        <AnchorLink offset="150" href="#Projects" className={activeHref === "#Projects" ? "active" : ""} onClick={() => callback("#Projects")} onMouseEnter={() => callback("#Projects")} onMouseLeave={() => callback()}>
                             <FontAwesomeIcon icon={faCode} /><Text>&nbsp;Projects</Text>
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink href="#Contact" className={href === "#Contact" ? "active" : ""} onClick={() => callback("#Contact")} onMouseEnter={() => this.toggleHref("#Contact")} onMouseLeave={() => this.toggleHref()}>
+                        <AnchorLink href="#Contact" className={activeHref === "#Contact" ? "active" : ""} onClick={() => callback("#Contact")} onMouseEnter={() => callback("#Contact")} onMouseLeave={() => callback()}>
                             <FontAwesomeIcon icon={faEnvelope} /><Text>&nbsp;Contact</Text>
                         </AnchorLink>
                     </Item>
@@ -141,4 +117,5 @@ export default class Navigation extends Component {
             </Container>
         )
     } 
-}
+
+export default Navigation;

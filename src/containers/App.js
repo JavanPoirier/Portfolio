@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import Background from './Background/Background'
 import Navbar from './Navbar/Navigation'
 import Intro from './Intro/Intro'
 import About from './About/About'
@@ -17,38 +16,49 @@ export default class App extends Component {
 
         this.state = {
             isLoaded: false,
-            href: "#Home",
+            href: null,
+            tempHref: null,
         }
 
         this.changeNav = this.changeNav.bind(this);
+        this.toggleHover = this.toggleHover.bind(this);
     }
 
-    changeNav(href) {
-        console.log(href);
-        if (href !== undefined) {
+    changeNav(undefined, e) {
+        if (e !== undefined) {
+            this.setState({ href: e.props.name });
+        }
+    }
+
+    toggleHover(href) {
+        if (href) {
+            this.setState({ tempHref: this.state.href });
             this.setState({ href: href });
-        }      
+        } else {
+            this.setState({ href: this.state.tempHref });
+            this.setState({ tempHref: null })
+        }
+        
     }
 
     render() {
         const { isLoaded, href } = this.state;
 
         return (
-            <React.Fragment>
+            <React.Fragment>              
                 {/* {isLoaded ? () : ()} */}
-                <Navbar activeHref={href} callback={() => this.changeNav()}/>
-                <Background />
-                <ScrollTrigger onEnter={() => this.changeNav("#Home")}>
+                <Navbar activeHref={href} callback={this.toggleHover}/>
+                <ScrollTrigger name="#Home" onEnter={this.changeNav}>
                     <Intro />
                 </ScrollTrigger>
-                <ScrollTrigger onEnter={() => this.changeNav("#About")}>
+                <ScrollTrigger name="#About" onEnter={this.changeNav}>
                     <About />
-                </ScrollTrigger>
-                <Skills />
-                <ScrollTrigger onEnter={() => this.changeNav("#Projects")}>
+                    <Skills />
+                </ScrollTrigger>          
+                <ScrollTrigger name="#Projects" onEnter={this.changeNav}>
                     <Projects />
                 </ScrollTrigger>
-                <ScrollTrigger onEnter={() => this.changeNav("#Contact")}>
+                <ScrollTrigger name="#Contact" onEnter={this.changeNav}>
                     <Contact />
                 </ScrollTrigger>
                 <Footer />

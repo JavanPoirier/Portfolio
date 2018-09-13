@@ -9,11 +9,13 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './index.css';
 
 import App from './containers/App';
+import Background from './containers/Background/Background'
 
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
     <ParallaxProvider>
+        <Background />
         <App />
     </ParallaxProvider>, document.getElementById('root'));
 

@@ -80,6 +80,14 @@ export default class Pie extends Component {
           </Percent>
         </Container>
       )
+    } else {
+      pie = (
+        <Container style={{height: "200px"}}>
+          <Percent>
+            %0
+          </Percent>
+        </Container>
+      )
     }
 
     return(
