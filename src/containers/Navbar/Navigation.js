@@ -88,69 +88,57 @@ const Text = styled.div`
 `
 
 export default class Navigation extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props);
 
-        this.state =  {
-            activeHref: "#Home",
-            lastHref: "#Home",
+        this.state = {
+            href: null,
         }
+
+        this.toggleHref = this.toggleHref.bind(this);
     }
 
-    static getDerivedStateFromProps(props, state) {
-        if (props.href !== state.activeHref) {
-            return {
-                activeHref: props.href
-            };
-        }
-        return null;
+    componentDidMount() {
+        this.setState({ href: this.props.activeHref })
     }
 
-    componentDidUpdate(props, state) {
-        if (props.href !== this.props.href) {
-            this.setActive(props.href);
-        }
-    }
-
-    setActive(href) {
-        this.setState({activeHref: href});
-        this.setState({lastHref: href});
-    }
-
-    toggleActive(href) {
-        href !== this.state.activeHref ? (this.setState({ lastHref: this.state.activeHref }, () => {
-            this.setState({ activeHref: href }) 
-        })) : this.setState({ activeHref: this.state.lastHref }) 
+    toggleHref(href) {
+        if(href) {
+            this.setState({ href: href });
+        } else {
+            this.setState({ href: this.props.activeHref });
+        }       
     }
 
     render() {
-        const { activeHref } = this.state;
+        const { href } = this.props;
+        const { activeHref, callback } = this.props;
 
-        return (
+        return(
             <Container>
                 <Items>
                     <Item>
-                        <AnchorLink offset="150" href="#Home" className={activeHref === "#Home" ? "active" : ""} onClick={() => this.setActive("#Home")} onMouseEnter={() => this.toggleActive("#Home")} onMouseLeave={() => this.toggleActive("#Home")}>
+                        <AnchorLink offset="150" href="#Home" className={href === "#Home" ? "active" : ""} onClick={() => callback("#Home")} onMouseEnter={() => this.toggleHref("#Home")} onMouseLeave={() => this.toggleHref()}>
                             <FontAwesomeIcon icon={faHome} /><Text>&nbsp;Home</Text>
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink offset="0" href="#About" className={activeHref === "#About" ? "active" : ""} onClick={() => this.setActive("#About")} onMouseEnter={() => this.toggleActive("#About")} onMouseLeave={() => this.toggleActive("#About")}>
+                        <AnchorLink offset="0" href="#About" className={href === "#About" ? "active" : ""} onClick={() => callback("#About")} onMouseEnter={() => this.toggleHref("#About")} onMouseLeave={() => this.toggleHref()}>
                             <FontAwesomeIcon icon={faUser} /><Text>&nbsp;About</Text>
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink offset="150" href="#Projects" className={activeHref === "#Projects" ? "active" : ""} onClick={() => this.setActive("#Projects")} onMouseEnter={() => this.toggleActive("#Projects")} onMouseLeave={() => this.toggleActive("#Projects")}>
+                        <AnchorLink offset="150" href="#Projects" className={href === "#Projects" ? "active" : ""} onClick={() => callback("#Projects")} onMouseEnter={() => this.toggleHref("#Projects")} onMouseLeave={() => this.toggleHref()}>
                             <FontAwesomeIcon icon={faCode} /><Text>&nbsp;Projects</Text>
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink href="#Contact" className={activeHref === "#Contact" ? "active" : ""} onClick={() => this.setActive("#Contact")} onMouseEnter={() => this.toggleActive("#Contact")} onMouseLeave={() => this.toggleActive("#Contact")}>
+                        <AnchorLink href="#Contact" className={href === "#Contact" ? "active" : ""} onClick={() => callback("#Contact")} onMouseEnter={() => this.toggleHref("#Contact")} onMouseLeave={() => this.toggleHref()}>
                             <FontAwesomeIcon icon={faEnvelope} /><Text>&nbsp;Contact</Text>
                         </AnchorLink>
                     </Item>
                 </Items>
             </Container>
         )
-    }
+    } 
 }

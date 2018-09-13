@@ -9,23 +9,25 @@ import Projects from './Projects/Projects'
 import Contact from './Contact/Contact'
 import Footer from './Footer/Footer'
 
-import Animate from '../components/Animate'
+import ScrollTrigger from 'react-scroll-trigger'
 
 export default class App extends Component {
-
     constructor() {
         super();
 
         this.state = {
             isLoaded: false,
-            href: "",
+            href: "#Home",
         }
 
         this.changeNav = this.changeNav.bind(this);
     }
 
     changeNav(href) {
-        this.setState({ href: href });
+        console.log(href);
+        if (href !== undefined) {
+            this.setState({ href: href });
+        }      
     }
 
     render() {
@@ -33,25 +35,24 @@ export default class App extends Component {
 
         return (
             <React.Fragment>
-                {/* {isLoaded ? () : ()}    */}
-                <Navbar href={href} />
+                {/* {isLoaded ? () : ()} */}
+                <Navbar activeHref={href} callback={() => this.changeNav()}/>
                 <Background />
-                <Animate name="intro" callback={() => this.changeNav("#Home")} position="absolute">
+                <ScrollTrigger onEnter={() => this.changeNav("#Home")}>
                     <Intro />
-                </Animate>
-                <Animate name="about" callback={() => this.changeNav("#About")}>
+                </ScrollTrigger>
+                <ScrollTrigger onEnter={() => this.changeNav("#About")}>
                     <About />
-                </Animate>
+                </ScrollTrigger>
                 <Skills />
-                <Animate name="projects" callback={() => this.changeNav("#Projects")}>
+                <ScrollTrigger onEnter={() => this.changeNav("#Projects")}>
                     <Projects />
-                </Animate>
-                <Animate name="contact" callback={() => this.changeNav("#Contact")}>
+                </ScrollTrigger>
+                <ScrollTrigger onEnter={() => this.changeNav("#Contact")}>
                     <Contact />
-                </Animate>
+                </ScrollTrigger>
                 <Footer />
             </React.Fragment>
         );
     }
 }
-

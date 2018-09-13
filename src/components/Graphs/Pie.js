@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import Animate from '../../components/Animate'
 import CountUp from 'react-countup'
 
+import ScrollTrigger from 'react-scroll-trigger'
+
 //https://medium.com/@pppped/how-to-code-a-responsive-circular-percentage-chart-with-svg-and-css-3632f8cd7705
 
 const Container = styled.div`
@@ -44,7 +46,12 @@ export default class Pie extends Component {
       animate: false,
     }
 
+    this.onEnterViewport = this.onEnterViewport.bind(this);
     this.animate = this.animate.bind(this);
+  }
+
+  onEnterViewport() {
+    this.animate();
   }
 
   animate() {
@@ -54,9 +61,9 @@ export default class Pie extends Component {
   render() {
     const { scale, percent } = this.props;
 
-    return(
-      <Animate once callback={this.animate}>
-        {this.state.animate === true ?
+    var pie = null;
+    if (this.state.animate === true) {
+      pie = (
         <Container>
           <PieChart viewBox="0 0 32 32">
             <g transform={"translate(0, 0) scale(" + scale + ")"}>
@@ -72,8 +79,13 @@ export default class Pie extends Component {
             <CountUp start={0} end={percent} duration={4} suffix="%" />
           </Percent>
         </Container>
-        : null}
-      </Animate>
+      )
+    }
+
+    return(
+      <ScrollTrigger onEnter={this.onEnterViewport}>
+        {pie}
+      </ScrollTrigger>
     )
   }    
 }
