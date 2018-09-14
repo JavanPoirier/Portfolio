@@ -111,6 +111,8 @@ const Items = styled.div`
 const Item = styled.div`
     color: #fff;
     text-decoration: none;
+    display: flex;
+    align-items: center;
 
     a:hover {
         color: #66ccff;
