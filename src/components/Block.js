@@ -5,6 +5,7 @@ const Container = styled.div`
     color: ${(props) => props.solid ? "#ffffff" : "#090909"};
     font-family: CPMono;
     height: ${(props) => props.size ? props.size + 'px' : 'fit-content'};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ""};
     width: 100%;
     padding: ${(props) => props.noPadding ? (props.titleName ? "0 0 100px 0" : "100px 0") : (props.titleName ? "0 10% 100px 10%" : "100px 10%") };
     background-color: ${(props) => props.solid ? '#090909' : ''};

@@ -132,13 +132,11 @@ const Title = styled.h1`
 
 `
 
-export default class Contact extends Component {
-    render() {
-
+const Contact = (props) =>{
         return (
             <Block id="Contact">
                 <Title>Contact Me</Title>
-                <Container>
+                <Container>           
                     <SubContainer className="contactForm">
                         <Form>
                             <InputGroup>
@@ -155,6 +153,7 @@ export default class Contact extends Component {
                                 <Label>Subject:</Label>
                                 <Input type="text" name="contactSubject" maxLength="20" required />
                             </FormGroup>
+                            {props.scrollTrigger}
                             <FormGroup>
                                 <Label> Message:</Label>
                                 <Message name="contactMessage" rows="6" required />
@@ -172,7 +171,7 @@ export default class Contact extends Component {
                             </Item>
                             <Item title="Github" href="https://github.com/JavanPoirier" target="_blank">
                                 <FontAwesomeIcon icon={faGithub} size="2x" />
-                                <Text>JavanPoirier</Text>
+                                <Text>JavanPoirier</Text>                       
                             </Item>
                             <Item title="StackOverflow" href="https://stackoverflow.com/users/9005679/javan-poirier?tab=profile" target="_blank">
                                 <FontAwesomeIcon icon={faStackOverflow} size="2x" />
@@ -188,8 +187,10 @@ export default class Contact extends Component {
                             </Item>
                         </Items>
                     </SubContainer>
+                    
                 </Container>
             </Block >
         );
     }
-}
+
+export default Contact

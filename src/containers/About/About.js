@@ -82,31 +82,32 @@ const Name = styled.div`
     color: #66ccff;
 `
 
-export default class About extends Component {
-    render() {
-        return (
-            //Change grid to single row
-            <Block id="About" titleName="About" solid>
-                <Container>
-                    <div>
-                        <img src={me} alt="Me"></img>                       
-                    </div>
-                    <ListWrapper>                       
-                        <ListHeader>  
-                            <Lines height="125%" width="125px" margin="-10px -15px"/>
-                            <HighlightText color="#66ccff">Javan Poirier</HighlightText>
-                            <ListSubTitle>Facial Recognition Data:</ListSubTitle>
-                        </ListHeader>
-                        <List>
-                            <Name>Occupation</Name><Item><div>|&nbsp;</div>Full-stack Developer</Item> 
-                            <Name>Education</Name><Item><div>|&nbsp;</div>Programmer-Analyst, NBCC</Item>      
-                            <Name>Spoken Languages</Name><Item><div>|&nbsp;</div>English, French</Item>                     
-                            <Name>Skills</Name><Item><div>|&nbsp;</div>Software Development, Systems Analysis, Electronics, Multi-media, Hardware</Item>
-                        </List>
-                    </ListWrapper>                   
-                </Container >
-                <Experience/>            
-            </Block >
-        )
-    }
+const About = (props) => {
+    return (
+        //Change grid to single row
+        <Block id="About" titleName="About" solid>
+            <Container>
+                {props.scrollTrigger}
+                <div>
+                    <img src={me} alt="Me"></img>
+                </div>
+                <ListWrapper>
+                    <ListHeader>
+                        <Lines height="125%" width="125px" margin="-10px -15px" />
+                        <HighlightText color="#66ccff">Javan Poirier</HighlightText>
+                        <ListSubTitle>Facial Recognition Data:</ListSubTitle>
+                    </ListHeader>
+                    <List>
+                        <Name>Occupation</Name><Item><div>|&nbsp;</div>Full-stack Developer</Item>
+                        <Name>Education</Name><Item><div>|&nbsp;</div>Programmer-Analyst, NBCC</Item>
+                        <Name>Spoken Languages</Name><Item><div>|&nbsp;</div>English, French</Item>
+                        <Name>Skills</Name><Item><div>|&nbsp;</div>Software Development, Systems Analysis, Electronics, Multi-media, Hardware</Item>
+                    </List>
+                </ListWrapper>
+            </Container >
+            <Experience />
+        </Block >
+    )
 }
+
+export default About;

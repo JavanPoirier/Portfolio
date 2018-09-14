@@ -99,10 +99,11 @@ export default class Skills extends Component {
                             <ListItem>SSH/FTP</ListItem>
                         </List>
                     </Wrapper>
-                    <Wrapper>
+                    <Wrapper>                        
                         <Chart>
                             <Pie percent={75} scale="0.9" />
                         </Chart>
+                        {this.props.scrollTrigger}
                         <Text margin="auto">3D Printing/Modeling</Text>
                         <List>
                             <ListItem>RepRap</ListItem>

@@ -88,28 +88,28 @@ const Text = styled.div`
 `
 
 const Navigation = (props) => {
-        const { activeHref, callback } = props;
+        const { activeHref, toggleHover, pauseScroll } = props;
 
         return(
             <Container>
                 <Items>
                     <Item>
-                        <AnchorLink offset="150" href="#Home" className={activeHref === "#Home" ? "active" : ""} onClick={() => callback("#Home")} onMouseEnter={() => callback('#Home')} onMouseLeave={() => callback()}>
+                        <AnchorLink offset="150" href="#Home" className={activeHref === "#Home" ? "active" : ""} onClick={() => pauseScroll("#Home")} onMouseEnter={() => toggleHover('#Home')} onMouseLeave={() => toggleHover()}>
                             <FontAwesomeIcon icon={faHome} /><Text>&nbsp;Home</Text>
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink offset="0" href="#About" className={activeHref === "#About" ? "active" : ""} onClick={() => callback("#About")} onMouseEnter={() => callback("#About")} onMouseLeave={() => callback()}>
+                        <AnchorLink offset="0" href="#About" className={activeHref === "#About" ? "active" : ""} onClick={() => pauseScroll("#About")} onMouseEnter={() => toggleHover("#About")} onMouseLeave={() => toggleHover()}>
                             <FontAwesomeIcon icon={faUser} /><Text>&nbsp;About</Text>
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink offset="150" href="#Projects" className={activeHref === "#Projects" ? "active" : ""} onClick={() => callback("#Projects")} onMouseEnter={() => callback("#Projects")} onMouseLeave={() => callback()}>
+                        <AnchorLink offset="150" href="#Projects" className={activeHref === "#Projects" ? "active" : ""} onClick={() => pauseScroll("#Projects")} onMouseEnter={() => toggleHover("#Projects")} onMouseLeave={() => toggleHover()}>
                             <FontAwesomeIcon icon={faCode} /><Text>&nbsp;Projects</Text>
                         </AnchorLink>
                     </Item>
                     <Item>
-                        <AnchorLink href="#Contact" className={activeHref === "#Contact" ? "active" : ""} onClick={() => callback("#Contact")} onMouseEnter={() => callback("#Contact")} onMouseLeave={() => callback()}>
+                        <AnchorLink href="#Contact" className={activeHref === "#Contact" ? "active" : ""} onClick={() => pauseScroll("#Contact")} onMouseEnter={() => toggleHover("#Contact")} onMouseLeave={() => toggleHover()}>
                             <FontAwesomeIcon icon={faEnvelope} /><Text>&nbsp;Contact</Text>
                         </AnchorLink>
                     </Item>

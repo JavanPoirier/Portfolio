@@ -100,8 +100,8 @@ const tiltOptions = {
 }
 
 export default class About extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             size: null,
@@ -127,6 +127,7 @@ export default class About extends Component {
             <Container id='Home' size={size}>
                 <Tilt options={tiltOptions}>
                     <Text>
+                        {this.props.scrollTrigger}
                         <Name className="firstName">      
                             <Typist cursor={cursors.firstName} startDelay={1000} avgTypingDelay={150} onLineTyped={() => { this.setState({ firstNameComplete: true }) }}>
                                 Javan

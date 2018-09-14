@@ -40,7 +40,7 @@ export default class Projects extends Component {
 
     render() {
         return (
-            <Block id='Projects' titleName="Projects" titleCenter solid noPadding>
+            <Block id='Projects' titleName="Projects" minHeight="600px" titleCenter solid noPadding>
                 <Tiles>
                     <Tile title={chatbot.title} img={chatbot.slide} onClick={() => this.toggle(chatbot)} />
                     <Tile title={customTechServices.title} img={customTechServices.slide} onClick={() => this.toggle(customTechServices)} />
