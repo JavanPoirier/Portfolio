@@ -151,11 +151,11 @@ const Contact = (props) =>{
                                     <Input type="email" name="contactEmail" required />
                                 </FormGroup>
                             </InputGroup>
+                            {props.scrollTrigger}
                             <FormGroup className={"subject"}>
                                 <Label>Subject:</Label>
                                 <Input type="text" name="contactSubject" maxLength="20" required />
-                            </FormGroup>
-                            {props.scrollTrigger}
+                            </FormGroup>                           
                             <FormGroup>
                                 <Label> Message:</Label>
                                 <Message name="contactMessage" rows="6" required />

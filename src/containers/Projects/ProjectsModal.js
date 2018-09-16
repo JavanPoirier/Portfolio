@@ -28,7 +28,7 @@ const Background = styled.div`
 const Container = styled.div`
     margin: auto;
     background: #090909;
-    border: 15px solid #66ccff;
+    border: 10px solid #66ccff;
     font-size: 75%;
 
     .slick-slider {
@@ -36,8 +36,20 @@ const Container = styled.div`
     }
 
     .slick-list {
-        max-height: 500px;
-        /* margin: 50px 0; */
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .slick-track {
+
+    }
+
+    .slick-slide {
+        max-height: 250px;
+
+        @media screen and (min-width: 800px) {
+            max-height: 500px;
+        }
     }
 
     p {
@@ -45,6 +57,8 @@ const Container = styled.div`
     }
 
     @media screen and (min-width: 800px) {
+        border: 15px solid #66ccff;
+
         p {
             font-family: CPMono;
         }
@@ -57,6 +71,15 @@ const Container = styled.div`
     }
 `
 
+const Close = styled.span`
+    float: right;
+    margin: 10px 15px;
+
+    :hover {
+        color: #66ccff
+    }
+`
+
 const Header = styled.div`
     margin-left: -10px;
     margin-bottom: 25px;
@@ -66,13 +89,8 @@ const Header = styled.div`
     }
 `
 
-const Close = styled.span`
-    float: right;
-    margin: 10px 15px;
-
-    :hover {
-        color: #66ccff
-    }
+const Wrapper = styled.div`
+    height: 200px;
 `
 
 const Description = styled.div`
@@ -114,7 +132,7 @@ const SkillsModal = (props) => {
     return (
         <Background>
             <Container>
-                <Header>    
+                <Header>
                     <HighlightText color="#66ccff" size={"2em"}>{project.title}</HighlightText>
                     <Close onClick={onClose}><FontAwesomeIcon icon={faTimes} size="2x" /></Close>
                 </Header>
