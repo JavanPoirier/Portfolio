@@ -36,10 +36,8 @@ export default class App extends Component {
 
     changeNav(href, e) {
             if (e !== undefined) {
-                console.log('e', e.props.name)
                 this.setState({ href: e.props.name });
             } else {
-                console.log('href', href)
                 this.setState({ href: href });
             }        
     }

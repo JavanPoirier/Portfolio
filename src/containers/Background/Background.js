@@ -58,7 +58,7 @@ export default class Background extends Component {
     const { height, width } = this.state;
 
     //Prevent browser menu on mobile from causing background to resize by applying a offset boundry.
-    if (newHeightOffset + 100 < height || newHeightOffset - 100 > height) {
+    if (newHeightOffset + 200 < height || newHeightOffset - 200 > height) {
       this.setState({ height: window.innerHeight, width: window.innerWidth });
     }
 

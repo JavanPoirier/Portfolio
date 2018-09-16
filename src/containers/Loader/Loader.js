@@ -22,8 +22,9 @@ const Wrapper = styled.div`
     color: #fff;
 `
 
-const Text = styled.h4`
+const Text = styled.p`
     font-family: CPMono;
+    font-size: 1em;
     margin-top: 10%;
 `
 
@@ -39,15 +40,13 @@ export default class Loader extends Component {
     componentDidMount() {
         var name = browserName.toLowerCase();
         var version = browserVersion.split('.')[0] + '' + browserVersion.split('.')[1];
-        
-        setTimeout(() => {
-            if (this.checkVersion(name, version)) {
-                this.props.supported(true);
-            } else {
-                this.props.supported(false);
-                this.setState({ supported: false });
-            }
-        }, 1000)  
+
+        if (this.checkVersion(name, version)) {
+            this.props.supported(true);
+        } else {
+            this.props.supported(false);
+            this.setState({ supported: false });
+        }
     }
 
     checkVersion(browser, version) {
@@ -57,6 +56,8 @@ export default class Loader extends Component {
             firefox: 610,
             ie: 110,
             safari: 111,
+            iosSafari: 103,
+            samsung: 72,
         }
 
         switch (browser) {
@@ -75,14 +76,20 @@ export default class Loader extends Component {
             case 'safari':
                 if (version > versions.safari) return true;
                 break;
-            default: 
+            case 'mobile safari':
+                if (version > versions.iosSafari) return true;
+                break;
+            case 'samsung browser':
+                if (version > versions.samsung) return true;
+                break;
+            default:
                 return false;
         }
     }
 
 
     render() {
-        const { supported }= this.state;
+        const { supported } = this.state;
         const { isLoading } = this.props;
 
         if (isLoading) {
@@ -96,7 +103,7 @@ export default class Loader extends Component {
                             </Text>
                         ) : null}
                     </Wrapper>
-                    
+
                 </Container>
             )
         } else {

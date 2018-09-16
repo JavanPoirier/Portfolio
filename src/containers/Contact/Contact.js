@@ -87,6 +87,14 @@ const Message = styled.textarea`
 `
 
 const Submit = styled.button`
+    background-color: #fff;
+    border: none;
+    text-transform: uppercase;
+    font-size: 1em;
+
+    :hover {
+        background-color: #66ccff;
+    }
 `
 
 const Items = styled.div`
@@ -97,7 +105,7 @@ const Items = styled.div`
     align-items: center;
     justify-content: space-around;
 
-    div:hover {
+    .link:hover {
         color: #66ccff;
         text-decoration: none;
         transition-duration: color 0.2s;
@@ -108,23 +116,18 @@ const Items = styled.div`
     }
 `
 
-const Item = styled.div`
+const Item = styled.a`
     color: #fff;
     text-decoration: none;
     display: flex;
     align-items: center;
-
-    a:hover {
-        color: #66ccff;
-        text-decoration: none;
-        transition-duration: color 0.2s;
-    }
 `
 
 const Text = styled.div`
     display: none;
     margin: 0 0 0 15px;
-   
+    text-decoration: none;
+
     @media screen and (min-width: 1200px) {
         display: inline;
     } 
@@ -134,7 +137,7 @@ const Title = styled.h1`
 
 `
 
-const Contact = (props) =>{
+const Contact = (props) => {
         return (
             <Block id="Contact">
                 <Title>Contact Me</Title>
@@ -161,29 +164,29 @@ const Contact = (props) =>{
                                 <Message name="contactMessage" rows="6" required />
                             </FormGroup>
                             <FormGroup>
-                                <Submit>Submit</Submit>
+                                <Submit>Submit_</Submit>
                             </FormGroup>
                         </Form>
                     </SubContainer>
                     <SubContainer className="contactLinks">
                         <Items className={"contactItems"}>
-                            <Item title="LinkedIn" href="https://www.linkedin.com/in/Javan-Poirier/" target="_blank">
+                            <Item title="LinkedIn" className="link" href="https://www.linkedin.com/in/Javan-Poirier/" target="_blank">
                                 <FontAwesomeIcon icon={faLinkedin} size="2x" />
                                 <Text>Javan-Poirier</Text>
                             </Item>
-                            <Item title="Github" href="https://github.com/JavanPoirier" target="_blank">
+                            <Item title="Github" className="link" href="https://github.com/JavanPoirier" target="_blank">
                                 <FontAwesomeIcon icon={faGithub} size="2x" />
                                 <Text>JavanPoirier</Text>                       
                             </Item>
-                            <Item title="StackOverflow" href="https://stackoverflow.com/users/9005679/javan-poirier?tab=profile" target="_blank">
+                            <Item title="StackOverflow" className="link" href="https://stackoverflow.com/users/9005679/javan-poirier?tab=profile" target="_blank">
                                 <FontAwesomeIcon icon={faStackOverflow} size="2x" />
                                 <Text>Javan_Poirier</Text>
                             </Item>
-                            <Item title="Email" href="mailto:Me@JavanPoirier.com">
+                            <Item title="Email" className="link" href="mailto:Me@JavanPoirier.com">
                                 <FontAwesomeIcon icon={faEnvelope} size="2x" />
                                 <Text>Me@JavanPoirier.com</Text>
                             </Item>
-                            <Item title="Resume">
+                            <Item title="Resume" className="link" href="">
                                 <FontAwesomeIcon icon={faFileAlt} size="2x" />
                                 <Text>Resume</Text>
                             </Item>
