@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import isTouch from 'is-touch-device';
 
 import Typist from 'react-typist';
 import 'react-typist/dist/Typist.css';
@@ -104,6 +105,7 @@ export default class About extends Component {
         super(props);
 
         this.state = {
+            touch: null,
             size: null,
             firstNameComplete: false,
         }
@@ -114,6 +116,8 @@ export default class About extends Component {
     componentDidMount() {
         window.addEventListener("resize", this.resize);
         this.resize();
+
+        this.setState({ touch: isTouch() });
     }
 
     resize() {
@@ -121,14 +125,32 @@ export default class About extends Component {
     }
 
     render() {
-        const { size } = this.state;
+        const { touch, size } = this.state;
 
-        return (
-            <Container id='Home' size={size}>
+        if (touch) {
+            var name = (
+                <Text>
+                    {this.props.scrollTrigger}
+                    <Name className="firstName">
+                        <Typist cursor={cursors.firstName} startDelay={1000} avgTypingDelay={150} onLineTyped={() => { this.setState({ firstNameComplete: true }) }}>
+                            Javan
+                            </Typist>
+                    </Name>
+                    {this.state.firstNameComplete === true &&
+                        (<Name className="lastName">
+                            <Typist cursor={cursors.lastName} startDelay={150} avgTypingDelay={150}>
+                                Poirier
+                                </Typist>
+                        </Name>)
+                    }
+                </Text>
+            )
+        } else {
+            var name = (
                 <Tilt options={tiltOptions}>
                     <Text>
                         {this.props.scrollTrigger}
-                        <Name className="firstName">      
+                        <Name className="firstName">
                             <Typist cursor={cursors.firstName} startDelay={1000} avgTypingDelay={150} onLineTyped={() => { this.setState({ firstNameComplete: true }) }}>
                                 Javan
                             </Typist>
@@ -142,6 +164,12 @@ export default class About extends Component {
                         }
                     </Text>
                 </Tilt>
+            )
+        }
+
+        return (
+            <Container id='Home' size={size}>
+                {name}
                 <Info>Full-Stack Developer</Info>
             </Container>
         );

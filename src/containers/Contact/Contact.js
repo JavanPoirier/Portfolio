@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import * as emailjs from 'emailjs-com' 
 
 import theme from '../../theme'
 
@@ -137,7 +138,49 @@ const Title = styled.h1`
 
 `
 
-const Contact = (props) => {
+export default class Contact extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+        }
+
+        this.logChange = this.logChange.bind(this);
+        this.submitForm = this.submitForm.bind(this);
+    }
+
+    logChange(e) {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+    
+    submitForm(e) {
+        this.setState({ spinner: true });
+
+        e.preventDefault();
+        emailjs.send('mailgun', 'javanpoirier', this.state, process.env.REACT_APP_EMAILJS_USERID)
+            .then(function(response) {
+                var state = {
+                    name: "",
+                    email: "",
+                    subject: "",
+                    message: "",
+                    spinner: false,
+                }
+
+                this.setState(state);
+                console.log('SUCCESS!', response.status, response.text);
+            }, function(err) {
+               console.log('FAILED...', err);
+        });
+    }
+
+    render() {
+        var { name, email, subject, message } = this.state;
+
         return (
             <Block id="Contact">
                 <Title>Contact Me</Title>
@@ -147,26 +190,27 @@ const Contact = (props) => {
                             <InputGroup>
                                 <FormGroup className={"name"}>
                                     <Label>Name:</Label>
-                                    <Input type="text" name="contactName" required />
+                                    <Input type="text" name="name" value={name} onChange={this.logChange} required />
                                 </FormGroup>
                                 <FormGroup className={"email"}>
                                     <Label>Email:</Label>
-                                    <Input type="email" name="contactEmail" required />
+                                    <Input type="email" name="email" onChange={this.logChange} required />
                                 </FormGroup>
                             </InputGroup>
-                            {props.scrollTrigger}
+                            {this.props.scrollTrigger}
                             <FormGroup className={"subject"}>
                                 <Label>Subject:</Label>
-                                <Input type="text" name="contactSubject" maxLength="20" required />
+                                <Input type="text" name="subject" maxLength="20" onChange={this.logChange} required />
                             </FormGroup>                           
                             <FormGroup>
                                 <Label> Message:</Label>
-                                <Message name="contactMessage" rows="6" required />
+                                <Message name="message" rows="6" onChange={this.logChange} required />
                             </FormGroup>
                             <FormGroup>
-                                <Submit>Submit_</Submit>
-                            </FormGroup>
+                                <Submit onClick={this.submitForm}>Submit_</Submit>
+                            </FormGroup>                      
                         </Form>
+                        
                     </SubContainer>
                     <SubContainer className="contactLinks">
                         <Items className={"contactItems"}>
@@ -197,5 +241,4 @@ const Contact = (props) => {
             </Block >
         );
     }
-
-export default Contact
+}

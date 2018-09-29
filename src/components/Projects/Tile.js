@@ -1,4 +1,5 @@
 import React from 'react';
+import isTouch from 'is-touch-device'
 
 import styled from 'styled-components';
 import Tilt from 'react-tilt';
@@ -75,9 +76,18 @@ export const Tile = (props) => {
         max: 20,
     }
 
-    return (
-        <Container>
-            <Tilt className="tilt" options={options}>
+    if (isTouch()) {
+        var tile = (
+            <Wrapper onClick={props.onClick}>
+                <Image className="image" img={props.img} xpos={props.xpos}></Image>
+                <Text className="title" display="none" zIndex={10}>
+                    {props.title}
+                </Text>
+            </Wrapper>
+        )
+    } else {
+        var tile = (
+            <Tilt options={options}>
                 <Wrapper onClick={props.onClick}>
                     <Image className="image" img={props.img} xpos={props.xpos}></Image>
                     <Text className="title" display="none" zIndex={10}>
@@ -85,6 +95,12 @@ export const Tile = (props) => {
                     </Text>
                 </Wrapper>
             </Tilt>
+        )
+    }
+
+    return (
+        <Container>
+            {tile}
         </Container>
     )
 }
