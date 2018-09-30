@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import _ from 'lodash';
 
 import Loader from './Loader/Loader'
 import Navbar from './Navbar/Navigation'
@@ -35,49 +36,49 @@ export default class App extends Component {
     }
 
     changeNav(href, e) {
-            if (e !== undefined) {
-                this.setState({ href: e.props.name });
-            } else {
-                this.setState({ href: href });
-            }        
+        if (e !== undefined) {
+            this.setState({ href: e.props.name });
+            this.setState({ tempHref: e.props.name });
+        } else {
+            this.setState({ href: href });
+            this.setState({ tempHref: href });
+        }
     }
 
     toggleHover(href) {
         if (href) {
-            this.setState({ tempHref: this.state.href });
-            this.setState({ href: href });
+            this.setState({ tempHref: href });
         } else {
-            this.setState({ href: this.state.tempHref });
-            this.setState({ tempHref: null })
+            this.setState({ tempHref: this.state.href });
         }
-        
     }
 
     pauseScroll(href) {
+        console.log('pause', href);
         if (href !== undefined) {
-            this.setState({ paused: true, href: href  });
-        }    
+            this.setState({ paused: true, href: href });
+        }
     }
 
     render() {
-        const { isLoading, href } = this.state;
+        const { isLoading, tempHref } = this.state;
 
         if (isLoading) {
-            return <Loader isLoading={isLoading} supported={this.supported}/> 
+            return <Loader isLoading={isLoading} supported={this.supported} />
         } else {
             return (
-                <React.Fragment>                
-                    <Navbar activeHref={href} toggleHover={this.toggleHover} pauseScroll={this.pauseScroll}/>
-                    <Intro scrollTrigger={<ScrollTrigger name="#Home" onEnter={this.changeNav} throttleScroll={1} throttleResize={1}/>}/>
-                    <About scrollTrigger={<ScrollTrigger name="#About" onEnter={this.changeNav} throttleScroll={1} throttleResize={1}/>}/>   
-                    <Skills scrollTrigger={<ScrollTrigger name="#About" onEnter={this.changeNav} throttleScroll={1} throttleResize={1}/>}/>       
+                <React.Fragment>
+                    <Navbar activeHref={tempHref} toggleHover={this.toggleHover} pauseScroll={this.pauseScroll} />
+                    <Intro scrollTrigger={<ScrollTrigger name="#Home" onEnter={this.changeNav} throttleScroll={1} throttleResize={1} />} />
+                    <About scrollTrigger={<ScrollTrigger name="#About" onEnter={this.changeNav} throttleScroll={1} throttleResize={1} />} />
+                    <Skills scrollTrigger={<ScrollTrigger name="#About" onEnter={this.changeNav} throttleScroll={1} throttleResize={1} />} />
                     <ScrollTrigger name="#Projects" onEnter={this.changeNav} throttleScroll={1} throttleResize={1}>
                         <Projects />
-                    </ScrollTrigger>              
-                    <Contact scrollTrigger={<ScrollTrigger name="#Contact" onEnter={this.changeNav} onExit={() => this.changeNav("#Projects")} throttleScroll={1} throttleResize={1}/>}/>
+                    </ScrollTrigger>
+                    <Contact scrollTrigger={<ScrollTrigger name="#Contact" onEnter={this.changeNav} onExit={() => this.changeNav("#Projects")} throttleScroll={1} throttleResize={1} />} />
                     <Footer />
                 </React.Fragment>
             );
-        }      
+        }
     }
 }

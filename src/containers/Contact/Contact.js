@@ -158,11 +158,11 @@ export default class Contact extends Component {
     }
     
     submitForm(e) {
-        this.setState({ spinner: true });
-
         e.preventDefault();
+
+        this.setState({ spinner: true });    
         emailjs.send('mailgun', 'javanpoirier', this.state, process.env.REACT_APP_EMAILJS_USERID)
-            .then(function(response) {
+            .then((response) => {
                 var state = {
                     name: "",
                     email: "",
@@ -172,9 +172,9 @@ export default class Contact extends Component {
                 }
 
                 this.setState(state);
-                console.log('SUCCESS!', response.status, response.text);
-            }, function(err) {
-               console.log('FAILED...', err);
+                // console.log('SUCCESS!', response.status, response.text);
+            }, (err) => {
+            //    console.log('FAILED...', err);
         });
     }
 
@@ -182,7 +182,7 @@ export default class Contact extends Component {
         var { name, email, subject, message } = this.state;
 
         return (
-            <Block id="Contact">
+            <Block id="Contact" minHeight={'100vh'}>
                 <Title>Contact Me</Title>
                 <Container>           
                     <SubContainer className="contactForm">

@@ -60,7 +60,7 @@ const ListItem = styled.li`
 export default class Skills extends Component {
     render() {
         return (
-            <Block>
+            <Block minHeight={'100vh'}>
                 <h1>Skills</h1>
                 <Text size="1.25em" responsive="2vmax">Jack of all trades, master of none. Skill charts are quite relative to one's perspective, and no one can be 100%... But hey, they look cool!</Text>
                 <br />
