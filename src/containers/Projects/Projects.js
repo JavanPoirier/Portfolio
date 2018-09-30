@@ -37,7 +37,10 @@ export default class Projects extends Component {
 
     toggle(project) {
         if (project) {
+            document.getElementById('body').style.overflowY = "hidden";
             this.setState({ project: project });
+        } else {
+            document.getElementById('body').style.overflowY = "scroll";
         }
 
         this.setState({ modal: !this.state.modal });
@@ -53,7 +56,7 @@ export default class Projects extends Component {
                     <Tile title={musicManager.title} img={musicManager.slide} onClick={() => this.toggle(musicManager)} xpos={"center"} />
                 </Tiles>
                 <ProjectsModal show={this.state.modal}
-                    onClose={this.toggle} project={this.state.project}
+                    onClose={() => this.toggle()} project={this.state.project}
                 />
             </Block>
         );
