@@ -190,21 +190,21 @@ export default class Contact extends Component {
                             <InputGroup>
                                 <FormGroup className={"name"}>
                                     <Label>Name:</Label>
-                                    <Input type="text" name="name" value={name} onChange={this.logChange} required />
+                                    <Input type="text" name="name" value={name}onChange={this.logChange} required />
                                 </FormGroup>
                                 <FormGroup className={"email"}>
                                     <Label>Email:</Label>
-                                    <Input type="email" name="email" onChange={this.logChange} required />
+                                    <Input type="email" name="email" value={email} onChange={this.logChange} required />
                                 </FormGroup>
                             </InputGroup>
                             {this.props.scrollTrigger}
                             <FormGroup className={"subject"}>
                                 <Label>Subject:</Label>
-                                <Input type="text" name="subject" maxLength="20" onChange={this.logChange} required />
+                                <Input type="text" name="subject" maxLength="20" value={subject} onChange={this.logChange} required />
                             </FormGroup>                           
                             <FormGroup>
-                                <Label> Message:</Label>
-                                <Message name="message" rows="6" onChange={this.logChange} required />
+                                <Label>Message:</Label>
+                                <Message name="message" rows="6" value={message} onChange={this.logChange} required />
                             </FormGroup>
                             <FormGroup>
                                 <Submit onClick={this.submitForm}>Submit_</Submit>
@@ -230,7 +230,7 @@ export default class Contact extends Component {
                                 <FontAwesomeIcon icon={faEnvelope} size="2x" />
                                 <Text>Me@JavanPoirier.com</Text>
                             </Item>
-                            <Item title="Resume" className="link" href="">
+                            <Item title="Resume" className="link" href='/JavanPoirierResume.pdf' target='_blank'>
                                 <FontAwesomeIcon icon={faFileAlt} size="2x" />
                                 <Text>Resume</Text>
                             </Item>
