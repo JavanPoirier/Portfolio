@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import * as emailjs from 'emailjs-com' 
+import * as emailjs from 'emailjs-com'
 
 import theme from '../../theme'
 
@@ -156,11 +156,11 @@ export default class Contact extends Component {
     logChange(e) {
         this.setState({ [e.target.name]: e.target.value });
     }
-    
+
     submitForm(e) {
         e.preventDefault();
 
-        this.setState({ spinner: true });    
+        this.setState({ spinner: true });
         emailjs.send('mailgun', 'javanpoirier', this.state, process.env.REACT_APP_EMAILJS_USERID)
             .then((response) => {
                 var state = {
@@ -174,70 +174,70 @@ export default class Contact extends Component {
                 this.setState(state);
                 // console.log('SUCCESS!', response.status, response.text);
             }, (err) => {
-            //    console.log('FAILED...', err);
-        });
+                //    console.log('FAILED...', err);
+            });
     }
 
     render() {
         var { name, email, subject, message } = this.state;
 
         return (
-            <Block id="Contact" minHeight={'100vh'}>
-                <Title>Contact Me</Title>
-                <Container>           
-                    <SubContainer className="contactForm">
-                        <Form>
-                            <InputGroup>
-                                <FormGroup className={"name"}>
-                                    <Label>Name:</Label>
-                                    <Input type="text" name="name" value={name}onChange={this.logChange} required />
+            <Block id="Contact" minHeight={'90vh'} style={{ display: "flex", alignItems: "center" }}>
+                    <Title>Contact Me</Title>
+                    <Container>
+                        <SubContainer className="contactForm">
+                            <Form>
+                                <InputGroup>
+                                    <FormGroup className={"name"}>
+                                        <Label>Name:</Label>
+                                        <Input type="text" name="name" value={name} onChange={this.logChange} required />
+                                    </FormGroup>
+                                    <FormGroup className={"email"}>
+                                        <Label>Email:</Label>
+                                        <Input type="email" name="email" value={email} onChange={this.logChange} required />
+                                    </FormGroup>
+                                </InputGroup>
+                                {this.props.scrollTrigger}
+                                <FormGroup className={"subject"}>
+                                    <Label>Subject:</Label>
+                                    <Input type="text" name="subject" maxLength="20" value={subject} onChange={this.logChange} required />
                                 </FormGroup>
-                                <FormGroup className={"email"}>
-                                    <Label>Email:</Label>
-                                    <Input type="email" name="email" value={email} onChange={this.logChange} required />
+                                <FormGroup>
+                                    <Label>Message:</Label>
+                                    <Message name="message" rows="6" value={message} onChange={this.logChange} required />
                                 </FormGroup>
-                            </InputGroup>
-                            {this.props.scrollTrigger}
-                            <FormGroup className={"subject"}>
-                                <Label>Subject:</Label>
-                                <Input type="text" name="subject" maxLength="20" value={subject} onChange={this.logChange} required />
-                            </FormGroup>                           
-                            <FormGroup>
-                                <Label>Message:</Label>
-                                <Message name="message" rows="6" value={message} onChange={this.logChange} required />
-                            </FormGroup>
-                            <FormGroup>
-                                <Submit onClick={this.submitForm}>Submit_</Submit>
-                            </FormGroup>                      
-                        </Form>
-                        
-                    </SubContainer>
-                    <SubContainer className="contactLinks">
-                        <Items className={"contactItems"}>
-                            <Item title="LinkedIn" className="link" href="https://www.linkedin.com/in/Javan-Poirier/" target="_blank">
-                                <FontAwesomeIcon icon={faLinkedin} size="2x" />
-                                <Text>Javan-Poirier</Text>
-                            </Item>
-                            <Item title="Github" className="link" href="https://github.com/JavanPoirier" target="_blank">
-                                <FontAwesomeIcon icon={faGithub} size="2x" />
-                                <Text>JavanPoirier</Text>                       
-                            </Item>
-                            <Item title="StackOverflow" className="link" href="https://stackoverflow.com/users/9005679/javan-poirier?tab=profile" target="_blank">
-                                <FontAwesomeIcon icon={faStackOverflow} size="2x" />
-                                <Text>Javan_Poirier</Text>
-                            </Item>
-                            <Item title="Email" className="link" href="mailto:Me@JavanPoirier.com">
-                                <FontAwesomeIcon icon={faEnvelope} size="2x" />
-                                <Text>Me@JavanPoirier.com</Text>
-                            </Item>
-                            <Item title="Resume" className="link" href='/JavanPoirierResume.pdf' target='_blank'>
-                                <FontAwesomeIcon icon={faFileAlt} size="2x" />
-                                <Text>Resume</Text>
-                            </Item>
-                        </Items>
-                    </SubContainer>
-                    
-                </Container>
+                                <FormGroup>
+                                    <Submit onClick={this.submitForm}>Submit_</Submit>
+                                </FormGroup>
+                            </Form>
+
+                        </SubContainer>
+                        <SubContainer className="contactLinks">
+                            <Items className={"contactItems"}>
+                                <Item title="LinkedIn" className="link" href="https://www.linkedin.com/in/Javan-Poirier/" target="_blank">
+                                    <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                                    <Text>Javan-Poirier</Text>
+                                </Item>
+                                <Item title="Github" className="link" href="https://github.com/JavanPoirier" target="_blank">
+                                    <FontAwesomeIcon icon={faGithub} size="2x" />
+                                    <Text>JavanPoirier</Text>
+                                </Item>
+                                <Item title="StackOverflow" className="link" href="https://stackoverflow.com/users/9005679/javan-poirier?tab=profile" target="_blank">
+                                    <FontAwesomeIcon icon={faStackOverflow} size="2x" />
+                                    <Text>Javan_Poirier</Text>
+                                </Item>
+                                <Item title="Email" className="link" href="mailto:Me@JavanPoirier.com">
+                                    <FontAwesomeIcon icon={faEnvelope} size="2x" />
+                                    <Text>Me@JavanPoirier.com</Text>
+                                </Item>
+                                <Item title="Resume" className="link" href='/JavanPoirierResume.pdf' target='_blank'>
+                                    <FontAwesomeIcon icon={faFileAlt} size="2x" />
+                                    <Text>Resume</Text>
+                                </Item>
+                            </Items>
+                        </SubContainer>
+
+                    </Container>
             </Block >
         );
     }

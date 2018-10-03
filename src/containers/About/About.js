@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 //Using styled components and CSS Grid
 import Block from '../../components/Block'
+import BoxBackground from './BoxBackground.svg';
 
 import me from '../../img/Me.jpg'
 import Lines from '../../components/Lines'
@@ -85,11 +86,14 @@ const Name = styled.div`
 const About = (props) => {
     return (
         //Change grid to single row
-        <Block id="About" titleName="About" solid>
+        <Block id="About" solid>
             <Container>
                 {props.scrollTrigger}
-                <div>
-                    <img src={me} alt="Me"></img>
+                <div style={{position: "relative"}}>
+                    <Lines height="20%" width="50%" style={{right: "-5%", bottom: "-5%", zIndex: 1}} />
+                    <img src={me} alt="Me" style={{position: "relative", zIndex: 10, borderLeft: "#66ccff 5px solid"}}></img>
+                    <img src={BoxBackground} style={{position: "absolute", right: "15px", bottom: "15px"}}></img>
+                    <span style={{position: "absolute", bottom: "2px", left: "15px", zIndex: 15, textTransform: "uppercase", fontSize: "0.8em"}}>Image Analysis Complete</span>
                 </div>
                 <ListWrapper>
                     <ListHeader>

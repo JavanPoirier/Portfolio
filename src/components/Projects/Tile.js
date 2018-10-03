@@ -67,7 +67,7 @@ const Image = styled.div`
 `
 
 const Text = (props) => {
-    return <HighlightText color="#090909" textColor="#fff" size={props.size ? props.size : "1.15em"} margin={props.margin} multiLine center {...props}>{props.children}</HighlightText>
+    return <HighlightText color="#090909" size={props.size ? props.size : "1.15em"} margin={props.margin} multiLine center {...props}>{props.children}</HighlightText>
 }
 
 export const Tile = (props) => {
@@ -76,11 +76,16 @@ export const Tile = (props) => {
         max: 20,
     }
 
+    var styles = {
+        display: "none",
+        zIndex: 10,
+    }
+
     if (isTouch()) {
         var tile = (
             <Wrapper onClick={props.onClick}>
                 <Image className="image" img={props.img} xpos={props.xpos}></Image>
-                <Text className="title" display="none" zIndex={10}>
+                <Text className="title" style={styles}>
                     {props.title}
                 </Text>
             </Wrapper>
@@ -90,7 +95,7 @@ export const Tile = (props) => {
             <Tilt options={options}>
                 <Wrapper onClick={props.onClick}>
                     <Image className="image" img={props.img} xpos={props.xpos}></Image>
-                    <Text className="title" display="none" zIndex={10}>
+                    <Text className="title" style={styles}>
                         {props.title}
                     </Text>
                 </Wrapper>

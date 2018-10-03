@@ -86,7 +86,7 @@ const Experience = (props) => {
                 </List>
             </Wrapper>
             <Wrapper>
-                <Header>Platforms/Libraries_</Header>
+                <Header>API/Libraries_</Header>
                 <List>
                     <ListItem>Twilio</ListItem>
                     <ListItem>Three.js</ListItem>

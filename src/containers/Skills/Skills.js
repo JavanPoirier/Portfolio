@@ -39,18 +39,14 @@ const Chart = styled.div`
 `
 
 const Text = (props) => {
-    return <HighlightText color="#090909" textColor="#fff" size={props.size ? props.size : "1em"} margin={props.margin} multiLine {...props}>{props.children}</HighlightText>
+    return <HighlightText color="#090909" textColor="#fff" margin={props.margin} multiLine {...props}>{props.children}</HighlightText>
 }
 
 const List = styled.ul`
     text-align: center;
     padding: 0;
     margin: 0;
-    font-size: 2.5vmax;
-
-    @media (min-width: 600px) {
-        font-size: 1.15em;
-    }
+    font-size: 1.15em;
 `
 
 const ListItem = styled.li`
@@ -60,7 +56,7 @@ const ListItem = styled.li`
 export default class Skills extends Component {
     render() {
         return (
-            <Block minHeight={'100vh'}>
+            <Block minHeight={'100vh'} style={{display: "flex", alignItems: "center"}}>
                 <h1>Skills</h1>
                 <Text size="1.25em" responsive="2vmax">Jack of all trades, master of none. Skill charts are quite relative to one's perspective, and no one can be 100%... But hey, they look cool!</Text>
                 <br />
@@ -69,7 +65,7 @@ export default class Skills extends Component {
                         <Chart>
                             <Pie percent={60} scale="0.9" />
                         </Chart>
-                        <Text margin="auto">Multimedia</Text>
+                        <Text margin="auto" style={{fontSize: "1.15em"}}>Multimedia</Text>
                         <List>
                             <ListItem>Photoshop</ListItem>
                             <ListItem>Illistrator</ListItem>
@@ -82,7 +78,7 @@ export default class Skills extends Component {
                         <Chart>
                             <Pie percent={70} scale="0.9" />
                         </Chart>
-                        <Text margin="auto">Electronics/Robotics</Text>
+                        <Text margin="auto" style={{fontSize: "1.15em"}}>Electronics/Robotics</Text>
                         <List>
                             <ListItem>Circuits</ListItem>
                             <ListItem>Arduino</ListItem>
@@ -92,7 +88,7 @@ export default class Skills extends Component {
                         <Chart>
                             <Pie percent={40} scale="0.9" />
                         </Chart>
-                        <Text margin="auto">Servers/Networking</Text>
+                        <Text margin="auto" style={{fontSize: "1.15em"}}>Servers/Networking</Text>
                         <List>
                             <ListItem>CentOS</ListItem>
                             <ListItem>Nginx</ListItem>
@@ -104,7 +100,7 @@ export default class Skills extends Component {
                             <Pie percent={80} scale="0.9" />
                         </Chart>
                         {this.props.scrollTrigger}
-                        <Text margin="auto">3D Printing/Modeling</Text>
+                        <Text margin="auto"style={{fontSize: "1.15em"}}>3D Printing/Modeling</Text>
                         <List>
                             <ListItem>RepRap</ListItem>
                             <ListItem>Makerbot</ListItem>
