@@ -11,16 +11,15 @@ import decipherEscapeRooms from '../../components/Projects/DecipherEscapeRooms/D
 import musicManager from '../../components/Projects/MusicManager/MusicManager'
 import gurds from '../../components/Projects/GurdsManagementSystem/Gurds'
 
-const Wrapper = styled.div`
-height: 100%;
-align-content: center;
-`
-
 const Tiles = styled.div`
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     width: 100%;
+
+    .tilt:hover {
+        z-index: 15;
+    }
 `
 
 export default class Projects extends Component {
@@ -48,7 +47,7 @@ export default class Projects extends Component {
 
     render() {
         return (
-            <Block id='Projects' titleName="Projects" titleCenter solid noPadding>
+            <Block id='Projects' titleCenter solid noPadding>
                 <Tiles>
                     <Tile title={chatbot.title} img={chatbot.slide} onClick={() => this.toggle(chatbot)} />
                     <Tile title={customTechServices.title} img={customTechServices.slide} onClick={() => this.toggle(customTechServices)} />

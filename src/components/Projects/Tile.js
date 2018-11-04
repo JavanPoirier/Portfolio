@@ -17,7 +17,7 @@ const Container = styled.div`
         }
         
         .title {
-            display: block;
+            display: block !important;
         }
     }
 
@@ -78,6 +78,7 @@ export const Tile = (props) => {
 
     var styles = {
         display: "none",
+        color: "#fff",
         zIndex: 10,
     }
 

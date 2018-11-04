@@ -113,7 +113,7 @@ const SkillsModal = (props) => {
     const { project, onClose } = props;
 
     const settings = {
-        centerMode: true,
+        centerMode: false,
         infinite: true,
         speed: 2000,
         autoplaySpeed: 5000,
