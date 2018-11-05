@@ -4,6 +4,7 @@ import * as emailjs from 'emailjs-com'
 import theme from '../../theme'
 
 import styled from 'styled-components'
+import { CSSTransition } from 'react-transition-group'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faGithub, faStackOverflow } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faFileAlt } from '@fortawesome/free-solid-svg-icons'
@@ -138,6 +139,20 @@ const Title = styled.h1`
 
 `
 
+const Notification = styled.text`
+    float: right;
+    color: green;
+
+    .notify-appear {
+        opacity: 0.01;
+    }
+
+    .notify-appear.notify-appear-active {
+        opacity: 1;
+        transition: opacity .5s ease-in;
+    }
+`
+
 export default class Contact extends Component {
     constructor(props) {
         super(props);
@@ -147,6 +162,8 @@ export default class Contact extends Component {
             email: "",
             subject: "",
             message: "",
+            sent: "",
+            spinner: false,
         }
 
         this.logChange = this.logChange.bind(this);
@@ -168,76 +185,88 @@ export default class Contact extends Component {
                     email: "",
                     subject: "",
                     message: "",
+                    sent: true,
                     spinner: false,
                 }
 
                 this.setState(state);
-                // console.log('SUCCESS!', response.status, response.text);
+                console.log('SUCCESS!', response.status, response.text);
             }, (err) => {
-                //    console.log('FAILED...', err);
+                console.log('FAILED...', err);
             });
     }
 
     render() {
-        var { name, email, subject, message } = this.state;
+        var { name, email, subject, message, sent } = this.state;
 
         return (
             <Block id="Contact" minHeight={'90vh'} style={{ display: "flex", alignItems: "center" }}>
-                    <Title>Contact Me</Title>
-                    <Container>
-                        <SubContainer className="contactForm">
-                            <Form>
-                                <InputGroup>
-                                    <FormGroup className={"name"}>
-                                        <Label>Name:</Label>
-                                        <Input type="text" name="name" value={name} onChange={this.logChange} required />
-                                    </FormGroup>
-                                    <FormGroup className={"email"}>
-                                        <Label>Email:</Label>
-                                        <Input type="email" name="email" value={email} onChange={this.logChange} required />
-                                    </FormGroup>
-                                </InputGroup>
-                                {this.props.scrollTrigger}
-                                <FormGroup className={"subject"}>
-                                    <Label>Subject:</Label>
-                                    <Input type="text" name="subject" maxLength="20" value={subject} onChange={this.logChange} required />
+                <Title>Contact Me</Title>
+                <Container>
+                    <SubContainer className="contactForm">
+                        <Form onSubmit={this.submitForm}>
+                            <InputGroup>
+                                <FormGroup className={"name"}>
+                                    <Label>Name:</Label>
+                                    <Input type="text" name="name" value={name} onChange={this.logChange} required />
                                 </FormGroup>
-                                <FormGroup>
-                                    <Label>Message:</Label>
-                                    <Message name="message" rows="6" value={message} onChange={this.logChange} required />
+                                <FormGroup className={"email"}>
+                                    <Label>Email:</Label>
+                                    <Input type="email" name="email" value={email} onChange={this.logChange} required />
                                 </FormGroup>
-                                <FormGroup>
-                                    <Submit onClick={this.submitForm}>Submit_</Submit>
-                                </FormGroup>
-                            </Form>
+                            </InputGroup>
+                            {this.props.scrollTrigger}
+                            <FormGroup className={"subject"}>
+                                <Label>Subject:</Label>
+                                <Input type="text" name="subject" maxLength="20" value={subject} onChange={this.logChange} required />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label>Message:</Label>
+                                <Message name="message" rows="6" value={message} onChange={this.logChange} required />
+                            </FormGroup>
+                            <FormGroup>
+                                <Submit>Submit_</Submit>
+                                <CSSTransition
+                                    in={sent}
+                                    classNames="notify"
+                                    timeout={500}
+                                    unmountOnExit
+                                    onExited={() => {
+                                        this.setState({ sent: false });
+                                        }
+                                    }
+                                >
+                                            <Notification key="notification">Sent Successfully, Thanks!</Notification>
+                                </CSSTransition>
+                            </FormGroup>
+                        </Form>
 
-                        </SubContainer>
-                        <SubContainer className="contactLinks">
-                            <Items className={"contactItems"}>
-                                <Item title="LinkedIn" className="link" href="https://www.linkedin.com/in/Javan-Poirier/" target="_blank">
-                                    <FontAwesomeIcon icon={faLinkedin} size="2x" />
-                                    <Text>Javan-Poirier</Text>
-                                </Item>
-                                <Item title="Github" className="link" href="https://github.com/JavanPoirier" target="_blank">
-                                    <FontAwesomeIcon icon={faGithub} size="2x" />
-                                    <Text>JavanPoirier</Text>
-                                </Item>
-                                <Item title="StackOverflow" className="link" href="https://stackoverflow.com/users/9005679/javan-poirier?tab=profile" target="_blank">
-                                    <FontAwesomeIcon icon={faStackOverflow} size="2x" />
-                                    <Text>Javan_Poirier</Text>
-                                </Item>
-                                <Item title="Email" className="link" href="mailto:Me@JavanPoirier.com">
-                                    <FontAwesomeIcon icon={faEnvelope} size="2x" />
-                                    <Text>Me@JavanPoirier.com</Text>
-                                </Item>
-                                <Item title="Resume" className="link" href='/JavanPoirierResume.pdf' target='_blank'>
-                                    <FontAwesomeIcon icon={faFileAlt} size="2x" />
-                                    <Text>Resume</Text>
-                                </Item>
-                            </Items>
-                        </SubContainer>
-
-                    </Container>
+                    </SubContainer>
+                    <SubContainer className="contactLinks">
+                        <Items className={"contactItems"}>
+                            <Item title="LinkedIn" className="link" href="https://www.linkedin.com/in/Javan-Poirier/" target="_blank">
+                                <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                                <Text>Javan-Poirier</Text>
+                            </Item>
+                            <Item title="Github" className="link" href="https://github.com/JavanPoirier" target="_blank">
+                                <FontAwesomeIcon icon={faGithub} size="2x" />
+                                <Text>JavanPoirier</Text>
+                            </Item>
+                            <Item title="StackOverflow" className="link" href="https://stackoverflow.com/users/9005679/javan-poirier?tab=profile" target="_blank">
+                                <FontAwesomeIcon icon={faStackOverflow} size="2x" />
+                                <Text>Javan_Poirier</Text>
+                            </Item>
+                            <Item title="Email" className="link" href="mailto:Me@JavanPoirier.com">
+                                <FontAwesomeIcon icon={faEnvelope} size="2x" />
+                                <Text>Me@JavanPoirier.com</Text>
+                            </Item>
+                            <Item title="Resume" className="link" href='/JavanPoirierResume.pdf' target='_blank'>
+                                <FontAwesomeIcon icon={faFileAlt} size="2x" />
+                                <Text>Resume</Text>
+                            </Item>
+                        </Items>
+                    </SubContainer>
+                </Container>
             </Block >
         );
     }

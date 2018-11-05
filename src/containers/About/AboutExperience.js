@@ -90,6 +90,7 @@ const Experience = (props) => {
                 <List>
                     <ListItem>Twilio</ListItem>
                     <ListItem>Three.js</ListItem>
+                    <ListItem>Arduino</ListItem>
                 </List>
             </Wrapper>
         </Container>
