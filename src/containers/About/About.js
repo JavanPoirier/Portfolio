@@ -102,10 +102,10 @@ const About = (props) => {
                         <ListSubTitle>Facial Recognition Data:</ListSubTitle>
                     </ListHeader>
                     <List>
-                        <Name>Occupation</Name><Item><div>|&nbsp;</div>Full-stack Developer</Item>
+                        <Name>Occupation</Name><Item><div>|&nbsp;</div>Software Developer</Item>
                         <Name>Education</Name><Item><div>|&nbsp;</div>Programmer-Analyst, NBCC</Item>
-                        <Name>Spoken Languages</Name><Item><div>|&nbsp;</div>English, French</Item>
-                        <Name>Skills</Name><Item><div>|&nbsp;</div>Software Development, Systems Analysis, Electronics, Multi-media, Hardware</Item>
+                        <Name>Spoken Languages</Name><Item><div>|&nbsp;</div>English and French</Item>
+                        <Name>Skills</Name><Item><div>|&nbsp;</div>Software & Multi-media Development, Electronics, and Computer Hardware</Item>
                     </List>
                 </ListWrapper>
             </Container >

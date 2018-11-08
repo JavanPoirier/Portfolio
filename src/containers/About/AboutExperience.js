@@ -58,11 +58,10 @@ const Experience = (props) => {
             <Wrapper>
                 <Header>Programming <br/> Languages_</Header>
                 <List>
+                    <ListItem>JavaScript</ListItem>
                     <ListItem>C#</ListItem>
                     <ListItem>Java</ListItem>
-                    <ListItem>C++</ListItem>
-                    <ListItem>JavaScript</ListItem>
-                    <ListItem>PHP</ListItem>
+                    <ListItem>C++</ListItem>             
                 </List>
             </Wrapper>
             <Wrapper>
@@ -86,7 +85,7 @@ const Experience = (props) => {
                 </List>
             </Wrapper>
             <Wrapper>
-                <Header>API/Libraries_</Header>
+                <Header>Platforms/ <br/> Libraries_</Header>
                 <List>
                     <ListItem>Twilio</ListItem>
                     <ListItem>Three.js</ListItem>

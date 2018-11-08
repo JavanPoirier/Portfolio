@@ -6,18 +6,20 @@ import img1 from './CustomTechServices.png';
 
 const Link = styled.a`
     color: #66ccff;
-`
-
-const LinkGroup = styled.div`  
-    font-size: 2vmax;
+    font-size: 16px;
 
     @media screen and (min-width: 800px) {
-        font-size: 1.5vmax
+        font-size: 24px;
     }
+`
 
-    /* @media screen and (min-width: 1200px) {
-        font-size: 150%;
-    } */
+const List = styled.ul`
+    list-style-type: none;
+    padding: 0;
+
+    li {
+        margin: 10px;
+    }
 `
 
 const customTechServices = {
@@ -30,16 +32,16 @@ const customTechServices = {
             Through my side buisness I offer general consumers and small buisnesses a variety of products, services, and solutions.
             </p>
             <br/>
-             <HighlightText color="white">Computer Sales/Service</HighlightText>
-             <p>
-             As a computer hardware enthusiast the custom built systems I build for my customers reflect my knowledge and research in hardware performance and benchmarks.
-             Leading to a higher performance per dollar system with added touches in asethtics and any other requirements needing to be met by my clients.
-             </p>
+             <HighlightText color="white" responsive="18px">Services</HighlightText>
+             <br />
+            <List>
+                <li>- Computer sales and service. Custom builds include enthusiast gaming rigs and servers.</li>
+                <li>- Mobile device repair. Cracked screens, battery replacements, and more.</li>
+                <li>- Web development includes custom and Wordpress sites.</li>
+                <li>- Graphic design, both digital and print.</li>
+            </List>
             <br/>
-            <HighlightText color="white">Web Development</HighlightText>
-            <p></p>
-            <br/>
-            <LinkGroup>Visit here: <Link href="http://CustomTechServices.com">http://CustomTechServices.com</Link></LinkGroup>
+            <Link href="http://CustomTechServices.com">http://CustomTechServices.com</Link>
          </React.Fragment>
     )
 }

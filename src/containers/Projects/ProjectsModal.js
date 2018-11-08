@@ -32,7 +32,8 @@ const Container = styled.div`
     font-size: 75%;
 
     .slick-slider {
-        /* height: ${(props) => props.height ? props.height : "500px"}; */
+        width: 80%;
+        margin: auto;
     }
 
     .slick-list {
@@ -133,7 +134,7 @@ const SkillsModal = (props) => {
         <Background>
             <Container>
                 <Header>
-                    <HighlightText color="#66ccff" size={"2em"}>{project.title}</HighlightText>
+                    <HighlightText color="#66ccff" size={"1.5em"}>{project.title}</HighlightText>
                     <Close onClick={onClose}><FontAwesomeIcon icon={faTimes} size="2x" /></Close>
                 </Header>
                 <Slider {...settings}>

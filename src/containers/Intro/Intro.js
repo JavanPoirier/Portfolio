@@ -170,7 +170,7 @@ export default class About extends Component {
         return (
             <Container id='Home' size={size}>
                 {name}
-                <Info>Full-Stack Developer</Info>
+                <Info>Software Developer</Info>
             </Container>
         );
     }

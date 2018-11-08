@@ -58,7 +58,7 @@ export default class Skills extends Component {
         return (
             <Block minHeight={'100vh'} style={{display: "flex", alignItems: "center"}}>
                 <h1>Skills</h1>
-                <Text size="1.25em" responsive="2vmax">Jack of all trades, master of none. Skill charts are quite relative to one's perspective, and no one can be 100%... But hey, they look cool!</Text>
+                <Text size="1.25em" responsive="1.75vmax">Various skill sets in a wide range of different programs and technologies. This is probably not the best way to show my experience. At least they look cool!</Text>
                 <br />
                 <Container>
                     <Wrapper>
@@ -71,7 +71,6 @@ export default class Skills extends Component {
                             <ListItem>Illistrator</ListItem>
                             <ListItem>After Effects</ListItem>
                             <ListItem>Vegas Pro</ListItem>
-                            <ListItem>Cinema 4D</ListItem>
                         </List>
                     </Wrapper>
                     <Wrapper>
@@ -81,6 +80,7 @@ export default class Skills extends Component {
                         <Text margin="auto" style={{fontSize: "1.15em"}}>Electronics/Robotics</Text>
                         <List>
                             <ListItem>Circuits</ListItem>
+                            <ListItem>Components</ListItem>
                             <ListItem>Arduino</ListItem>
                         </List>
                     </Wrapper>
