@@ -157,12 +157,16 @@ export default class Contact extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
+        const emptyMessage = {
             name: "",
             email: "",
             subject: "",
             message: "",
             sent: "",
+        }
+
+        this.state = {
+            message: emptyMessage,
             spinner: false,
         }
 
@@ -178,18 +182,9 @@ export default class Contact extends Component {
         e.preventDefault();
 
         this.setState({ spinner: true });
-        emailjs.send('mailgun', 'javanpoirier', this.state, process.env.REACT_APP_EMAILJS_USERID)
+        emailjs.send('mailgun', 'javanpoirier', this.state.message, process.env.REACT_APP_EMAILJS_USERID)
             .then((response) => {
-                var state = {
-                    name: "",
-                    email: "",
-                    subject: "",
-                    message: "",
-                    sent: true,
-                    spinner: false,
-                }
-
-                this.setState(state);
+                this.setState({ message: this.emptyMessage });
                 console.log('SUCCESS!', response.status, response.text);
             }, (err) => {
                 console.log('FAILED...', err);
@@ -233,10 +228,10 @@ export default class Contact extends Component {
                                     unmountOnExit
                                     onExited={() => {
                                         this.setState({ sent: false });
-                                        }
+                                    }
                                     }
                                 >
-                                            <Notification key="notification">Sent Successfully, Thanks!</Notification>
+                                    <Notification key="notification">Sent Successfully, Thanks!</Notification>
                                 </CSSTransition>
                             </FormGroup>
                         </Form>
