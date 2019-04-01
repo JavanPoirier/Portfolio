@@ -157,17 +157,13 @@ export default class Contact extends Component {
     constructor(props) {
         super(props);
 
-        const emptyMessage = {
+        this.state = {
+            spinner: false,
             name: "",
             email: "",
             subject: "",
             message: "",
             sent: "",
-        }
-
-        this.state = {
-            message: emptyMessage,
-            spinner: false,
         }
 
         this.logChange = this.logChange.bind(this);
@@ -228,8 +224,7 @@ export default class Contact extends Component {
                                     unmountOnExit
                                     onExited={() => {
                                         this.setState({ sent: false });
-                                    }
-                                    }
+                                    }}
                                 >
                                     <Notification key="notification">Sent Successfully, Thanks!</Notification>
                                 </CSSTransition>
