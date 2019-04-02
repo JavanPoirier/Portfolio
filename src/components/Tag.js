@@ -11,7 +11,7 @@ const Tag = (props) => {
             width={50}
             color='#090909'
             style={{
-                display: 'inline-flex',
+                display: props.left || !props.right && !props.left  ? 'inline-flex' : 'none',
                 transform: 'rotate(180deg)'
             }} />
             <Title style={{
@@ -29,7 +29,7 @@ const Tag = (props) => {
             width={50}
             color='#090909'
             style={{
-                display: 'inline-flex',
+                display: props.right || !props.left && !props.right ? 'inline-flex' : 'none',
                 transform: 'rotate(270deg)'
             }} />
         </Container>
@@ -44,8 +44,6 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     background-color: transparent;
-    margin-top: -150px;
-    margin-bottom: 50px;
 `
 
 const Title = styled.h1`
