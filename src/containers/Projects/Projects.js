@@ -10,6 +10,7 @@ import customTechServices from '../../components/Projects/CustomTechServices/Cus
 import decipherEscapeRooms from '../../components/Projects/DecipherEscapeRooms/DecipherEscapeRooms'
 import musicManager from '../../components/Projects/MusicManager/MusicManager'
 import gurds from '../../components/Projects/GurdsManagementSystem/Gurds'
+import Tag from '../../components/Tag';
 
 const Tiles = styled.div`
     display: flex;
@@ -48,6 +49,7 @@ export default class Projects extends Component {
     render() {
         return (
             <Block id='Projects' titleCenter solid noPadding>
+                <Tag text='Projects'/> 
                 <Tiles>
                     <Tile title={chatbot.title} img={chatbot.slide} onClick={() => this.toggle(chatbot)} />
                     <Tile title={customTechServices.title} img={customTechServices.slide} onClick={() => this.toggle(customTechServices)} />
