@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import * as React from 'react'
+import styled, { StyledInterface } from 'styled-components'
 
 import { TriangleCorner } from './Shapes/Triangles'
 
@@ -7,27 +7,27 @@ const Tag = (props) => {
     return (
         <Container style={{...props.style}}>
          <TriangleCorner
-            height={50} 
-            width={50}
-            color='#090909'
+            height={props.size} 
+            width={props.size}
+            color={props.color ? props.color : '#090909'}
             style={{
                 display: props.left || !props.right && !props.left  ? 'inline-flex' : 'none',
                 transform: 'rotate(180deg)'
             }} />
+            {props.text ? 
             <Title style={{
                 display: 'inline-flex', 
-                backgroundColor: '#090909', 
+                backgroundColor: props.color ? props.color : '#090909', 
                 margin: 0,
                 paddingLeft: 50,
                 paddingRight: 50,
-                paddingBottom: 1,
-            }}>
-                {props.text}
-            </Title>
+                paddingBottom: 5,
+                color: '#fff'
+            }}>{props.text}</Title> : props.children}
             <TriangleCorner 
-            height={50}
-            width={50}
-            color='#090909'
+            height={props.size}
+            width={props.size}
+            color={props.color ? props.color : '#090909'}
             style={{
                 display: props.right || !props.left && !props.right ? 'inline-flex' : 'none',
                 transform: 'rotate(270deg)'
