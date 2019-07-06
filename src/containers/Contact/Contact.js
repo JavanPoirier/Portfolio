@@ -10,6 +10,7 @@ import { faLinkedin, faGithub, faStackOverflow } from '@fortawesome/free-brands-
 import { faEnvelope, faFileAlt } from '@fortawesome/free-solid-svg-icons'
 
 import Block from '../../components/Block';
+import Tag from '../../components/Tag';
 
 const Container = styled.div`
     display: flex; 
@@ -192,28 +193,30 @@ export default class Contact extends Component {
 
         return (
             <Block id="Contact" minHeight={'90vh'} style={{ display: "flex", alignItems: "center" }}>
-                <Title>Contact Me</Title>
+                <TagContainer >
+                    <Tag text='Contact' size={50} right/> 
+                </TagContainer>
                 <Container>
                     <SubContainer className="contactForm">
                         <Form onSubmit={this.submitForm}>
                             <InputGroup>
                                 <FormGroup className={"name"}>
                                     <Label>Name:</Label>
-                                    <Input type="text" name="name" value={name} onChange={this.logChange} required />
+                                    <Input type="text" name="name" value={name} onChange={this.logChange} required style={{borderStyle: 'none'}}/>
                                 </FormGroup>
                                 <FormGroup className={"email"}>
                                     <Label>Email:</Label>
-                                    <Input type="email" name="email" value={email} onChange={this.logChange} required />
+                                    <Input type="email" name="email" value={email} onChange={this.logChange} required style={{borderStyle: 'none'}}/>
                                 </FormGroup>
                             </InputGroup>
                             {this.props.scrollTrigger}
                             <FormGroup className={"subject"}>
                                 <Label>Subject:</Label>
-                                <Input type="text" name="subject" maxLength="20" value={subject} onChange={this.logChange} required />
+                                <Input type="text" name="subject" maxLength="20" value={subject} onChange={this.logChange} required style={{borderStyle: 'none'}}/>
                             </FormGroup>
                             <FormGroup>
                                 <Label>Message:</Label>
-                                <Message name="message" rows="6" value={message} onChange={this.logChange} required />
+                                <Message name="message" rows="6" value={message} onChange={this.logChange} required style={{borderStyle: 'none'}}/>
                             </FormGroup>
                             <FormGroup>
                                 <Submit>Submit_</Submit>
@@ -242,15 +245,15 @@ export default class Contact extends Component {
                                 <FontAwesomeIcon icon={faGithub} size="2x" />
                                 <Text>JavanPoirier</Text>
                             </Item>
-                            <Item title="StackOverflow" className="link" href="https://stackoverflow.com/users/9005679/javan-poirier?tab=profile" target="_blank">
+                            <Item title="StackOverflow" className="link" href="https://stackoverflow.com/users/9005679/javanpoirier?tab=profile" target="_blank">
                                 <FontAwesomeIcon icon={faStackOverflow} size="2x" />
-                                <Text>Javan_Poirier</Text>
+                                <Text>JavanPoirier</Text>
                             </Item>
                             <Item title="Email" className="link" href="mailto:Me@JavanPoirier.com">
                                 <FontAwesomeIcon icon={faEnvelope} size="2x" />
                                 <Text>Me@JavanPoirier.com</Text>
                             </Item>
-                            <Item title="Resume" className="link" href='/JavanPoirierResume.pdf' target='_blank'>
+                            <Item title="Resume" className="link" href='/Javan_Poirier_Resume.pdf' target='_blank'>
                                 <FontAwesomeIcon icon={faFileAlt} size="2x" />
                                 <Text>Resume</Text>
                             </Item>
@@ -261,3 +264,9 @@ export default class Contact extends Component {
         );
     }
 }
+
+const TagContainer = styled.div`
+    display: flex;
+    justify-content: left;
+    margin-bottom: -5px;
+`
