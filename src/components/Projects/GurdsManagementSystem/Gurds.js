@@ -9,7 +9,7 @@ const Link = styled.a`
 `
 
 const gurds = {
-    title: "Gurds Product Management System",
+    title: "Gurd's Product Distribution Management System",
     slide: img1,
     slides: [img1],
     description: (
