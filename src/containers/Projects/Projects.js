@@ -50,7 +50,7 @@ export default class Projects extends Component {
         return (
             <Block id='Projects' titleCenter solid noPadding>
                 <TagContainer>
-                    <Tag text='Projects'/> 
+                    <Tag text='Projects' size={50}/> 
                 </TagContainer>
                 <Tiles>
                     <Tile title={chatbot.title} img={chatbot.slide} onClick={() => this.toggle(chatbot)} />
