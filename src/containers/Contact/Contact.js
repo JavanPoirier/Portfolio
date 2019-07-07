@@ -256,7 +256,7 @@ export default class Contact extends Component {
                                 <FontAwesomeIcon icon={faEnvelope} size="2x" />
                                 <Text>Me@JavanPoirier.com</Text>
                             </Item>
-                            <Item title="Resume" className="link" href='/Javan_Poirier_Resume.pdf' target='_blank'>
+                            <Item title="Resume" className="link" href='https://drive.google.com/file/d/1X3l5t8i6XlhhP92CQ15ftGV--wTRu1Ay/view?usp=sharing' target="_blank">
                                 <FontAwesomeIcon icon={faFileAlt} size="2x" />
                                 <Text>Resume</Text>
                             </Item>
