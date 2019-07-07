@@ -193,9 +193,12 @@ export default class Contact extends Component {
 
         return (
             <Block id="Contact" minHeight={'90vh'} style={{ display: "flex", alignItems: "center" }}>
-                <TagContainer >
+                <TagContainer>
                     <Tag text='Contact' size={50} right/> 
                 </TagContainer>
+                <TitleContainer>
+                    <h1 style={{color: '#fff'}}>Contact</h1>
+                </TitleContainer>
                 <Container>
                     <SubContainer className="contactForm">
                         <Form onSubmit={this.submitForm}>
@@ -266,7 +269,22 @@ export default class Contact extends Component {
 }
 
 const TagContainer = styled.div`
-    display: flex;
-    justify-content: left;
-    margin-bottom: -5px;
+    display: none;
+
+    @media screen and (min-width: 800px) {
+        display: flex;
+        justify-content: left;
+        margin-bottom: -5px;
+    }
+`
+
+const TitleContainer = styled.div`
+    width: 100%;
+    background-color: #090909;
+    text-align: center;
+    margin-bottom: -10px;
+
+    @media screen and (min-width: 800px) {
+        display: none;
+    }
 `

@@ -86,6 +86,7 @@ export default class About extends Component {
 const Container = styled.div`
     display: flex;
     flex-direction: row;
+    flex-flow: wrap;
     width: 100%;
     /* Ensure height is reset on resize */
     height: ${(props) => props.size ? (props.size) : (window.innerHeight)}px;
@@ -102,7 +103,7 @@ const Container = styled.div`
 
     @media (min-width: 800px) {
         padding-top: 60px;
-        flex-direction: row;
+        flex-flow: nowrap;
         justify-content: space-between;
 
         > div:first-child {
@@ -129,6 +130,11 @@ const Text = styled.div`
 
 const NameContainer = styled.div`
     width: 100%;
+    align-self: flex-end;
+    
+    @media (min-width: 800px){
+        align-self: center;
+    }
 `
 
 const Name = styled.div`
@@ -158,6 +164,11 @@ const Name = styled.div`
 const TitleContainer = styled.div`
     width: 100%;
     justify-content: flex-end;
+    align-self: baseline;
+
+    @media (min-width: 800px){
+        align-self: center;
+    }
 `
 
 const Title = styled.div`
